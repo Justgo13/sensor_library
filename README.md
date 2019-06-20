@@ -7,6 +7,9 @@ Installation :
 Testing code:
 Run *test.py* to test parser files
 
+Reading documentation:
+Open file */docs/build/latex/sensor_doc_new
+
 Sphinx Documentation
 --------------------
 [Learn sphinx documentation syntax](https://pythonhosted.org/an_example_pypi_project/sphinx.html)

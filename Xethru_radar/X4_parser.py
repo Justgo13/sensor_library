@@ -16,7 +16,7 @@ def iq_data(filename,csvname):
 
     :example:
 
-    >>> iqdata('data.dat')
+    >>> iq_data('X4data.dat','X4iq_data')
     >>> 'converted'
 
     :returns:
@@ -56,7 +56,7 @@ def raw_data(filename,csvname):
 
     :example:
 
-    >>> raw_data('data.dat')
+    >>> raw_data('X4data.dat','X4raw_data')
     >>> 'converted'
 
     :returns:

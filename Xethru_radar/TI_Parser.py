@@ -10,11 +10,17 @@ def readTIdata(filename,csvname):
 
     :parameter:
 
-        filename: str
-            file name of binary file.
+    filename: str
+        file name of binary file.
 
-        csvname: str
-            csv file name that stores the iq data from binary file.
+    csvname: str
+        csv file name that stores the iq data from binary file.
+
+    :example:
+
+    >>> readTIdata('TIdata.bin','TIdata')
+    >>> 'converted'
+
     :return:
 
     A csv file with the iq data taken from the binary file.
