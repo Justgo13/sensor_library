@@ -1,5 +1,6 @@
 import unittest
-import Xethru_radar.X4_parser as parser
+import X4_parser as X4
+import TI_parser as TI
 
 
 class TestParser(unittest.TestCase):
@@ -13,8 +14,8 @@ class TestParser(unittest.TestCase):
 
         converted
         """
-        file_iq = parser.iq_data('data.dat')
-        self.asserEqual(file_iq,1)
+        file_iq = X4.iq_data('data.dat')
+        self.asserEqual(file_iq,'converted')
 
     def test_raw(self):
         """
@@ -25,8 +26,8 @@ class TestParser(unittest.TestCase):
 
         converted
         """
-        file_raw = parser.raw_data('data.dat')
-        self.asserEqual(file_raw,1)
+        file_raw = X4.raw_data('data.dat')
+        self.asserEqual(file_raw,'converted')
 
     def test_TI(self):
         """
@@ -37,6 +38,8 @@ class TestParser(unittest.TestCase):
         converted
         """
 
+        file_TI = TI.readTIdata('data.dat')
+        self.assertEqual(file_TI,'converted')
 
 if __name__ == '__main__':
     unittest.main()

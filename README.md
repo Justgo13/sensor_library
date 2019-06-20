@@ -2,10 +2,10 @@ Sensors project read me
 =======================
 Installation : 
 1. Open command prompt
-2. Enter  *pip install -U sensor_library*
+2. Enter  *pip install sensor_library*
 
 Testing code:
-Run *test_lib.py* to test parser files
+Run *test.py* to test parser files
 
 Sphinx Documentation
 --------------------

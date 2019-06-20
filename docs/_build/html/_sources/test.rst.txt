@@ -1,7 +1,7 @@
 Test file
 *********
 
-.. automodule:: test_lib
+.. automodule:: test
 
 .. autoclass:: TestParser
     :members:
