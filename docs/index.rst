@@ -21,5 +21,6 @@ Contents:
    TI parser
    test
 
-:download:`Convert X4 binary .dat file to csv<data_parser.py>`
+:download:`Convert X4 binary .dat file to csv<X4_parser.py>`
+:download:`Convert TI binary .bin file to csv<TI_parser.py>`
 
