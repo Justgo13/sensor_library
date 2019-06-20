@@ -1,5 +1,5 @@
 import unittest
-import Xethru_radar.data_parser as parser
+import Xethru_radar.X4_parser as parser
 
 
 class TestParser(unittest.TestCase):
@@ -11,7 +11,7 @@ class TestParser(unittest.TestCase):
 
         :return:
 
-        1
+        converted
         """
         file_iq = parser.iq_data('data.dat')
         self.asserEqual(file_iq,1)
@@ -23,10 +23,19 @@ class TestParser(unittest.TestCase):
 
         :return:
 
-        1
+        converted
         """
         file_raw = parser.raw_data('data.dat')
         self.asserEqual(file_raw,1)
+
+    def test_TI(self):
+        """
+        Method to test if .bin binary file was converted successfully to .csv file with iq data put together.
+
+        :return:
+
+        converted
+        """
 
 
 if __name__ == '__main__':

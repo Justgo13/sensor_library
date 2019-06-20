@@ -17,7 +17,8 @@ Contents:
    :maxdepth: 2
    
    radar information
-   parser
+   X4 parser
+   TI parser
    test
 
 :download:`Convert X4 binary .dat file to csv<data_parser.py>`
