@@ -167,9 +167,23 @@
 <span id="parser-for-in-phase-and-quadrature-data-combined"></span><h2>Parser for in-phase and quadrature data combined<a class="headerlink" href="#module-data_parser" title="Permalink to this headline">¶</a></h2>
 <dl class="function">
 <dt id="data_parser.iq_data">
-<code class="descclassname">data_parser.</code><code class="descname">iq_data</code><span class="sig-paren">(</span><em>filename</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/data_parser.html#iq_data"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#data_parser.iq_data" title="Permalink to this definition">¶</a></dt>
-<dd><p>Takes binary data file and iterates through in-phase and quadrature values, real and imaginary.
-Data from 180 range bins is taken and in-phase value are matched with their quadrature values.</p>
+<code class="descclassname">data_parser.</code><code class="descname">iq_data</code><span class="sig-paren">(</span><em>filename</em>, <em>csvname</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/data_parser.html#iq_data"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#data_parser.iq_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Takes binary data file and iterates through in-phase (real) and quadrature (imaginary) values.
+Data from range bins is taken and in-phase values are matched with quadrature values to be stored in a user defined .csv file.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameter:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+<dl class="docutils">
+<dt>filename: str</dt>
+<dd>The .dat binary file name.</dd>
+<dt>csvname: str</dt>
+<dd>User defined .csv file name</dd>
+</dl>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -178,8 +192,8 @@ Data from 180 range bins is taken and in-phase value are matched with their quad
 </tr>
 </tbody>
 </table>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">iqdata</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="mi">1</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">iqdata</span><span class="p">(</span><span class="s1">&#39;data.dat&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="s1">&#39;converted&#39;</span>
 </pre></div>
 </div>
 <table class="docutils field-list" frame="void" rules="none">
@@ -198,9 +212,16 @@ Data from 180 range bins is taken and in-phase value are matched with their quad
 <span id="parser-for-in-phase-and-quadrature-data-seperated"></span><h2>Parser for in-phase and quadrature data seperated<a class="headerlink" href="#module-data_parser" title="Permalink to this headline">¶</a></h2>
 <dl class="function">
 <dt id="data_parser.raw_data">
-<code class="descclassname">data_parser.</code><code class="descname">raw_data</code><span class="sig-paren">(</span><em>filename</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/data_parser.html#raw_data"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#data_parser.raw_data" title="Permalink to this definition">¶</a></dt>
-<dd><p>Takes raw data file and iterates through in-phase and quadrature values, real and imaginary.
-Data from 180 range bins is taken and in-phase value are put apart from quadrature matches.</p>
+<code class="descclassname">data_parser.</code><code class="descname">raw_data</code><span class="sig-paren">(</span><em>filename</em>, <em>csvname</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/data_parser.html#raw_data"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#data_parser.raw_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Takes raw data file and iterates through in-phase (real) and quadrature (imaginary) values.
+Data from range bins is taken, and in-phase value are put apart from quadrature in a user defined .csv file.</p>
+<p>:parameter</p>
+<dl class="docutils">
+<dt>filename: str</dt>
+<dd>The .dat binary file name.</dd>
+<dt>csvname: str</dt>
+<dd>User defined .csv file name</dd>
+</dl>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -209,8 +230,8 @@ Data from 180 range bins is taken and in-phase value are put apart from quadratu
 </tr>
 </tbody>
 </table>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">raw_data</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="mi">1</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">raw_data</span><span class="p">(</span><span class="s1">&#39;data.dat&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="s1">&#39;converted&#39;</span>
 </pre></div>
 </div>
 <table class="docutils field-list" frame="void" rules="none">

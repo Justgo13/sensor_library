@@ -159,21 +159,28 @@
 <span class="kn">import</span> <span class="nn">csv</span>
 
 
-<div class="viewcode-block" id="iq_data"><a class="viewcode-back" href="../parser.html#data_parser.iq_data">[docs]</a><span class="k">def</span> <span class="nf">iq_data</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
+<div class="viewcode-block" id="iq_data"><a class="viewcode-back" href="../parser.html#data_parser.iq_data">[docs]</a><span class="k">def</span> <span class="nf">iq_data</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span><span class="n">csvname</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Takes binary data file and iterates through in-phase and quadrature values, real and imaginary.</span>
-<span class="sd">    Data from 180 range bins is taken and in-phase value are matched with their quadrature values.</span>
+<span class="sd">    Takes binary data file and iterates through in-phase (real) and quadrature (imaginary) values.</span>
+<span class="sd">    Data from range bins is taken and in-phase values are matched with quadrature values to be stored in a user defined .csv file.</span>
+
+<span class="sd">    :parameter:</span>
+
+<span class="sd">    filename: str</span>
+<span class="sd">        The .dat binary file name.</span>
+<span class="sd">    csvname: str</span>
+<span class="sd">        User defined .csv file name</span>
 
 <span class="sd">    :example:</span>
 
-<span class="sd">    &gt;&gt;&gt; iqdata(filename)</span>
-<span class="sd">    &gt;&gt;&gt; 1</span>
+<span class="sd">    &gt;&gt;&gt; iqdata(&#39;data.dat&#39;)</span>
+<span class="sd">    &gt;&gt;&gt; &#39;converted&#39;</span>
 
 <span class="sd">    :returns:</span>
 
 <span class="sd">    In-phase and quadrature pairs stored together in a .csv file.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;data.dat&#39;</span><span class="p">,</span> <span class="s2">&quot;rb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s2">&quot;rb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
         <span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">fromfile</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span> <span class="o">//</span> <span class="mi">363</span> <span class="o">-</span> <span class="mi">1</span><span class="p">):</span>
         <span class="n">temp</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="mi">3</span> <span class="o">*</span> <span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="mi">360</span> <span class="o">*</span> <span class="n">i</span><span class="p">:</span><span class="mi">3</span> <span class="o">*</span> <span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="mi">360</span> <span class="o">*</span> <span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)]</span>
@@ -184,39 +191,46 @@
             <span class="k">else</span><span class="p">:</span>
                 <span class="n">iqdata</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">temp</span><span class="p">[</span><span class="n">j</span><span class="p">],</span> <span class="mi">4</span><span class="p">))</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">temp</span><span class="p">[</span><span class="n">j</span> <span class="o">+</span> <span class="mi">180</span><span class="p">],</span> <span class="mi">4</span><span class="p">))</span> <span class="o">+</span> <span class="s2">&quot;j&quot;</span><span class="p">)</span>
 
-        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;iqdata.csv&#39;</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="n">newline</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">csvFile</span><span class="p">:</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">csvname</span><span class="o">+</span><span class="s1">&#39;.csv&#39;</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="n">newline</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">csvFile</span><span class="p">:</span>
             <span class="n">writer</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">writer</span><span class="p">(</span><span class="n">csvFile</span><span class="p">)</span>
             <span class="n">writer</span><span class="o">.</span><span class="n">writerow</span><span class="p">(</span><span class="n">iqdata</span><span class="p">)</span>
     <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
     <span class="n">csvFile</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-    <span class="k">return</span> <span class="mi">1</span></div>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;converted&#39;</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="raw_data"><a class="viewcode-back" href="../parser.html#data_parser.raw_data">[docs]</a><span class="k">def</span> <span class="nf">raw_data</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
+<div class="viewcode-block" id="raw_data"><a class="viewcode-back" href="../parser.html#data_parser.raw_data">[docs]</a><span class="k">def</span> <span class="nf">raw_data</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span><span class="n">csvname</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Takes raw data file and iterates through in-phase and quadrature values, real and imaginary.</span>
-<span class="sd">    Data from 180 range bins is taken and in-phase value are put apart from quadrature matches.</span>
+<span class="sd">    Takes raw data file and iterates through in-phase (real) and quadrature (imaginary) values.</span>
+<span class="sd">    Data from range bins is taken, and in-phase value are put apart from quadrature in a user defined .csv file.</span>
+
+<span class="sd">    :parameter</span>
+
+<span class="sd">    filename: str</span>
+<span class="sd">        The .dat binary file name.</span>
+<span class="sd">    csvname: str</span>
+<span class="sd">        User defined .csv file name</span>
 
 <span class="sd">    :example:</span>
 
-<span class="sd">    &gt;&gt;&gt; raw_data(filename)</span>
-<span class="sd">    &gt;&gt;&gt; 1</span>
+<span class="sd">    &gt;&gt;&gt; raw_data(&#39;data.dat&#39;)</span>
+<span class="sd">    &gt;&gt;&gt; &#39;converted&#39;</span>
 
 <span class="sd">    :returns:</span>
 
 <span class="sd">    In-phase and quadrature stored separately in a .csv file.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;data.dat&#39;</span><span class="p">,</span> <span class="s2">&quot;rb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s2">&quot;rb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
         <span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">fromfile</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span> <span class="o">//</span> <span class="mi">1473</span> <span class="o">-</span> <span class="mi">1</span><span class="p">):</span>
         <span class="n">temp</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="mi">3</span> <span class="o">+</span> <span class="mi">1470</span> <span class="o">*</span> <span class="n">i</span><span class="p">:</span><span class="mi">3</span> <span class="o">+</span> <span class="mi">1470</span> <span class="o">*</span> <span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)]</span>
 
-        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;rawdata.csv&#39;</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="n">newline</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">csvFile</span><span class="p">:</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">csvname</span><span class="o">+</span><span class="s1">&#39;.csv&#39;</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="n">newline</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">csvFile</span><span class="p">:</span>
             <span class="n">writer</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">writer</span><span class="p">(</span><span class="n">csvFile</span><span class="p">)</span>
             <span class="n">writer</span><span class="o">.</span><span class="n">writerow</span><span class="p">(</span><span class="n">temp</span><span class="p">)</span>
     <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
     <span class="n">csvFile</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-    <span class="k">return</span> <span class="mi">1</span></div>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;converted&#39;</span><span class="p">)</span></div>
 </pre></div>
 
            </div>
