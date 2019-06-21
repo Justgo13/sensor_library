@@ -32,3 +32,30 @@ Configuring X4 radar
 3. Set DAC sweep range minimum and maximum using *x4driver_set_dac_min()* and *x4driver_set_dac_max()*
 4. Set 0 reference using *x4driver_set_frame_area_offset()*
 5. Set frame area using function *x4driver_set_frame_area()* that takes two arguements, one for start of frame and one for end of frame.
+
+Setting radar FPS
+=================
+To set the radar FPS the following parameters are required, PRF, iterations, pulse per step, dac max and dac min range as well as duty cycle.
+
+.. math::
+   
+    FPS = \frac{PRF}{iteration*pulse_per_step*(dac_max-dac_min+1)} * duty cycle
+
+Our Novelda radar is configured to a FPS of 17 pulse/second so if you wanted to change FPS then the above parameter would need to be changed. 
+
+.. note:: The resulting FPS can be read using the built-in function *x4driver_get_fps()*.
+
+Example pulse_per_step calculation
+----------------------------------
+- PRF: 16 MHz
+- X4_duty_cycle: 95%
+- dac_max: 1100
+- dac_min: 949
+- iteration: 64
+- FPS: 17
+ 
+.. math::
+   
+   pulse\_per\_step &= \frac{PRF}{iteration*FPS*(dac_max-dac_min+1} * D \\
+   pulse\_per\_step  &= \frac{16 MHz}{64*17*150} * 0.95 \\
+   pulse\_per\_step  &= 87 
