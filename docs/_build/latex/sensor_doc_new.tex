@@ -54,9 +54,9 @@
 
 
 
-\title{sensor\_doc\_new Documentation}
-\date{Jun 20, 2019}
-\release{0.0.3}
+\title{Sensor Documentation}
+\date{Jun 21, 2019}
+\release{0.0.5}
 \author{Jason Gao}
 \newcommand{\sphinxlogo}{\vbox{}}
 \renewcommand{\releasename}{Release}
@@ -66,12 +66,12 @@
 
 \maketitle
 \tableofcontents
-\phantomsection\label{\detokenize{index::doc}}
+%\phantomsection\label{\detokenize{index::doc}}
 
 
 
 \chapter{About project}
-\label{\detokenize{index:welcome-to-the-cudrdc-project-documentation}}\label{\detokenize{index:about-project}}
+\label{\detokenize{index:about-project}}\label{\detokenize{index:welcome-to-the-cudrdc-project-documentation}}
 This project is funded by the Defense Research and Development Canada (DRDC) and they are working alongside Carleton University to develop algorithms for radar and lidar sensors. The radars used in this project are Novelda X4M300,
 Novelda X4M200, Thor WFS30-K1 and Advacam Minipix TPX3. Use the table of contents below to find out more about the radar specs, library parser and radar configuration.
 
@@ -157,11 +157,51 @@ Set frame area using function \sphinxstyleemphasis{x4driver\_set\_frame\_area()}
 \end{enumerate}
 
 
+\subsection{Setting radar FPS}
+\label{\detokenize{radar information:setting-radar-fps}}
+To set the radar FPS the following parameters are required, PRF, iterations, pulse per step, dac max and dac min range as well as duty cycle.
+\begin{equation*}
+\begin{split}FPS = \frac{PRF}{iteration*pulse_per_step*(dac_max-dac_min+1)} * duty cycle\end{split}
+\end{equation*}
+Our Novelda radar is configured to a FPS of 17 pulse/second so if you wanted to change FPS then the above parameter would need to be changed.
+
+\begin{sphinxadmonition}{note}{Note:}
+The resulting FPS can be read using the built-in function \sphinxstyleemphasis{x4driver\_get\_fps()}.
+\end{sphinxadmonition}
+
+
+\subsubsection{Example pulse\_per\_step calculation}
+\label{\detokenize{radar information:example-pulse-per-step-calculation}}\begin{itemize}
+\item {} 
+PRF: 16 MHz
+
+\item {} 
+X4\_duty\_cycle: 95\%
+
+\item {} 
+dac\_max: 1100
+
+\item {} 
+dac\_min: 949
+
+\item {} 
+iteration: 64
+
+\item {} 
+FPS: 17
+
+\end{itemize}
+\begin{equation*}
+\begin{split}pulse\_per\_step &= \frac{PRF}{iteration*FPS*(dac_max-dac_min+1} * D \\
+pulse\_per\_step  &= \frac{16 MHz}{64*17*150} * 0.95 \\
+pulse\_per\_step  &= 87\end{split}
+\end{equation*}
+
 \section{X4 Parser code}
-\label{\detokenize{X4 parser::doc}}\label{\detokenize{X4 parser:x4-parser-code}}
+\label{\detokenize{X4 parser:x4-parser-code}}\label{\detokenize{X4 parser::doc}}
 
 \subsection{Parser for in-phase and quadrature data combined}
-\label{\detokenize{X4 parser:module-X4_parser}}\label{\detokenize{X4 parser:parser-for-in-phase-and-quadrature-data-combined}}\index{X4\_parser (module)}\index{iq\_data() (in module X4\_parser)}
+\label{\detokenize{X4 parser:parser-for-in-phase-and-quadrature-data-combined}}\label{\detokenize{X4 parser:module-X4_parser}}\index{X4\_parser (module)}\index{iq\_data() (in module X4\_parser)}
 
 \begin{fulllineitems}
 \phantomsection\label{\detokenize{X4 parser:X4_parser.iq_data}}\pysiglinewithargsret{\sphinxcode{\sphinxupquote{X4\_parser.}}\sphinxbfcode{\sphinxupquote{iq\_data}}}{\emph{filename}, \emph{csvname}}{}
@@ -200,7 +240,7 @@ In-phase and quadrature pairs stored together in a .csv file.
 
 
 \subsection{Parser for in-phase and quadrature data seperated}
-\label{\detokenize{X4 parser:module-X4_parser}}\label{\detokenize{X4 parser:parser-for-in-phase-and-quadrature-data-seperated}}\index{X4\_parser (module)}\index{raw\_data() (in module X4\_parser)}
+\label{\detokenize{X4 parser:parser-for-in-phase-and-quadrature-data-seperated}}\label{\detokenize{X4 parser:module-X4_parser}}\index{X4\_parser (module)}\index{raw\_data() (in module X4\_parser)}
 
 \begin{fulllineitems}
 \phantomsection\label{\detokenize{X4 parser:X4_parser.raw_data}}\pysiglinewithargsret{\sphinxcode{\sphinxupquote{X4\_parser.}}\sphinxbfcode{\sphinxupquote{raw\_data}}}{\emph{filename}, \emph{csvname}}{}
@@ -276,7 +316,7 @@ A csv file with the iq data taken from the binary file.
 
 
 \section{Test file}
-\label{\detokenize{test:test-file}}\label{\detokenize{test::doc}}\label{\detokenize{test:module-test}}\index{test (module)}\index{TestParser (class in test)}
+\label{\detokenize{test:module-test}}\label{\detokenize{test:test-file}}\label{\detokenize{test::doc}}\index{test (module)}\index{TestParser (class in test)}
 
 \begin{fulllineitems}
 \phantomsection\label{\detokenize{test:test.TestParser}}\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{class }}\sphinxcode{\sphinxupquote{test.}}\sphinxbfcode{\sphinxupquote{TestParser}}}{\emph{methodName='runTest'}}{}~\index{test\_TI() (test.TestParser method)}

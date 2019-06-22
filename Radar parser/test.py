@@ -15,7 +15,7 @@ class TestParser(unittest.TestCase):
         converted
         """
         file_iq = X4.iq_data('X4data.dat','X4iq')
-        self.assertEqual(file_iq,'converted')
+        self.assertEqual(file_iq, 'converted')
 
     def test_raw(self):
         """
@@ -27,7 +27,7 @@ class TestParser(unittest.TestCase):
         converted
         """
         file_raw = X4.raw_data('X4data.dat','X4raw')
-        self.assertEqual(file_raw,'converted')
+        self.assertEqual(file_raw, 'converted')
 
     def test_TI(self):
         """

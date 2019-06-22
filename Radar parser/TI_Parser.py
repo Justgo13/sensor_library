@@ -72,13 +72,13 @@ def readTIdata(filename,csvname):
             for i in range(0,numChirps):
                 adcData[row,i*numADCSamples:(i+1)*numADCSamples] = LVDS[i,row*numADCSamples:(row+1)*numADCSamples]
 
-        for row in range(0,numRX):
-            for col in range(0,numChirps*numADCSamples):
-
-                with open(csvname+'.csv','a', newline="") as csvFile:
-                    writer = csv.writer(csvFile)
-                    writer.writerow(adcData[row, col])
+        # for row in range(0,numRX):
+        #     for col in range(0,numChirps*numADCSamples):
+        #
+        #         with open(csvname+'.csv','a', newline="") as csvFile:
+        #             writer = csv.writer(csvFile)
+        #             writer.writerow(adcData[row, col])
     f.close()
     csvFile.close()
-    print('converted')
+    return 'converted'
 
