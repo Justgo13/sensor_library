@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>test &mdash; Sensor Documentation 0.0.5 documentation</title>
+  <title>test &mdash; Sensor Documentation 0.0.6 documentation</title>
   
 
   
@@ -80,8 +80,8 @@
             
               <ul>
 <li class="toctree-l1"><a class="reference internal" href="../radar information.html">Radar Information</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../X4 parser.html">X4 Parser code</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../TI parser.html">TI parser code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../X4 radar.html">X4 Radar</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../TI radar.html">TI parser code</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../test.html">Test file</a></li>
 </ul>
 
@@ -163,7 +163,7 @@
 <span class="sd">        converted</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">file_iq</span> <span class="o">=</span> <span class="n">X4</span><span class="o">.</span><span class="n">iq_data</span><span class="p">(</span><span class="s1">&#39;X4data.dat&#39;</span><span class="p">,</span><span class="s1">&#39;X4iq&#39;</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">file_iq</span><span class="p">,</span><span class="s1">&#39;converted&#39;</span><span class="p">)</span></div>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">file_iq</span><span class="p">,</span> <span class="s1">&#39;converted&#39;</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="TestParser.test_raw"><a class="viewcode-back" href="../test.html#test.TestParser.test_raw">[docs]</a>    <span class="k">def</span> <span class="nf">test_raw</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
@@ -175,7 +175,7 @@
 <span class="sd">        converted</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">file_raw</span> <span class="o">=</span> <span class="n">X4</span><span class="o">.</span><span class="n">raw_data</span><span class="p">(</span><span class="s1">&#39;X4data.dat&#39;</span><span class="p">,</span><span class="s1">&#39;X4raw&#39;</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">file_raw</span><span class="p">,</span><span class="s1">&#39;converted&#39;</span><span class="p">)</span></div>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">file_raw</span><span class="p">,</span> <span class="s1">&#39;converted&#39;</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="TestParser.test_TI"><a class="viewcode-back" href="../test.html#test.TestParser.test_TI">[docs]</a>    <span class="k">def</span> <span class="nf">test_TI</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>

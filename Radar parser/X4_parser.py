@@ -33,13 +33,13 @@ def iq_data(filename,csvname):
                 iqdata.append(str(round(temp[j], 4)) + "+" + str(round(temp[j + 180], 4)) + "j")
             else:
                 iqdata.append(str(round(temp[j], 4)) + str(round(temp[j + 180], 4)) + "j")
-
-        with open(csvname+'.csv', 'a', newline="") as csvFile:
-            writer = csv.writer(csvFile)
-            writer.writerow(iqdata)
-    f.close()
-    csvFile.close()
-    return 'converted'
+    return (iqdata)
+    #     with open(csvname+'.csv', 'a', newline="") as csvFile:
+    #         writer = csv.writer(csvFile)
+    #         writer.writerow(iqdata)
+    # f.close()
+    # csvFile.close()
+    # return 'converted'
 
 
 def raw_data(filename,csvname):
@@ -74,3 +74,5 @@ def raw_data(filename,csvname):
     f.close()
     csvFile.close()
     return 'converted'
+
+print(iq_data("X4data.dat", "X4csv"))

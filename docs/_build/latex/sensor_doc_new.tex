@@ -8,30 +8,54 @@
 \PassOptionsToPackage{warn}{textcomp}
 \usepackage[utf8]{inputenc}
 \ifdefined\DeclareUnicodeCharacter
- \ifdefined\DeclareUnicodeCharacterAsOptional
-  \DeclareUnicodeCharacter{"00A0}{\nobreakspace}
-  \DeclareUnicodeCharacter{"2500}{\sphinxunichar{2500}}
-  \DeclareUnicodeCharacter{"2502}{\sphinxunichar{2502}}
-  \DeclareUnicodeCharacter{"2514}{\sphinxunichar{2514}}
-  \DeclareUnicodeCharacter{"251C}{\sphinxunichar{251C}}
-  \DeclareUnicodeCharacter{"2572}{\textbackslash}
- \else
-  \DeclareUnicodeCharacter{00A0}{\nobreakspace}
-  \DeclareUnicodeCharacter{2500}{\sphinxunichar{2500}}
-  \DeclareUnicodeCharacter{2502}{\sphinxunichar{2502}}
-  \DeclareUnicodeCharacter{2514}{\sphinxunichar{2514}}
-  \DeclareUnicodeCharacter{251C}{\sphinxunichar{251C}}
-  \DeclareUnicodeCharacter{2572}{\textbackslash}
- \fi
+% support both utf8 and utf8x syntaxes
+  \ifdefined\DeclareUnicodeCharacterAsOptional
+    \def\sphinxDUC#1{\DeclareUnicodeCharacter{"#1}}
+  \else
+    \let\sphinxDUC\DeclareUnicodeCharacter
+  \fi
+  \sphinxDUC{00A0}{\nobreakspace}
+  \sphinxDUC{2500}{\sphinxunichar{2500}}
+  \sphinxDUC{2502}{\sphinxunichar{2502}}
+  \sphinxDUC{2514}{\sphinxunichar{2514}}
+  \sphinxDUC{251C}{\sphinxunichar{251C}}
+  \sphinxDUC{2572}{\textbackslash}
 \fi
 \usepackage{cmap}
 \usepackage[T1]{fontenc}
 \usepackage{amsmath,amssymb,amstext}
 \usepackage{babel}
+
+
+
 \usepackage{times}
+\expandafter\ifx\csname T@LGR\endcsname\relax
+\else
+% LGR was declared as font encoding
+  \substitutefont{LGR}{\rmdefault}{cmr}
+  \substitutefont{LGR}{\sfdefault}{cmss}
+  \substitutefont{LGR}{\ttdefault}{cmtt}
+\fi
+\expandafter\ifx\csname T@X2\endcsname\relax
+  \expandafter\ifx\csname T@T2A\endcsname\relax
+  \else
+  % T2A was declared as font encoding
+    \substitutefont{T2A}{\rmdefault}{cmr}
+    \substitutefont{T2A}{\sfdefault}{cmss}
+    \substitutefont{T2A}{\ttdefault}{cmtt}
+  \fi
+\else
+% X2 was declared as font encoding
+  \substitutefont{X2}{\rmdefault}{cmr}
+  \substitutefont{X2}{\sfdefault}{cmss}
+  \substitutefont{X2}{\ttdefault}{cmtt}
+\fi
+
+
 \usepackage[Bjarne]{fncychap}
 \usepackage{sphinx}
 
+\fvset{fontsize=\small}
 \usepackage{geometry}
 
 % Include hyperref last.
@@ -41,39 +65,33 @@
 % Set up styles of URL: it should be placed after hyperref.
 \urlstyle{same}
 
-\addto\captionsenglish{\renewcommand{\figurename}{Fig.}}
-\addto\captionsenglish{\renewcommand{\tablename}{Table}}
-\addto\captionsenglish{\renewcommand{\literalblockname}{Listing}}
-
-\addto\captionsenglish{\renewcommand{\literalblockcontinuedname}{continued from previous page}}
-\addto\captionsenglish{\renewcommand{\literalblockcontinuesname}{continues on next page}}
-
-\addto\extrasenglish{\def\pageautorefname{page}}
-
+\usepackage{sphinxmessages}
 \setcounter{tocdepth}{1}
 
 
 
 \title{Sensor Documentation}
-\date{Jun 21, 2019}
-\release{0.0.5}
+\date{Jun 23, 2019}
+\release{0.0.6}
 \author{Jason Gao}
 \newcommand{\sphinxlogo}{\vbox{}}
 \renewcommand{\releasename}{Release}
 \makeindex
-
 \begin{document}
 
-\maketitle
+\pagestyle{empty}
+\sphinxmaketitle
+\pagestyle{plain}
 \tableofcontents
-%\phantomsection\label{\detokenize{index::doc}}
+\pagestyle{normal}
+\phantomsection\label{\detokenize{index::doc}}
 
 
 
 \chapter{About project}
-\label{\detokenize{index:about-project}}\label{\detokenize{index:welcome-to-the-cudrdc-project-documentation}}
-This project is funded by the Defense Research and Development Canada (DRDC) and they are working alongside Carleton University to develop algorithms for radar and lidar sensors. The radars used in this project are Novelda X4M300,
-Novelda X4M200, Thor WFS30-K1 and Advacam Minipix TPX3. Use the table of contents below to find out more about the radar specs, library parser and radar configuration.
+\label{\detokenize{index:about-project}}
+This project is funded by the Defense Research and Development Canada (DRDC) and they are working alongside Carleton University to develop algorithms for radar and lidar sensors. The radars used in this project are Novelda X4,
+Thor WFS30-K1, Ouster lidar and Advacam Minipix TPX3.
 
 Contents:
 
@@ -128,6 +146,9 @@ System on chip: Novelda UWB X4
 
 \subsection{Configuring X4 radar}
 \label{\detokenize{radar information:configuring-x4-radar}}\begin{enumerate}
+\def\theenumi{\arabic{enumi}}
+\def\labelenumi{\theenumi .}
+\makeatletter\def\p@enumii{\p@enumi \theenumi .}\makeatother
 \item {} 
 Begin by initializing to default values using prebuilt function \sphinxstyleemphasis{x4driver\_init()}
 
@@ -144,6 +165,9 @@ The common PLL value of 243 MHz is divided by the arguemnent passed in to \sphin
 Make sure that when changing the PRF that frame length is shorter than 1/PRF and avoid sampling previous pulse when transmitting next pulse.
 \end{sphinxadmonition}
 \begin{enumerate}
+\def\theenumi{\arabic{enumi}}
+\def\labelenumi{\theenumi .}
+\makeatletter\def\p@enumii{\p@enumi \theenumi .}\makeatother
 \setcounter{enumi}{2}
 \item {} 
 Set DAC sweep range minimum and maximum using \sphinxstyleemphasis{x4driver\_set\_dac\_min()} and \sphinxstyleemphasis{x4driver\_set\_dac\_max()}
@@ -197,19 +221,19 @@ pulse\_per\_step  &= \frac{16 MHz}{64*17*150} * 0.95 \\
 pulse\_per\_step  &= 87\end{split}
 \end{equation*}
 
-\section{X4 Parser code}
-\label{\detokenize{X4 parser:x4-parser-code}}\label{\detokenize{X4 parser::doc}}
+\section{X4 Radar}
+\label{\detokenize{X4 radar:x4-radar}}\label{\detokenize{X4 radar::doc}}
 
-\subsection{Parser for in-phase and quadrature data combined}
-\label{\detokenize{X4 parser:parser-for-in-phase-and-quadrature-data-combined}}\label{\detokenize{X4 parser:module-X4_parser}}\index{X4\_parser (module)}\index{iq\_data() (in module X4\_parser)}
+\subsection{Parser for iq data}
+\label{\detokenize{X4 radar:module-X4_parser}}\label{\detokenize{X4 radar:parser-for-iq-data}}\index{X4\_parser (module)@\spxentry{X4\_parser}\spxextra{module}}\index{iq\_data() (in module X4\_parser)@\spxentry{iq\_data()}\spxextra{in module X4\_parser}}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{X4 parser:X4_parser.iq_data}}\pysiglinewithargsret{\sphinxcode{\sphinxupquote{X4\_parser.}}\sphinxbfcode{\sphinxupquote{iq\_data}}}{\emph{filename}, \emph{csvname}}{}
+\phantomsection\label{\detokenize{X4 radar:X4_parser.iq_data}}\pysiglinewithargsret{\sphinxcode{\sphinxupquote{X4\_parser.}}\sphinxbfcode{\sphinxupquote{iq\_data}}}{\emph{filename}, \emph{csvname}}{}
 Takes binary data file and iterates through in-phase (real) and quadrature (imaginary) values.
 Data from range bins is taken and in-phase values are matched with quadrature values to be stored in a user defined .csv file.
-\begin{quote}\begin{description}
-\item[{Parameter}] \leavevmode
-\end{description}\end{quote}
+
+Parameters:
+\begin{quote}
 \begin{description}
 \item[{filename: str}] \leavevmode
 The .dat binary file name.
@@ -218,36 +242,35 @@ The .dat binary file name.
 User defined .csv file name
 
 \end{description}
-\begin{quote}\begin{description}
-\item[{Example}] \leavevmode
-\end{description}\end{quote}
+\end{quote}
 
-\fvset{hllines={, ,}}%
+Example:
+
 \begin{sphinxVerbatim}[commandchars=\\\{\}]
 \PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{n}{iq\PYGZus{}data}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{X4data.dat}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{X4iq\PYGZus{}data}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
 \PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{converted}\PYG{l+s+s1}{\PYGZsq{}}
 \end{sphinxVerbatim}
-\begin{quote}\begin{description}
-\item[{Returns}] \leavevmode
 
-
-\end{description}\end{quote}
+Return:
+\begin{quote}
 
 In-phase and quadrature pairs stored together in a .csv file.
+\end{quote}
 
 \end{fulllineitems}
 
 
 
-\subsection{Parser for in-phase and quadrature data seperated}
-\label{\detokenize{X4 parser:parser-for-in-phase-and-quadrature-data-seperated}}\label{\detokenize{X4 parser:module-X4_parser}}\index{X4\_parser (module)}\index{raw\_data() (in module X4\_parser)}
+\subsection{Parser for raw data}
+\label{\detokenize{X4 radar:parser-for-raw-data}}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{X4 parser:X4_parser.raw_data}}\pysiglinewithargsret{\sphinxcode{\sphinxupquote{X4\_parser.}}\sphinxbfcode{\sphinxupquote{raw\_data}}}{\emph{filename}, \emph{csvname}}{}
+\pysiglinewithargsret{\sphinxcode{\sphinxupquote{X4\_parser.}}\sphinxbfcode{\sphinxupquote{raw\_data}}}{\emph{filename}, \emph{csvname}}{}
 Takes raw data file and iterates through in-phase (real) and quadrature (imaginary) values.
 Data from range bins is taken, and in-phase value are put apart from quadrature in a user defined .csv file.
 
-:parameter
+Parameters:
+\begin{quote}
 \begin{description}
 \item[{filename: str}] \leavevmode
 The .dat binary file name.
@@ -256,32 +279,190 @@ The .dat binary file name.
 User defined .csv file name
 
 \end{description}
-\begin{quote}\begin{description}
-\item[{Example}] \leavevmode
-\end{description}\end{quote}
+\end{quote}
 
-\fvset{hllines={, ,}}%
+Example:
+
 \begin{sphinxVerbatim}[commandchars=\\\{\}]
 \PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{n}{raw\PYGZus{}data}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{X4data.dat}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{X4raw\PYGZus{}data}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
 \PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{converted}\PYG{l+s+s1}{\PYGZsq{}}
 \end{sphinxVerbatim}
-\begin{quote}\begin{description}
-\item[{Returns}] \leavevmode
 
-
-\end{description}\end{quote}
+Return:
+\begin{quote}
 
 In-phase and quadrature stored separately in a .csv file.
+\end{quote}
+
+\end{fulllineitems}
+
+
+
+\subsection{X4 Record and playback code}
+\label{\detokenize{X4 radar:x4-record-and-playback-code}}
+Target module: X4M200,X4M300,X4M03
+
+Introduction:
+
+XeThru modules support both RF and baseband data output. This is an example of radar raw data manipulation.
+Developer can use Module Connecter API to read, record radar raw data, and also playback recorded data.
+
+Command to run: \sphinxstyleemphasis{python X4\_record\_playback.py -d com4 -b -r}
+\begin{itemize}
+\item {} 
+\sphinxstyleemphasis{-d com3} represents device name and can be found when starting Xethru Xplorer.
+
+\item {} 
+\sphinxstyleemphasis{-b} to use baseband to record.
+
+\item {} 
+\sphinxstyleemphasis{-r} to start recording.
+
+\end{itemize}
+\phantomsection\label{\detokenize{X4 radar:module-X4_record_playback}}\index{X4\_record\_playback (module)@\spxentry{X4\_record\_playback}\spxextra{module}}\index{clear\_buffer() (in module X4\_record\_playback)@\spxentry{clear\_buffer()}\spxextra{in module X4\_record\_playback}}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{X4 radar:X4_record_playback.clear_buffer}}\pysiglinewithargsret{\sphinxcode{\sphinxupquote{X4\_record\_playback.}}\sphinxbfcode{\sphinxupquote{clear\_buffer}}}{\emph{mc}}{}
+Clears the frame buffer
+
+Parameter:
+\begin{quote}
+\begin{description}
+\item[{mc: object}] \leavevmode
+module connector object
+
+\end{description}
+\end{quote}
+
+\end{fulllineitems}
+
+\index{main() (in module X4\_record\_playback)@\spxentry{main()}\spxextra{in module X4\_record\_playback}}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{X4 radar:X4_record_playback.main}}\pysiglinewithargsret{\sphinxcode{\sphinxupquote{X4\_record\_playback.}}\sphinxbfcode{\sphinxupquote{main}}}{}{}
+Creates a parser with subcatergories.
+
+Return:
+\begin{quote}
+
+A simple XEP plot of live feed from X4 radar.
+\end{quote}
+
+\end{fulllineitems}
+
+\index{on\_file\_available() (in module X4\_record\_playback)@\spxentry{on\_file\_available()}\spxextra{in module X4\_record\_playback}}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{X4 radar:X4_record_playback.on_file_available}}\pysiglinewithargsret{\sphinxcode{\sphinxupquote{X4\_record\_playback.}}\sphinxbfcode{\sphinxupquote{on\_file\_available}}}{\emph{data\_type}, \emph{filename}}{}
+Returns the file name that is available after recording.
+
+Parameter:
+\begin{quote}
+\begin{description}
+\item[{data\_type: str}] \leavevmode
+data type of the recording file.
+
+\item[{filename: str}] \leavevmode
+file name of recording file.
+
+\end{description}
+\end{quote}
+
+\end{fulllineitems}
+
+\index{on\_meta\_file\_available() (in module X4\_record\_playback)@\spxentry{on\_meta\_file\_available()}\spxextra{in module X4\_record\_playback}}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{X4 radar:X4_record_playback.on_meta_file_available}}\pysiglinewithargsret{\sphinxcode{\sphinxupquote{X4\_record\_playback.}}\sphinxbfcode{\sphinxupquote{on\_meta\_file\_available}}}{\emph{session\_id}, \emph{meta\_filename}}{}
+Returns the meta file name that is available after recording.
+
+Parameters:
+\begin{quote}
+\begin{description}
+\item[{session\_id: str}] \leavevmode
+unique id to identify meta file
+
+\item[{filename: str}] \leavevmode
+file name of meta file.
+
+\end{description}
+\end{quote}
+
+\end{fulllineitems}
+
+\index{playback\_recording() (in module X4\_record\_playback)@\spxentry{playback\_recording()}\spxextra{in module X4\_record\_playback}}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{X4 radar:X4_record_playback.playback_recording}}\pysiglinewithargsret{\sphinxcode{\sphinxupquote{X4\_record\_playback.}}\sphinxbfcode{\sphinxupquote{playback\_recording}}}{\emph{meta\_filename}, \emph{baseband=False}}{}
+Plays back the recording.
+
+Parameters:
+\begin{quote}
+\begin{description}
+\item[{meta\_filename: str}] \leavevmode
+Name of meta file.
+
+\item[{baseband: boolean}] \leavevmode
+Check if recording with baseband iq data.
+
+\end{description}
+\end{quote}
+
+\end{fulllineitems}
+
+\index{reset() (in module X4\_record\_playback)@\spxentry{reset()}\spxextra{in module X4\_record\_playback}}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{X4 radar:X4_record_playback.reset}}\pysiglinewithargsret{\sphinxcode{\sphinxupquote{X4\_record\_playback.}}\sphinxbfcode{\sphinxupquote{reset}}}{\emph{device\_name}}{}
+Resets the device profile and restarts the device
+
+Parameter:
+\begin{quote}
+\begin{description}
+\item[{device\_name: str}] \leavevmode
+Identifies the device being used for recording with it’s port number.
+
+\end{description}
+\end{quote}
+
+\end{fulllineitems}
+
+\index{simple\_xep\_plot() (in module X4\_record\_playback)@\spxentry{simple\_xep\_plot()}\spxextra{in module X4\_record\_playback}}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{X4 radar:X4_record_playback.simple_xep_plot}}\pysiglinewithargsret{\sphinxcode{\sphinxupquote{X4\_record\_playback.}}\sphinxbfcode{\sphinxupquote{simple\_xep\_plot}}}{\emph{device\_name}, \emph{record=False}, \emph{baseband=False}}{}
+Plots the recorded data.
+
+Parameters:
+\begin{quote}
+\begin{description}
+\item[{device\_name: str}] \leavevmode
+port that device is connected to.
+
+\item[{record: boolean}] \leavevmode
+check if device is recording.
+
+\item[{baseband: boolean}] \leavevmode
+check if recording with baseband iq data.
+
+\end{description}
+\end{quote}
+
+Return:
+\begin{quote}
+
+Simple plot of range over time.
+\end{quote}
 
 \end{fulllineitems}
 
 
 
 \section{TI parser code}
-\label{\detokenize{TI parser:module-TI_parser}}\label{\detokenize{TI parser:ti-parser-code}}\label{\detokenize{TI parser::doc}}\index{TI\_parser (module)}\index{readTIdata() (in module TI\_parser)}
+\label{\detokenize{TI radar:module-TI_parser}}\label{\detokenize{TI radar:ti-parser-code}}\label{\detokenize{TI radar::doc}}\index{TI\_parser (module)@\spxentry{TI\_parser}\spxextra{module}}\index{readTIdata() (in module TI\_parser)@\spxentry{readTIdata()}\spxextra{in module TI\_parser}}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{TI parser:TI_parser.readTIdata}}\pysiglinewithargsret{\sphinxcode{\sphinxupquote{TI\_parser.}}\sphinxbfcode{\sphinxupquote{readTIdata}}}{\emph{filename}, \emph{csvname}}{}
+\phantomsection\label{\detokenize{TI radar:TI_parser.readTIdata}}\pysiglinewithargsret{\sphinxcode{\sphinxupquote{TI\_parser.}}\sphinxbfcode{\sphinxupquote{readTIdata}}}{\emph{filename}, \emph{csvname}}{}
 Takes a .bin binary file and outputs the iq data to a csv file specified by csvname.
 \begin{quote}\begin{description}
 \item[{Parameter}] \leavevmode
@@ -298,7 +479,6 @@ csv file name that stores the iq data from binary file.
 \item[{Example}] \leavevmode
 \end{description}\end{quote}
 
-\fvset{hllines={, ,}}%
 \begin{sphinxVerbatim}[commandchars=\\\{\}]
 \PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{n}{readTIdata}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{TIdata.bin}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{TIdata}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
 \PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{converted}\PYG{l+s+s1}{\PYGZsq{}}
@@ -316,10 +496,10 @@ A csv file with the iq data taken from the binary file.
 
 
 \section{Test file}
-\label{\detokenize{test:module-test}}\label{\detokenize{test:test-file}}\label{\detokenize{test::doc}}\index{test (module)}\index{TestParser (class in test)}
+\label{\detokenize{test:module-test}}\label{\detokenize{test:test-file}}\label{\detokenize{test::doc}}\index{test (module)@\spxentry{test}\spxextra{module}}\index{TestParser (class in test)@\spxentry{TestParser}\spxextra{class in test}}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{test:test.TestParser}}\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{class }}\sphinxcode{\sphinxupquote{test.}}\sphinxbfcode{\sphinxupquote{TestParser}}}{\emph{methodName='runTest'}}{}~\index{test\_TI() (test.TestParser method)}
+\phantomsection\label{\detokenize{test:test.TestParser}}\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{class }}\sphinxcode{\sphinxupquote{test.}}\sphinxbfcode{\sphinxupquote{TestParser}}}{\emph{methodName='runTest'}}{}~\index{test\_TI() (test.TestParser method)@\spxentry{test\_TI()}\spxextra{test.TestParser method}}
 
 \begin{fulllineitems}
 \phantomsection\label{\detokenize{test:test.TestParser.test_TI}}\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{test\_TI}}}{}{}
@@ -334,7 +514,7 @@ converted
 
 \end{fulllineitems}
 
-\index{test\_iq() (test.TestParser method)}
+\index{test\_iq() (test.TestParser method)@\spxentry{test\_iq()}\spxextra{test.TestParser method}}
 
 \begin{fulllineitems}
 \phantomsection\label{\detokenize{test:test.TestParser.test_iq}}\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{test\_iq}}}{}{}
@@ -350,7 +530,7 @@ converted
 
 \end{fulllineitems}
 
-\index{test\_raw() (test.TestParser method)}
+\index{test\_raw() (test.TestParser method)@\spxentry{test\_raw()}\spxextra{test.TestParser method}}
 
 \begin{fulllineitems}
 \phantomsection\label{\detokenize{test:test.TestParser.test_raw}}\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{test\_raw}}}{}{}
@@ -376,13 +556,14 @@ converted
 
 \renewcommand{\indexname}{Python Module Index}
 \begin{sphinxtheindex}
-\def\bigletter#1{{\Large\sffamily#1}\nopagebreak\vspace{1mm}}
+\let\bigletter\sphinxstyleindexlettergroup
 \bigletter{t}
-\item {\sphinxstyleindexentry{test}}\sphinxstyleindexpageref{test:\detokenize{module-test}}
-\item {\sphinxstyleindexentry{TI\_parser}}\sphinxstyleindexpageref{TI parser:\detokenize{module-TI_parser}}
+\item\relax\sphinxstyleindexentry{test}\sphinxstyleindexpageref{test:\detokenize{module-test}}
+\item\relax\sphinxstyleindexentry{TI\_parser}\sphinxstyleindexpageref{TI radar:\detokenize{module-TI_parser}}
 \indexspace
 \bigletter{x}
-\item {\sphinxstyleindexentry{X4\_parser}}\sphinxstyleindexpageref{X4 parser:\detokenize{module-X4_parser}}
+\item\relax\sphinxstyleindexentry{X4\_parser}\sphinxstyleindexpageref{X4 radar:\detokenize{module-X4_parser}}
+\item\relax\sphinxstyleindexentry{X4\_record\_playback}\sphinxstyleindexpageref{X4 radar:\detokenize{module-X4_record_playback}}
 \end{sphinxtheindex}
 
 \renewcommand{\indexname}{Index}

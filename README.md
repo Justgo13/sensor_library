@@ -2,13 +2,13 @@ Sensors project read me
 =======================
 Installation : 
 1. Open command prompt
-2. Enter  *pip install sensor_library*
+2. Enter  *pip install sensor-library-justgo13*
 
 Testing code:
 Run *test.py* to test parser files
 
 Reading documentation:
-Open file */docs/build/latex/sensor_doc_new
+Open file /docs/build/latex/sensor_doc_new.pdf
 
 Sphinx Documentation
 --------------------
