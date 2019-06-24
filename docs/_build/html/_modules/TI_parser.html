@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>TI_parser &mdash; Sensor Documentation 0.0.6 documentation</title>
+  <title>TI_parser &mdash; Sensor Documentation 0.0.7 documentation</title>
   
 
   
@@ -149,10 +149,10 @@
 <span></span><span class="c1"># This script is used to read the binary file produced by the DCA1000 and Mmwave Studio</span>
 <span class="c1"># Command to run in Matlab GUI - readDCA1000(&#39;&lt;ADC capture bin file&gt;&#39;) </span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">csv</span>
+<span class="kn">import</span> <span class="nn">xlsxwriter</span>
 
 
-<div class="viewcode-block" id="readTIdata"><a class="viewcode-back" href="../TI radar.html#TI_parser.readTIdata">[docs]</a><span class="k">def</span> <span class="nf">readTIdata</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">csvname</span><span class="p">):</span>
+<div class="viewcode-block" id="readTIdata"><a class="viewcode-back" href="../TI radar.html#TI_parser.readTIdata">[docs]</a><span class="k">def</span> <span class="nf">readTIdata</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span><span class="n">csvname</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Takes a .bin binary file and outputs the iq data to a csv file specified by csvname.</span>
 
@@ -175,11 +175,11 @@
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="c1"># global variables</span>
     <span class="c1"># change based on sensor config</span>
-    <span class="n">numADCSamples</span> <span class="o">=</span> <span class="mi">256</span>  <span class="c1"># number of ADC samples per chirp</span>
-    <span class="n">numADCBits</span> <span class="o">=</span> <span class="mi">16</span>  <span class="c1"># number of ADC bits per sample</span>
-    <span class="n">numRX</span> <span class="o">=</span> <span class="mi">4</span>  <span class="c1"># number of receivers</span>
-    <span class="n">numLanes</span> <span class="o">=</span> <span class="mi">2</span>  <span class="c1"># do not change. number of lanes is always 2</span>
-    <span class="n">isReal</span> <span class="o">=</span> <span class="kc">False</span>  <span class="c1"># set to True if real only data, False if complex data</span>
+    <span class="n">numADCSamples</span> <span class="o">=</span> <span class="mi">256</span> <span class="c1"># number of ADC samples per chirp</span>
+    <span class="n">numADCBits</span> <span class="o">=</span> <span class="mi">16</span> <span class="c1"># number of ADC bits per sample</span>
+    <span class="n">numRX</span> <span class="o">=</span> <span class="mi">4</span> <span class="c1"># number of receivers</span>
+    <span class="n">numLanes</span> <span class="o">=</span> <span class="mi">2</span> <span class="c1"># do not change. number of lanes is always 2</span>
+    <span class="n">isReal</span> <span class="o">=</span> <span class="kc">False</span> <span class="c1"># set to True if real only data, False if complex data</span>
     <span class="c1"># read file</span>
     <span class="c1"># read .bin file</span>
     <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
@@ -187,55 +187,49 @@
         <span class="n">adcData</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">transpose</span><span class="p">([</span><span class="n">adcData</span><span class="p">])</span>
         <span class="c1"># if 12 or 14 bits ADC per sample compensate for sign extension</span>
         <span class="k">if</span> <span class="n">numADCBits</span> <span class="o">!=</span> <span class="mi">16</span><span class="p">:</span>
-            <span class="n">l_max</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">**</span> <span class="p">(</span><span class="n">numADCBits</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
+            <span class="n">l_max</span> <span class="o">=</span> <span class="mi">2</span><span class="o">**</span><span class="p">(</span><span class="n">numADCBits</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span>
             <span class="c1"># If value greater than l_max, this loop prevents it</span>
             <span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">val</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">adcData</span><span class="p">):</span>
                 <span class="k">if</span> <span class="n">adcData</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">l_max</span><span class="p">:</span>
-                    <span class="n">adcData</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="o">-=</span> <span class="mi">2</span> <span class="o">**</span> <span class="p">(</span><span class="n">numADCBits</span><span class="p">)</span>
+                    <span class="n">adcData</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="o">-=</span> <span class="mi">2</span><span class="o">**</span><span class="p">(</span><span class="n">numADCBits</span><span class="p">)</span>
         <span class="n">fileSize</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">adcData</span><span class="p">)</span>
         <span class="c1"># real data reshape, filesize = numADCSamples*numChirps</span>
 
         <span class="k">if</span> <span class="n">isReal</span><span class="p">:</span>
-            <span class="n">numChirps</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">fileSize</span> <span class="o">/</span> <span class="n">numADCSamples</span> <span class="o">/</span> <span class="n">numRX</span><span class="p">)</span>
+            <span class="n">numChirps</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">fileSize</span><span class="o">/</span><span class="n">numADCSamples</span><span class="o">/</span><span class="n">numRX</span><span class="p">)</span>
             <span class="n">LVDS</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="n">fileSize</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;int16&#39;</span><span class="p">)</span>
             <span class="c1"># each row is data from one chirp</span>
-            <span class="n">LVDS</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">adcData</span><span class="p">,</span> <span class="p">(</span><span class="n">numChirps</span><span class="p">,</span> <span class="n">numADCSamples</span> <span class="o">*</span> <span class="n">numRX</span><span class="p">))</span>
+            <span class="n">LVDS</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">adcData</span><span class="p">,</span> <span class="p">(</span><span class="n">numChirps</span><span class="p">,</span> <span class="n">numADCSamples</span><span class="o">*</span><span class="n">numRX</span><span class="p">))</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="c1"># for complex data</span>
             <span class="c1"># filesize = 2 * numADCSamples*numChirps</span>
-            <span class="n">numChirps</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">fileSize</span> <span class="o">/</span> <span class="mi">2</span> <span class="o">/</span> <span class="n">numADCSamples</span> <span class="o">/</span> <span class="n">numRX</span><span class="p">)</span>
-            <span class="n">LVDS</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="n">fileSize</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;int16&#39;</span><span class="p">)</span>
+            <span class="n">numChirps</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">fileSize</span><span class="o">/</span><span class="mi">2</span><span class="o">/</span><span class="n">numADCSamples</span><span class="o">/</span><span class="n">numRX</span><span class="p">)</span>
+            <span class="n">LVDS</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">fileSize</span><span class="o">/</span><span class="mi">2</span><span class="p">)),</span> <span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;complex&#39;</span><span class="p">)</span>
             <span class="c1"># combine real and imaginary part into complex data</span>
             <span class="c1"># read in file: 2I is followed by 2Q</span>
-            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">fileSize</span> <span class="o">-</span> <span class="mi">3</span><span class="p">):</span>
-                <span class="n">LVDS</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">adcData</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
-                <span class="n">LVDS</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">adcData</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
-                <span class="c1"># LVDS[0, counter] = complex(adcData[i, 0], adcData[i+2, 0])</span>
-                <span class="c1"># LVDS[0, counter+1] = complex(adcData[i+1, 0], adcData[i+3, 0])</span>
+            <span class="n">counter</span>  <span class="o">=</span> <span class="mi">0</span>
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">fileSize</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">):</span>
+                <span class="c1"># LVDS[0, i] = adcData[i, 0]</span>
+                <span class="c1"># LVDS[0, i+1] = adcData[i+2, 0]</span>
+                <span class="n">LVDS</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="n">counter</span><span class="p">]</span> <span class="o">=</span> <span class="nb">complex</span><span class="p">(</span><span class="n">adcData</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">adcData</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">2</span><span class="p">])</span>
+                <span class="n">LVDS</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="n">counter</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="nb">complex</span><span class="p">(</span><span class="n">adcData</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">],</span> <span class="n">adcData</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">3</span><span class="p">])</span>
+                <span class="n">counter</span> <span class="o">+=</span> <span class="mi">2</span>
             <span class="c1"># each row is data from one chirp</span>
-            <span class="n">LVDS</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">LVDS</span><span class="p">,</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">numChirps</span><span class="p">,</span> <span class="n">numADCSamples</span> <span class="o">*</span> <span class="n">numRX</span><span class="p">))</span>
-        <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">numChirps</span><span class="p">):</span>
-            <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">numADCSamples</span> <span class="o">*</span> <span class="n">numRX</span> <span class="o">-</span> <span class="mi">3</span><span class="p">):</span>
+            <span class="n">LVDS</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">LVDS</span><span class="p">,</span> <span class="p">(</span><span class="n">numChirps</span><span class="p">,</span> <span class="n">numADCSamples</span><span class="o">*</span><span class="n">numRX</span><span class="p">))</span>
+            <span class="c1"># organize data per RX</span>
+            <span class="n">adcData</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">numRX</span><span class="p">,</span> <span class="n">numChirps</span> <span class="o">*</span> <span class="n">numADCSamples</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;complex&#39;</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">numRX</span><span class="p">):</span>
+                <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">numChirps</span><span class="p">):</span>
+                    <span class="n">adcData</span><span class="p">[</span><span class="n">row</span><span class="p">,</span> <span class="n">i</span> <span class="o">*</span> <span class="n">numADCSamples</span><span class="p">:(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">numADCSamples</span><span class="p">]</span> <span class="o">=</span> <span class="n">LVDS</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">row</span> <span class="o">*</span> <span class="n">numADCSamples</span><span class="p">:(</span><span class="n">row</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">numADCSamples</span><span class="p">]</span>
 
-                <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">csvname</span> <span class="o">+</span> <span class="s2">&quot;.csv&quot;</span><span class="p">,</span> <span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="n">newline</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">csvFile</span><span class="p">:</span>
-                    <span class="n">writer</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">writer</span><span class="p">(</span><span class="n">csvFile</span><span class="p">)</span>
-                    <span class="k">if</span> <span class="n">LVDS</span><span class="p">[</span><span class="n">row</span><span class="p">,</span> <span class="n">col</span> <span class="o">+</span> <span class="mi">2</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
-                        <span class="n">writer</span><span class="o">.</span><span class="n">writerow</span><span class="p">([</span><span class="nb">str</span><span class="p">(</span><span class="n">LVDS</span><span class="p">[</span><span class="n">row</span><span class="p">,</span> <span class="n">col</span><span class="p">])</span> <span class="o">+</span> <span class="s2">&quot;+&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">LVDS</span><span class="p">[</span><span class="n">row</span><span class="p">,</span> <span class="n">col</span> <span class="o">+</span> <span class="mi">2</span><span class="p">])</span> <span class="o">+</span> <span class="s2">&quot;j&quot;</span><span class="p">])</span>
-                    <span class="k">else</span><span class="p">:</span>
-                        <span class="n">writer</span><span class="o">.</span><span class="n">writerow</span><span class="p">([</span><span class="nb">str</span><span class="p">(</span><span class="n">LVDS</span><span class="p">[</span><span class="n">row</span><span class="p">,</span> <span class="n">col</span><span class="p">])</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">LVDS</span><span class="p">[</span><span class="n">row</span><span class="p">,</span> <span class="n">col</span> <span class="o">+</span> <span class="mi">2</span><span class="p">])</span> <span class="o">+</span> <span class="s2">&quot;j&quot;</span><span class="p">])</span>
-        <span class="c1"># organize data per RX</span>
-        <span class="c1"># adcData = np.empty((numRX, numChirps*numADCSamples), dtype=&#39;complex&#39;)</span>
-        <span class="c1"># for row in range(0, numRX):</span>
-        <span class="c1">#     for i in range(0, numChirps):</span>
-        <span class="c1">#         adcData[row, i*numADCSamples:(i+1)*numADCSamples] = LVDS[i, row*numADCSamples:(row+1)*numADCSamples]</span>
-        <span class="c1"># create numpy array of numpy array</span>
-        <span class="c1"># with open(csvname + &#39;.csv&#39;, &#39;w&#39;, newline=&quot;&quot;) as csvFile:</span>
-        <span class="c1">#     writer = csv.writer(csvFile)</span>
-        <span class="c1">#     writer.writerows()</span>
+        <span class="n">workbook</span> <span class="o">=</span> <span class="n">xlsxwriter</span><span class="o">.</span><span class="n">Workbook</span><span class="p">(</span><span class="n">csvname</span><span class="o">+</span><span class="s1">&#39;.xlsx&#39;</span><span class="p">)</span>
+        <span class="n">worksheet</span> <span class="o">=</span> <span class="n">workbook</span><span class="o">.</span><span class="n">add_worksheet</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">numRX</span><span class="p">):</span>
+            <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">numADCSamples</span><span class="o">*</span><span class="n">numChirps</span><span class="p">):</span>
+                <span class="n">worksheet</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">row</span><span class="p">,</span><span class="n">col</span><span class="p">,</span><span class="nb">str</span><span class="p">(</span><span class="n">adcData</span><span class="p">[</span><span class="n">row</span><span class="p">,</span> <span class="n">col</span><span class="p">]))</span>
         <span class="c1"># TO DO: write adcData to a csv file</span>
     <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-    <span class="n">csvFile</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-
+    <span class="n">workbook</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
     <span class="k">return</span> <span class="s1">&#39;converted&#39;</span></div>
 </pre></div>
 

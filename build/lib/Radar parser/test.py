@@ -14,8 +14,8 @@ class TestParser(unittest.TestCase):
 
         converted
         """
-        file_iq = X4.iq_data('X4data.dat')
-        self.asserEqual(file_iq,'converted')
+        file_iq = X4.iq_data('X4data.dat','X4iq')
+        self.assertEqual(file_iq, 'converted')
 
     def test_raw(self):
         """
@@ -26,8 +26,8 @@ class TestParser(unittest.TestCase):
 
         converted
         """
-        file_raw = X4.raw_data('X4data.dat')
-        self.asserEqual(file_raw,'converted')
+        file_raw = X4.raw_data('X4data.dat','X4raw')
+        self.assertEqual(file_raw, 'converted')
 
     def test_TI(self):
         """
@@ -38,7 +38,7 @@ class TestParser(unittest.TestCase):
         converted
         """
 
-        file_TI = TI.readTIdata('TIdata.bin')
+        file_TI = TI.readTIdata('TIdata.bin','TIiq')
         self.assertEqual(file_TI,'converted')
 
 if __name__ == '__main__':

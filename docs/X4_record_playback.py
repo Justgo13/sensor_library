@@ -21,8 +21,8 @@ def reset(device_name):
 
     Parameter:
     
-        device_name: str
-            Identifies the device being used for recording with it's port number.
+    device_name: str
+        Identifies the device being used for recording with it's port number.
     """
     mc = pymoduleconnector.ModuleConnector(device_name)
     xep = mc.get_xep()
@@ -36,10 +36,10 @@ def on_file_available(data_type, filename):
 
     Parameter:
 
-        data_type: str
-            data type of the recording file.
-        filename: str
-            file name of recording file.
+    data_type: str
+        data type of the recording file.
+    filename: str
+        file name of recording file.
     """
     print("new file available for data type: {}".format(data_type))
     print("  |- file: {}".format(filename))
@@ -52,10 +52,10 @@ def on_meta_file_available(session_id, meta_filename):
 
     Parameters:
 
-        session_id: str
-            unique id to identify meta file 
-        filename: str
-            file name of meta file.
+    session_id: str
+        unique id to identify meta file
+    filename: str
+        file name of meta file.
     """
     print("new meta file available for recording with id: {}".format(session_id))
     print("  |- file: {}".format(meta_filename))
@@ -66,8 +66,8 @@ def clear_buffer(mc):
 
     Parameter:
 
-        mc: object
-            module connector object
+    mc: object
+        module connector object
 
     """
     xep = mc.get_xep()
@@ -80,16 +80,16 @@ def simple_xep_plot(device_name, record=False, baseband=False):
 
     Parameters:
 
-        device_name: str
-            port that device is connected to.
-        record: boolean
-            check if device is recording.
-        baseband: boolean
-            check if recording with baseband iq data.
+    device_name: str
+        port that device is connected to.
+    record: boolean
+        check if device is recording.
+    baseband: boolean
+        check if recording with baseband iq data.
             
     Return:
 
-        Simple plot of range over time.
+    Simple plot of range over time.
     """
     FPS = 10
     directory = '.'
@@ -173,10 +173,10 @@ def playback_recording(meta_filename, baseband=False):
 
     Parameters:
 
-        meta_filename: str
-            Name of meta file.
-        baseband: boolean
-            Check if recording with baseband iq data.
+    meta_filename: str
+        Name of meta file.
+    baseband: boolean
+        Check if recording with baseband iq data.
     """
     print("Starting playback for {}" .format(meta_filename))
     player = pymoduleconnector.DataPlayer(meta_filename, -1)
@@ -222,7 +222,7 @@ def main():
 
     Return:
     
-        A simple XEP plot of live feed from X4 radar.
+    A simple XEP plot of live feed from X4 radar.
     """
     parser = OptionParser()
     parser.add_option(

@@ -7,21 +7,21 @@ def iq_data(filename,csvname):
     Takes binary data file and iterates through in-phase (real) and quadrature (imaginary) values.
     Data from range bins is taken and in-phase values are matched with quadrature values to be stored in a user defined .csv file.
 
-    Parameters:
+    :parameter:
 
-        filename: str
-            The .dat binary file name.
-        csvname: str
-            User defined .csv file name
+    filename: str
+        The .dat binary file name.
+    csvname: str
+        User defined .csv file name
 
-    Example:
+    :example:
 
     >>> iq_data('X4data.dat','X4iq_data')
     >>> 'converted'
 
-    Return:
+    :returns:
 
-        In-phase and quadrature pairs stored together in a .csv file.
+    In-phase and quadrature pairs stored together in a .csv file.
     """
     with open(filename, "rb") as f:
         data = np.fromfile(f, dtype=np.float32)
@@ -33,10 +33,9 @@ def iq_data(filename,csvname):
                 iqdata.append(str(round(temp[j], 4)) + "+" + str(round(temp[j + 180], 4)) + "j")
             else:
                 iqdata.append(str(round(temp[j], 4)) + str(round(temp[j + 180], 4)) + "j")
-
         with open(csvname+'.csv', 'a', newline="") as csvFile:
-            writer = csv.writer(csvFile)
-            writer.writerow(iqdata)
+             writer = csv.writer(csvFile)
+             writer.writerow(iqdata)
     f.close()
     csvFile.close()
     return 'converted'
@@ -47,21 +46,21 @@ def raw_data(filename,csvname):
     Takes raw data file and iterates through in-phase (real) and quadrature (imaginary) values.
     Data from range bins is taken, and in-phase value are put apart from quadrature in a user defined .csv file.
 
-    Parameters:
+    :parameter
 
-        filename: str
-            The .dat binary file name.
-        csvname: str
-            User defined .csv file name
+    filename: str
+        The .dat binary file name.
+    csvname: str
+        User defined .csv file name
 
-    Example:
+    :example:
 
     >>> raw_data('X4data.dat','X4raw_data')
     >>> 'converted'
 
-    Return:
+    :returns:
 
-        In-phase and quadrature stored separately in a .csv file.
+    In-phase and quadrature stored separately in a .csv file.
     """
     with open(filename, "rb") as f:
         data = np.fromfile(f, dtype=np.float32)

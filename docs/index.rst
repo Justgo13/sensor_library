@@ -22,5 +22,8 @@ Contents:
    test
 
 :download:`Convert X4 binary .dat file to csv<X4_parser.py>`
+
+:download:`X4 data collection code<X4_record_playback.py>`
+
 :download:`Convert TI binary .bin file to csv<TI_parser.py>`
 

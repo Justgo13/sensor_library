@@ -1,7 +1,7 @@
 # This script is used to read the binary file produced by the DCA1000 and Mmwave Studio
 # Command to run in Matlab GUI - readDCA1000('<ADC capture bin file>') 
 import numpy as np
-import csv
+import xlsxwriter
 
 
 def readTIdata(filename,csvname):
@@ -56,36 +56,33 @@ def readTIdata(filename,csvname):
             # for complex data
             # filesize = 2 * numADCSamples*numChirps
             numChirps = int(fileSize/2/numADCSamples/numRX)
-            LVDS = np.empty((1, fileSize), dtype='int16')
+            LVDS = np.zeros((1, int(fileSize/2)), dtype='complex')
             # combine real and imaginary part into complex data
             # read in file: 2I is followed by 2Q
-            for i in range(0, fileSize-3):
-                LVDS[0, i] = adcData[i, 0]
-                LVDS[0, i+1] = adcData[i+2, 0]
-                # LVDS[0, counter] = complex(adcData[i, 0], adcData[i+2, 0])
-                # LVDS[0, counter+1] = complex(adcData[i+1, 0], adcData[i+3, 0])
+            counter  = 0
+            for i in range(0, fileSize-2, 4):
+                # LVDS[0, i] = adcData[i, 0]
+                # LVDS[0, i+1] = adcData[i+2, 0]
+                LVDS[0, counter] = complex(adcData[i], adcData[i+2])
+                LVDS[0, counter+1] = complex(adcData[i+1], adcData[i+3])
+                counter += 2
             # each row is data from one chirp
-            LVDS = np.reshape(LVDS, (2*numChirps, numADCSamples*numRX))
-        for row in range(0,2*numChirps):
-            for col in range(numADCSamples*numRX-3):
+            LVDS = np.reshape(LVDS, (numChirps, numADCSamples*numRX))
+            # organize data per RX
+            adcData = np.zeros((numRX, numChirps * numADCSamples), dtype='complex')
+            for row in range(0, numRX):
+                for i in range(0, numChirps):
+                    adcData[row, i * numADCSamples:(i + 1) * numADCSamples] = LVDS[i, row * numADCSamples:(row + 1) * numADCSamples]
 
-                with open(csvname+".csv", "a", newline="") as csvFile:
-                    writer = csv.writer(csvFile)
-                    if LVDS[row,col+2] > 0:
-                        writer.writerow([str(LVDS[row, col]) + "+" + str(LVDS[row, col+2]) + "j"])
-                    else:
-                        writer.writerow([str(LVDS[row, col]) + str(LVDS[row, col + 2]) + "j"])
-        # organize data per RX
-        # adcData = np.empty((numRX, numChirps*numADCSamples), dtype='complex')
-        # for row in range(0, numRX):
-        #     for i in range(0, numChirps):
-        #         adcData[row, i*numADCSamples:(i+1)*numADCSamples] = LVDS[i, row*numADCSamples:(row+1)*numADCSamples]
-        # create numpy array of numpy array
-        # with open(csvname + '.csv', 'w', newline="") as csvFile:
-        #     writer = csv.writer(csvFile)
-        #     writer.writerows()
+        workbook = xlsxwriter.Workbook(csvname+'.xlsx')
+        worksheet = workbook.add_worksheet()
+        for row in range(0, numRX):
+            for col in range(0, numADCSamples*numChirps):
+                worksheet.write(row,col,str(adcData[row, col]))
         # TO DO: write adcData to a csv file
     f.close()
-    csvFile.close()
-
+    workbook.close()
     return 'converted'
+
+
+print(readTIdata('TIdata.bin', 'TIdata'))

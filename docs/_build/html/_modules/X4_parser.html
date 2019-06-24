@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>X4_parser &mdash; Sensor Documentation 0.0.6 documentation</title>
+  <title>X4_parser &mdash; Sensor Documentation 0.0.7 documentation</title>
   
 
   
@@ -155,21 +155,21 @@
 <span class="sd">    Takes binary data file and iterates through in-phase (real) and quadrature (imaginary) values.</span>
 <span class="sd">    Data from range bins is taken and in-phase values are matched with quadrature values to be stored in a user defined .csv file.</span>
 
-<span class="sd">    Parameters:</span>
+<span class="sd">    :parameter:</span>
 
-<span class="sd">        filename: str</span>
-<span class="sd">            The .dat binary file name.</span>
-<span class="sd">        csvname: str</span>
-<span class="sd">            User defined .csv file name</span>
+<span class="sd">    filename: str</span>
+<span class="sd">        The .dat binary file name.</span>
+<span class="sd">    csvname: str</span>
+<span class="sd">        User defined .csv file name</span>
 
-<span class="sd">    Example:</span>
+<span class="sd">    :example:</span>
 
 <span class="sd">    &gt;&gt;&gt; iq_data(&#39;X4data.dat&#39;,&#39;X4iq_data&#39;)</span>
 <span class="sd">    &gt;&gt;&gt; &#39;converted&#39;</span>
 
-<span class="sd">    Return:</span>
+<span class="sd">    :returns:</span>
 
-<span class="sd">        In-phase and quadrature pairs stored together in a .csv file.</span>
+<span class="sd">    In-phase and quadrature pairs stored together in a .csv file.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s2">&quot;rb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
         <span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">fromfile</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
@@ -181,10 +181,9 @@
                 <span class="n">iqdata</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">temp</span><span class="p">[</span><span class="n">j</span><span class="p">],</span> <span class="mi">4</span><span class="p">))</span> <span class="o">+</span> <span class="s2">&quot;+&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">temp</span><span class="p">[</span><span class="n">j</span> <span class="o">+</span> <span class="mi">180</span><span class="p">],</span> <span class="mi">4</span><span class="p">))</span> <span class="o">+</span> <span class="s2">&quot;j&quot;</span><span class="p">)</span>
             <span class="k">else</span><span class="p">:</span>
                 <span class="n">iqdata</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">temp</span><span class="p">[</span><span class="n">j</span><span class="p">],</span> <span class="mi">4</span><span class="p">))</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">temp</span><span class="p">[</span><span class="n">j</span> <span class="o">+</span> <span class="mi">180</span><span class="p">],</span> <span class="mi">4</span><span class="p">))</span> <span class="o">+</span> <span class="s2">&quot;j&quot;</span><span class="p">)</span>
-
         <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">csvname</span><span class="o">+</span><span class="s1">&#39;.csv&#39;</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="n">newline</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">csvFile</span><span class="p">:</span>
-            <span class="n">writer</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">writer</span><span class="p">(</span><span class="n">csvFile</span><span class="p">)</span>
-            <span class="n">writer</span><span class="o">.</span><span class="n">writerow</span><span class="p">(</span><span class="n">iqdata</span><span class="p">)</span>
+             <span class="n">writer</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">writer</span><span class="p">(</span><span class="n">csvFile</span><span class="p">)</span>
+             <span class="n">writer</span><span class="o">.</span><span class="n">writerow</span><span class="p">(</span><span class="n">iqdata</span><span class="p">)</span>
     <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
     <span class="n">csvFile</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
     <span class="k">return</span> <span class="s1">&#39;converted&#39;</span></div>
@@ -195,21 +194,21 @@
 <span class="sd">    Takes raw data file and iterates through in-phase (real) and quadrature (imaginary) values.</span>
 <span class="sd">    Data from range bins is taken, and in-phase value are put apart from quadrature in a user defined .csv file.</span>
 
-<span class="sd">    Parameters:</span>
+<span class="sd">    :parameter</span>
 
-<span class="sd">        filename: str</span>
-<span class="sd">            The .dat binary file name.</span>
-<span class="sd">        csvname: str</span>
-<span class="sd">            User defined .csv file name</span>
+<span class="sd">    filename: str</span>
+<span class="sd">        The .dat binary file name.</span>
+<span class="sd">    csvname: str</span>
+<span class="sd">        User defined .csv file name</span>
 
-<span class="sd">    Example:</span>
+<span class="sd">    :example:</span>
 
 <span class="sd">    &gt;&gt;&gt; raw_data(&#39;X4data.dat&#39;,&#39;X4raw_data&#39;)</span>
 <span class="sd">    &gt;&gt;&gt; &#39;converted&#39;</span>
 
-<span class="sd">    Return:</span>
+<span class="sd">    :returns:</span>
 
-<span class="sd">        In-phase and quadrature stored separately in a .csv file.</span>
+<span class="sd">    In-phase and quadrature stored separately in a .csv file.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s2">&quot;rb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
         <span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">fromfile</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>

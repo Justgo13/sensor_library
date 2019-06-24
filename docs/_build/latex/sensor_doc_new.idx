@@ -1,7 +1,7 @@
 \indexentry{X4\_parser (module)@\spxentry{X4\_parser}\spxextra{module}|hyperpage}{7}
 \indexentry{iq\_data() (in module X4\_parser)@\spxentry{iq\_data()}\spxextra{in module X4\_parser}|hyperpage}{7}
-\indexentry{X4\_record\_playback (module)@\spxentry{X4\_record\_playback}\spxextra{module}|hyperpage}{7}
-\indexentry{clear\_buffer() (in module X4\_record\_playback)@\spxentry{clear\_buffer()}\spxextra{in module X4\_record\_playback}|hyperpage}{7}
+\indexentry{X4\_record\_playback (module)@\spxentry{X4\_record\_playback}\spxextra{module}|hyperpage}{8}
+\indexentry{clear\_buffer() (in module X4\_record\_playback)@\spxentry{clear\_buffer()}\spxextra{in module X4\_record\_playback}|hyperpage}{8}
 \indexentry{main() (in module X4\_record\_playback)@\spxentry{main()}\spxextra{in module X4\_record\_playback}|hyperpage}{8}
 \indexentry{on\_file\_available() (in module X4\_record\_playback)@\spxentry{on\_file\_available()}\spxextra{in module X4\_record\_playback}|hyperpage}{8}
 \indexentry{on\_meta\_file\_available() (in module X4\_record\_playback)@\spxentry{on\_meta\_file\_available()}\spxextra{in module X4\_record\_playback}|hyperpage}{8}
