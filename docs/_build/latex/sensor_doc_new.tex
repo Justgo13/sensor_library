@@ -70,8 +70,8 @@
 
 
 
-\title{Sensor Documentation}
-\date{Jun 24, 2019}
+\title{CUDRDC Documentation}
+\date{Jun 27, 2019}
 \release{0.0.7}
 \author{Jason Gao}
 \newcommand{\sphinxlogo}{\vbox{}}
@@ -79,7 +79,7 @@
 \makeindex
 \begin{document}
 
-%\pagestyle{empty}
+\pagestyle{empty}
 \sphinxmaketitle
 \pagestyle{plain}
 \tableofcontents
@@ -97,15 +97,15 @@ Contents:
 
 
 \section{Radar Information}
-\label{\detokenize{radar information:radar-information}}\label{\detokenize{radar information::doc}}
+\label{\detokenize{Radar information:radar-information}}\label{\detokenize{Radar information::doc}}
 
 \subsection{About X4 radar}
-\label{\detokenize{radar information:about-x4-radar}}
+\label{\detokenize{Radar information:about-x4-radar}}
 The X4 radars are IR-UWB and can work at frequencies ranging from 6 GHz to 10.2 GHz. The total number of bins that can be sampled is 1536.
 
 
 \subsubsection{X4M300 Specs}
-\label{\detokenize{radar information:x4m300-specs}}\begin{itemize}
+\label{\detokenize{Radar information:x4m300-specs}}\begin{itemize}
 \item {} 
 Detection Time: 1.5 - 3.0 seconds
 
@@ -125,7 +125,7 @@ System on chip: Novelda UWB X4
 
 
 \subsubsection{X4M200 Specs}
-\label{\detokenize{radar information:x4m200-specs}}\begin{itemize}
+\label{\detokenize{Radar information:x4m200-specs}}\begin{itemize}
 \item {} 
 Detection Time: 3.0  - 5.0 seconds
 
@@ -145,7 +145,7 @@ System on chip: Novelda UWB X4
 
 
 \subsection{Configuring X4 radar}
-\label{\detokenize{radar information:configuring-x4-radar}}\begin{enumerate}
+\label{\detokenize{Radar information:configuring-x4-radar}}\begin{enumerate}
 \def\theenumi{\arabic{enumi}}
 \def\labelenumi{\theenumi .}
 \makeatletter\def\p@enumii{\p@enumi \theenumi .}\makeatother
@@ -182,7 +182,7 @@ Set frame area using function \sphinxstyleemphasis{x4driver\_set\_frame\_area()}
 
 
 \subsection{Setting radar FPS}
-\label{\detokenize{radar information:setting-radar-fps}}
+\label{\detokenize{Radar information:setting-radar-fps}}
 To set the radar FPS the following parameters are required, PRF, iterations, pulse per step, dac max and dac min range as well as duty cycle.
 \begin{equation*}
 \begin{split}FPS = \frac{PRF}{iteration*pulse_per_step*(dac_max-dac_min+1)} * duty cycle\end{split}
@@ -195,7 +195,7 @@ The resulting FPS can be read using the built-in function \sphinxstyleemphasis{x
 
 
 \subsubsection{Example pulse\_per\_step calculation}
-\label{\detokenize{radar information:example-pulse-per-step-calculation}}\begin{itemize}
+\label{\detokenize{Radar information:example-pulse-per-step-calculation}}\begin{itemize}
 \item {} 
 PRF: 16 MHz
 
@@ -220,6 +220,29 @@ FPS: 17
 pulse\_per\_step  &= \frac{16 MHz}{64*17*150} * 0.95 \\
 pulse\_per\_step  &= 87\end{split}
 \end{equation*}
+
+\section{Linux setup}
+\label{\detokenize{Linux setup:linux-setup}}\label{\detokenize{Linux setup::doc}}
+\sphinxstylestrong{To install Linux with Ubuntu v18.04 on a Windows PC users must install the following files:}
+
+\sphinxhref{https://www.virtualbox.org/wiki/Downloads}{VirutalBox Software}
+
+\sphinxhref{https://ubuntu.com/download/desktop}{Ubuntu 18.04 download}
+
+
+\subsection{Quick tips for linux beginners}
+\label{\detokenize{Linux setup:quick-tips-for-linux-beginners}}\begin{itemize}
+\item {} 
+Set the network setting to use bridged adapter so Linux doesn’t share the same ip address as your Windows PC.
+
+\item {} 
+Insert guest addition CD image found in the \sphinxstyleemphasis{Devices} tab for auto-adjusted screen resolutions.
+
+\item {} 
+Use \sphinxstyleemphasis{\textasciitilde{}/ to cd to home directory}
+
+\end{itemize}
+
 
 \section{X4 Radar}
 \label{\detokenize{X4 radar:x4-radar}}\label{\detokenize{X4 radar::doc}}
@@ -314,7 +337,7 @@ Command to run: \sphinxstyleemphasis{python X4\_record\_playback.py -d com4 -b -
 \sphinxstyleemphasis{-d com3} represents device name and can be found when starting Xethru Xplorer.
 
 \item {} 
-\sphinxstyleemphasis{-b} to use baseband to record.
+\sphinxstyleemphasis{-b} to use baseband to record, default is radio frequency.
 
 \item {} 
 \sphinxstyleemphasis{-r} to start recording.
@@ -480,14 +503,190 @@ A csv file with the iq data taken from the binary file.
 
 
 
+\section{Ouster OS1 Lidar}
+\label{\detokenize{Ouster lidar:ouster-os1-lidar}}\label{\detokenize{Ouster lidar::doc}}
+
+\subsection{Specs}
+\label{\detokenize{Ouster lidar:specs}}
+\sphinxstyleemphasis{All below specs are for OS1-16 lidar that was used in this project}
+\begin{itemize}
+\item {} 
+Works on channel 16, 64, 128.
+
+\item {} 
+Maximum range of 120 meters.
+
+\item {} 
+Field of view of 33.2 degree vertically and 360 degree horizontally.
+
+\item {} 
+Sampling rate of 327,680 points/second.
+
+\end{itemize}
+
+
+\subsection{Setting up lidar}
+\label{\detokenize{Ouster lidar:setting-up-lidar}}\begin{enumerate}
+\def\theenumi{\arabic{enumi}}
+\def\labelenumi{\theenumi .}
+\makeatletter\def\p@enumii{\p@enumi \theenumi .}\makeatother
+\item {} 
+Connect lidar interface box to router that supports Gigabit connection.
+
+\item {} 
+Connect lidar to lidar interface box via cable.
+
+\item {} 
+Determine the ip address your router gave the lidar when it connected to the network and jot it down.
+
+\item {} 
+Determine your linux ip adress by running \sphinxstyleemphasis{ifconfig} in terminal and jot it down.
+
+\end{enumerate}
+
+
+\subsection{Ouster Github}
+\label{\detokenize{Ouster lidar:ouster-github}}
+The following \sphinxhref{https://github.com/ouster-lidar/ouster\_example}{Github page} was provides information on how to view raw data, visualized lidar data and use a ROS to save recorded data in .bag files and later parse to a .csv file. The ROS can also be used for replaying data.
+
+\begin{sphinxadmonition}{note}{Note:}
+Some version of Linux running Ubuntu must be used. It is recommended to run Ubuntu 18.04 for best results. Follow instructions in \sphinxstyleemphasis{Ubuntu} page for more details.
+\end{sphinxadmonition}
+
+
+\subsubsection{Ouster client}
+\label{\detokenize{Ouster lidar:ouster-client}}
+The Ouster client allows users to see the raw data that the lidar is collecting and sending to the specified ip address.
+Instruction on building the client in Linux can be found here \sphinxhref{https://github.com/ouster-lidar/ouster\_example/tree/master/ouster\_client}{Building client}.
+
+
+\paragraph{Running client}
+\label{\detokenize{Ouster lidar:running-client}}\begin{enumerate}
+\def\theenumi{\arabic{enumi}}
+\def\labelenumi{\theenumi .}
+\makeatletter\def\p@enumii{\p@enumi \theenumi .}\makeatother
+\item {} 
+cd /path/to/ouster\_client\_example
+
+\item {} 
+type \sphinxstyleemphasis{./ouster\_client\_example \textless{}os1\_hostname\textgreater{} \textless{}udp\_dest\_ip\textgreater{}}
+
+\end{enumerate}
+
+\sphinxstylestrong{\textless{}os1\_hostname\textgreater{}} is hostname/ip address of lidar.
+
+\sphinxstylestrong{\textless{}udp\_data\_dest\_ip\textgreater{}} is the destination ip address the lidar sends data to. e.g. ip address from running \sphinxstyleemphasis{ifconfig}.
+
+
+\subsubsection{Ouster visualization}
+\label{\detokenize{Ouster lidar:ouster-visualization}}
+The Ouster visualization is used for building a basic visualizer frame of collect lidar data. Instructions on building visualizer and it’s dependencies can be found here \sphinxhref{https://github.com/ouster-lidar/ouster\_example/tree/master/ouster\_viz}{Building visualizer}.
+
+
+\paragraph{Running visualizer}
+\label{\detokenize{Ouster lidar:running-visualizer}}\begin{enumerate}
+\def\theenumi{\arabic{enumi}}
+\def\labelenumi{\theenumi .}
+\makeatletter\def\p@enumii{\p@enumi \theenumi .}\makeatother
+\item {} 
+cd /path/to/ouster\_viz/build
+
+\item {} 
+\sphinxstyleemphasis{./viz -m \textless{}frame\_size\textgreater{} \textless{}os1\_hostname\textgreater{} \textless{}udp\_data\_dest\_ip\textgreater{}}
+
+\end{enumerate}
+
+\sphinxstylestrong{\textless{}frame\_size\textgreater{}} is the size of the visualization frame and can be the following: 512x10, 512x20, 1024x10, 1024x20, 2048x10.
+
+\sphinxstylestrong{\textless{}os1\_hostname\textgreater{}} is the ip address of lidar.
+
+\sphinxstylestrong{\textless{}udp\_data\_ip\_dest\textgreater{}} is the ip address lidar sends data to.
+
+
+\subsubsection{Ouster ROS}
+\label{\detokenize{Ouster lidar:ouster-ros}}
+\begin{sphinxadmonition}{note}{Note:}
+For Ubuntu 18.04 users it is best to use \sphinxstylestrong{ROS Melodic} as \sphinxstylestrong{ROS Kinetic} (The ROS provided on the GitHub page) is only compatible with Ubuntu 16.04 and lower.
+\end{sphinxadmonition}
+
+Building the ROS Node can be found here \sphinxhref{https://github.com/ouster-lidar/ouster\_example/tree/master/ouster\_ros}{Buidling ROS Kinetic}.
+
+For Ubuntu 16.04 users and lower: \sphinxhref{http://wiki.ros.org/kinetic/Installation/Ubuntu}{Installation of ROS Kinetic}
+
+For Ubuntu 18.04 users: \sphinxhref{http://wiki.ros.org/melodic/Installation/Ubuntu}{Installation of ROS Melodic}
+
+
+\paragraph{Running ROS Node}
+\label{\detokenize{Ouster lidar:running-ros-node}}
+\begin{sphinxadmonition}{note}{Note:}
+Before typing any commands make sure to always source the setup.bash file in your created ROS workspace otherwise it will return a error. The file can be sourced with the command \sphinxstyleemphasis{source /path/to/myworkspace/devel/setup.bash}.
+\end{sphinxadmonition}
+
+For recording lidar data:
+\begin{enumerate}
+\def\theenumi{\arabic{enumi}}
+\def\labelenumi{\theenumi .}
+\makeatletter\def\p@enumii{\p@enumi \theenumi .}\makeatother
+\item {} 
+\sphinxstyleemphasis{roslaunch ouster\_ros os1.launch os1\_hostname:=\textless{}os1\_hostname\textgreater{} os1\_udp\_dest:=\textless{}os1\_udp\_dest\textgreater{} lidar\_mode\textless{}:=\textless{}lidar\_mode\textgreater{}}. The option to visualize live data can be turned on by adding \sphinxstyleemphasis{viz:=true} to the roslaunch command before setting the variables.
+
+\end{enumerate}
+
+\sphinxstylestrong{\textless{}os1\_hostname\textgreater{} is the ip address of the lidar}
+
+\sphinxstylestrong{\textless{}os1\_udp\_dest\textgreater{} is the ip address the lidar sends data to}
+
+\sphinxstylestrong{\textless{}lidar\_mode\textgreater{} is the size of the lidar visualization frame}
+\begin{enumerate}
+\def\theenumi{\arabic{enumi}}
+\def\labelenumi{\theenumi .}
+\makeatletter\def\p@enumii{\p@enumi \theenumi .}\makeatother
+\setcounter{enumi}{1}
+\item {} 
+\sphinxstyleemphasis{rosbag record /os1\_node/imu\_packets /os1\_node/lidar\_packets} in a new terminal
+
+\end{enumerate}
+
+\sphinxstyleemphasis{/os1\_node/imu\_packets} and \sphinxstyleemphasis{/os1\_node/lidar\_packets} are your topic names that the lidar sends messages to via the nodes you built. These topic names can be changed to user preference.
+
+\begin{sphinxadmonition}{note}{Note:}
+DO NOT close the terminal with the roslaunch command open otherwise rosbag will crash.
+\end{sphinxadmonition}
+
+The recorded data will be stored as a .bag file and can be used for playback.
+
+For replaying lidar data:
+\begin{enumerate}
+\def\theenumi{\arabic{enumi}}
+\def\labelenumi{\theenumi .}
+\makeatletter\def\p@enumii{\p@enumi \theenumi .}\makeatother
+\item {} 
+\sphinxstyleemphasis{roslaunch ouster\_ros os1.launch replay:=true os1\_hostname:=\textless{}os1\_hostname\textgreater{}}
+
+\item {} 
+In a \sphinxstylestrong{new} terminal run \sphinxstyleemphasis{rosbag play \textless{}bag\_filename\textgreater{}}
+
+\end{enumerate}
+
+\begin{sphinxadmonition}{note}{Note:}
+DO NOT close the terminal with the roslaunch command open otherwise rosbag will crash.
+\end{sphinxadmonition}
+
+Converting data to csv file: Run \sphinxstyleemphasis{rostopic echo “topic name” -b “bag\_filename” -p \textgreater{} filename.txt}
+
+\begin{sphinxadmonition}{note}{Note:}
+To find topic names run the command \sphinxstyleemphasis{rosbag info \textless{}bag\_filename\textgreater{}}
+\end{sphinxadmonition}
+
+
 \section{Test file}
-\label{\detokenize{test:module-test}}\label{\detokenize{test:test-file}}\label{\detokenize{test::doc}}\index{test (module)@\spxentry{test}\spxextra{module}}\index{TestParser (class in test)@\spxentry{TestParser}\spxextra{class in test}}
+\label{\detokenize{Test:module-test}}\label{\detokenize{Test:test-file}}\label{\detokenize{Test::doc}}\index{test (module)@\spxentry{test}\spxextra{module}}\index{TestParser (class in test)@\spxentry{TestParser}\spxextra{class in test}}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{test:test.TestParser}}\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{class }}\sphinxcode{\sphinxupquote{test.}}\sphinxbfcode{\sphinxupquote{TestParser}}}{\emph{methodName='runTest'}}{}~\index{test\_TI() (test.TestParser method)@\spxentry{test\_TI()}\spxextra{test.TestParser method}}
+\phantomsection\label{\detokenize{Test:test.TestParser}}\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{class }}\sphinxcode{\sphinxupquote{test.}}\sphinxbfcode{\sphinxupquote{TestParser}}}{\emph{methodName='runTest'}}{}~\index{test\_TI() (test.TestParser method)@\spxentry{test\_TI()}\spxextra{test.TestParser method}}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{test:test.TestParser.test_TI}}\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{test\_TI}}}{}{}
+\phantomsection\label{\detokenize{Test:test.TestParser.test_TI}}\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{test\_TI}}}{}{}
 Method to test if .bin binary file was converted successfully to .csv file with iq data put together.
 \begin{quote}\begin{description}
 \item[{Returns}] \leavevmode
@@ -502,7 +701,7 @@ converted
 \index{test\_iq() (test.TestParser method)@\spxentry{test\_iq()}\spxextra{test.TestParser method}}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{test:test.TestParser.test_iq}}\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{test\_iq}}}{}{}
+\phantomsection\label{\detokenize{Test:test.TestParser.test_iq}}\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{test\_iq}}}{}{}
 Method to test if .dat binary file was converted successfully to .csv file with in-phase and quadrature
 components together.
 \begin{quote}\begin{description}
@@ -518,7 +717,7 @@ converted
 \index{test\_raw() (test.TestParser method)@\spxentry{test\_raw()}\spxextra{test.TestParser method}}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{test:test.TestParser.test_raw}}\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{test\_raw}}}{}{}
+\phantomsection\label{\detokenize{Test:test.TestParser.test_raw}}\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{test\_raw}}}{}{}
 Method to test if .dat binary file was converted successfully to .csv file with in-phase and quadrature
 component separated.
 \begin{quote}\begin{description}
@@ -546,7 +745,7 @@ converted
 \begin{sphinxtheindex}
 \let\bigletter\sphinxstyleindexlettergroup
 \bigletter{t}
-\item\relax\sphinxstyleindexentry{test}\sphinxstyleindexpageref{test:\detokenize{module-test}}
+\item\relax\sphinxstyleindexentry{test}\sphinxstyleindexpageref{Test:\detokenize{module-test}}
 \item\relax\sphinxstyleindexentry{TI\_parser}\sphinxstyleindexpageref{TI radar:\detokenize{module-TI_parser}}
 \indexspace
 \bigletter{x}

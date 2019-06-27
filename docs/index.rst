@@ -16,10 +16,12 @@ Contents:
 .. toctree::
    :maxdepth: 2
    
-   radar information
+   Radar information
+   Linux setup
    X4 radar
    TI radar
-   test
+   Ouster lidar
+   Test
 
 :download:`Convert X4 binary .dat file to csv<X4_parser.py>`
 

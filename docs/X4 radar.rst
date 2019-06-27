@@ -27,7 +27,7 @@ Developer can use Module Connecter API to read, record radar raw data, and also 
 Command to run: *python X4_record_playback.py -d com4 -b -r*
 
 - *-d com3* represents device name and can be found when starting Xethru Xplorer.
-- *-b* to use baseband to record.
+- *-b* to use baseband to record, default is radio frequency.
 - *-r* to start recording.
 
 .. automodule:: X4_record_playback

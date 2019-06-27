@@ -12,15 +12,15 @@ from matplotlib.animation import FuncAnimation
 import pymoduleconnector
 from pymoduleconnector import DataType
 
-
 __version__ = 3
+
 
 def reset(device_name):
     """
     Resets the device profile and restarts the device
 
     Parameter:
-    
+
     device_name: str
         Identifies the device being used for recording with it's port number.
     """
@@ -29,6 +29,7 @@ def reset(device_name):
     xep.module_reset()
     mc.close()
     sleep(3)
+
 
 def on_file_available(data_type, filename):
     """
@@ -46,6 +47,7 @@ def on_file_available(data_type, filename):
     if data_type == DataType.FloatDataType:
         print("processing Float data from file")
 
+
 def on_meta_file_available(session_id, meta_filename):
     """
     Returns the meta file name that is available after recording.
@@ -59,6 +61,7 @@ def on_meta_file_available(session_id, meta_filename):
     """
     print("new meta file available for recording with id: {}".format(session_id))
     print("  |- file: {}".format(meta_filename))
+
 
 def clear_buffer(mc):
     """
@@ -74,6 +77,7 @@ def clear_buffer(mc):
     while xep.peek_message_data_float():
         xep.read_message_data_float()
 
+
 def simple_xep_plot(device_name, record=False, baseband=False):
     """
     Plots the recorded data.
@@ -86,7 +90,7 @@ def simple_xep_plot(device_name, record=False, baseband=False):
         check if device is recording.
     baseband: boolean
         check if recording with baseband iq data.
-            
+
     Return:
 
     Simple plot of range over time.
@@ -100,20 +104,20 @@ def simple_xep_plot(device_name, record=False, baseband=False):
     app = mc.get_x4m300()
     # Stop running application and set module in manual mode.
     try:
-        app.set_sensor_mode(0x13, 0) # Make sure no profile is running.
+        app.set_sensor_mode(0x13, 0)  # Make sure no profile is running.
     except RuntimeError:
         # Profile not running, OK
         pass
 
     try:
-        app.set_sensor_mode(0x12, 0) # Manual mode.
+        app.set_sensor_mode(0x12, 0)  # Manual mode.
     except RuntimeError:
         # Maybe running XEP firmware only?
         pass
 
     if record:
         recorder = mc.get_data_recorder()
-        recorder.subscribe_to_file_available(pymoduleconnector.AllDataTypes, on_file_available )
+        recorder.subscribe_to_file_available(pymoduleconnector.AllDataTypes, on_file_available)
         recorder.subscribe_to_meta_file_available(on_meta_file_available)
 
     xep = mc.get_xep()
@@ -133,23 +137,23 @@ def simple_xep_plot(device_name, record=False, baseband=False):
         """Gets frame data from module"""
         d = xep.read_message_data_float()
         frame = np.array(d.data)
-         # Convert the resulting frame to a complex array if downconversion is enabled
+        # Convert the resulting frame to a complex array if downconversion is enabled
         if baseband:
             n = len(frame)
-            frame = frame[:n//2] + 1j*frame[n//2:]
+            frame = frame[:n // 2] + 1j * frame[n // 2:]
         return frame
 
     def animate(i):
         if baseband:
-            line.set_ydata(abs(read_frame())) # update the data
+            line.set_ydata(abs(read_frame()))  # update the data
         else:
             line.set_ydata(read_frame())
         return line,
 
     fig = plt.figure()
-    fig.suptitle("example version %d "%(__version__))
-    ax = fig.add_subplot(1,1,1)
-    ax.set_ylim(0 if baseband else -0.03,0.03) #keep graph in frame (FIT TO YOUR DATA)
+    fig.suptitle("example version %d " % (__version__))
+    ax = fig.add_subplot(1, 1, 1)
+    ax.set_ylim(0 if baseband else -0.03, 0.03)  # keep graph in frame (FIT TO YOUR DATA)
     frame = read_frame()
     if baseband:
         frame = abs(frame)
@@ -167,6 +171,7 @@ def simple_xep_plot(device_name, record=False, baseband=False):
         # Stop streaming of data
         xep.x4driver_set_fps(0)
 
+
 def playback_recording(meta_filename, baseband=False):
     """
     Plays back the recording.
@@ -178,7 +183,7 @@ def playback_recording(meta_filename, baseband=False):
     baseband: boolean
         Check if recording with baseband iq data.
     """
-    print("Starting playback for {}" .format(meta_filename))
+    print("Starting playback for {}".format(meta_filename))
     player = pymoduleconnector.DataPlayer(meta_filename, -1)
     dur = player.get_duration()
     mc = pymoduleconnector.ModuleConnector(player)
@@ -195,7 +200,7 @@ def playback_recording(meta_filename, baseband=False):
         frame = np.array(d.data)
         if baseband:
             n = len(frame)
-            frame = frame[:n//2] + 1j*frame[n//2:]
+            frame = frame[:n // 2] + 1j * frame[n // 2:]
         return frame
 
     def animate(i):
@@ -207,21 +212,22 @@ def playback_recording(meta_filename, baseband=False):
 
     fig = plt.figure()
     fig.suptitle("Plot playback")
-    ax = fig.add_subplot(1,1,1)
+    ax = fig.add_subplot(1, 1, 1)
     frame = read_frame()
     line, = ax.plot(frame)
-    ax.set_ylim(0 if baseband else -0.03,0.03) #keep graph in frame (FIT TO YOUR DATA)
+    ax.set_ylim(0 if baseband else -0.03, 0.03)  # keep graph in frame (FIT TO YOUR DATA)
     ani = FuncAnimation(fig, animate, interval=10)
     plt.show()
 
     player.stop()
+
 
 def main():
     """
     Creates a parser with subcatergories.
 
     Return:
-    
+
     A simple XEP plot of live feed from X4 radar.
     """
     parser = OptionParser()
@@ -254,14 +260,15 @@ def main():
 
     (options, args) = parser.parse_args()
     if not options.device_name:
-        if  options.meta_filename:
+        if options.meta_filename:
             playback_recording(options.meta_filename,
-                    baseband=options.baseband)
+                               baseband=options.baseband)
         else:
             parser.error("Missing -d or -f. See --help.")
     else:
         simple_xep_plot(options.device_name, record=options.record,
-                baseband=options.baseband)
+                        baseband=options.baseband)
+
 
 if __name__ == "__main__":
-   main()
+    main()

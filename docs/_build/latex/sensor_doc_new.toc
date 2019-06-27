@@ -7,10 +7,22 @@
 \contentsline {subsection}{\numberline {1.1.2}Configuring X4 radar}{6}{subsection.1.1.2}% 
 \contentsline {subsection}{\numberline {1.1.3}Setting radar FPS}{6}{subsection.1.1.3}% 
 \contentsline {subsubsection}{Example pulse\_per\_step calculation}{6}{subsubsection*.5}% 
-\contentsline {section}{\numberline {1.2}X4 Radar}{7}{section.1.2}% 
-\contentsline {subsection}{\numberline {1.2.1}Parser for iq data}{7}{subsection.1.2.1}% 
-\contentsline {subsection}{\numberline {1.2.2}Parser for raw data}{7}{subsection.1.2.2}% 
-\contentsline {subsection}{\numberline {1.2.3}X4 Record and playback code}{7}{subsection.1.2.3}% 
-\contentsline {section}{\numberline {1.3}TI parser code}{9}{section.1.3}% 
-\contentsline {section}{\numberline {1.4}Test file}{9}{section.1.4}% 
-\contentsline {chapter}{Python Module Index}{11}{section*.20}% 
+\contentsline {section}{\numberline {1.2}Linux setup}{7}{section.1.2}% 
+\contentsline {subsection}{\numberline {1.2.1}Quick tips for linux beginners}{7}{subsection.1.2.1}% 
+\contentsline {section}{\numberline {1.3}X4 Radar}{7}{section.1.3}% 
+\contentsline {subsection}{\numberline {1.3.1}Parser for iq data}{7}{subsection.1.3.1}% 
+\contentsline {subsection}{\numberline {1.3.2}Parser for raw data}{7}{subsection.1.3.2}% 
+\contentsline {subsection}{\numberline {1.3.3}X4 Record and playback code}{8}{subsection.1.3.3}% 
+\contentsline {section}{\numberline {1.4}TI parser code}{9}{section.1.4}% 
+\contentsline {section}{\numberline {1.5}Ouster OS1 Lidar}{9}{section.1.5}% 
+\contentsline {subsection}{\numberline {1.5.1}Specs}{9}{subsection.1.5.1}% 
+\contentsline {subsection}{\numberline {1.5.2}Setting up lidar}{10}{subsection.1.5.2}% 
+\contentsline {subsection}{\numberline {1.5.3}Ouster Github}{10}{subsection.1.5.3}% 
+\contentsline {subsubsection}{Ouster client}{10}{subsubsection*.16}% 
+\contentsline {paragraph}{Running client}{10}{paragraph*.17}% 
+\contentsline {subsubsection}{Ouster visualization}{10}{subsubsection*.18}% 
+\contentsline {paragraph}{Running visualizer}{10}{paragraph*.19}% 
+\contentsline {subsubsection}{Ouster ROS}{11}{subsubsection*.20}% 
+\contentsline {paragraph}{Running ROS Node}{11}{paragraph*.21}% 
+\contentsline {section}{\numberline {1.6}Test file}{12}{section.1.6}% 
+\contentsline {chapter}{Python Module Index}{13}{section*.26}% 
