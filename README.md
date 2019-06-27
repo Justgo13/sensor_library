@@ -35,3 +35,11 @@ To build a final project use command *make html* for html pages and *make latex*
 Jupyter Notebook
 ----------------
 This project has a Jupyter notebook to demonstrate segments of code in action.
+
+Running Ouster OS1 Lidar
+-------------------------
+To run the OS1 Lidar, user must have working version of Ubuntu 16.04 or higher. All documentation 
+regarding building and running the Lidar software can be found in the documentation file. 
+There is a python file in the library that allows users to change the header of the .csv file created 
+from the .bag Lidar data file. This .py file is used to give users a better understanding of the 
+data output from the Lidar. 
