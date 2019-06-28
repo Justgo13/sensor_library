@@ -3,13 +3,13 @@ X4 Radar
 
 Parser for iq data
 ==================
-
+Pass your .dat file from the recording into this function to generate a readable csv file with complex values as data.
 .. automodule:: X4_parser
    :members: iq_data
 
 Parser for raw data
 ===================
-
+Pass your .dat file from the recording into this function to generate a readable csv file with raw values as data.
 .. automodule:: X4_parser
    :noindex:
    :members: raw_data
@@ -24,7 +24,7 @@ Introduction:
 XeThru modules support both RF and baseband data output. This is an example of radar raw data manipulation.
 Developer can use Module Connecter API to read, record radar raw data, and also playback recorded data. 
 
-Command to run: *python X4_record_playback.py -d com4 -b -r*
+Command to run: *python X4_record_playback.py -d com3-b -r*
 
 - *-d com3* represents device name and can be found when starting Xethru Xplorer.
 - *-b* to use baseband to record, default is radio frequency.

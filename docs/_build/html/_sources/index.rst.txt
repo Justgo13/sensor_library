@@ -8,8 +8,9 @@ Welcome to the CUDRDC project documentation!
 
 About project
 =============
-This project is funded by the Defense Research and Development Canada (DRDC) and they are working alongside Carleton University to develop algorithms for radar and lidar sensors. The radars used in this project are Novelda X4,
-Thor WFS30-K1, Ouster lidar and Advacam Minipix TPX3.
+This project is funded by both the Defense Research and Development Canada (DRDC) and the National Research Council (NRC). These organizations are working alongside Carleton University students
+to develop a pip installable library that contains all the parsers used to convert radar and lidar data to readable csv files.
+The radars used in this project are the Novelda X4M03, X4M300, X4M200 and the TI-AWR1642. The lidar used is the Ouster OS1-16.
 
 Contents:
 
@@ -28,4 +29,6 @@ Contents:
 :download:`X4 data collection code<X4_record_playback.py>`
 
 :download:`Convert TI binary .bin file to csv<TI_parser.py>`
+
+:download:`Unit tests for radar parser<test.py>`
 

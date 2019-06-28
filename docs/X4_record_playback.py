@@ -22,7 +22,7 @@ def reset(device_name):
     Parameter:
 
     device_name: str
-        Identifies the device being used for recording with it's port number.
+        Identifies the device being used for recording using it's port number.
     """
     mc = pymoduleconnector.ModuleConnector(device_name)
     xep = mc.get_xep()
@@ -93,7 +93,7 @@ def simple_xep_plot(device_name, record=False, baseband=False):
 
     Return:
 
-    Simple plot of range over time.
+    Simple plot of range bin by amplitude.
     """
     FPS = 10
     directory = '.'
