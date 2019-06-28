@@ -12,7 +12,7 @@ class TestParser(unittest.TestCase):
 
         :return:
 
-        converted
+        Tells user if binary file was correctly converted to csv file.
         """
         file_iq = X4.iq_data('X4data.dat','X4iq')
         self.assertEqual(file_iq, 'converted')
@@ -24,7 +24,7 @@ class TestParser(unittest.TestCase):
 
         :return:
 
-        converted
+        Tells user if binary file was correctly converted to csv file.
         """
         file_raw = X4.raw_data('X4data.dat','X4raw')
         self.assertEqual(file_raw, 'converted')
@@ -35,7 +35,7 @@ class TestParser(unittest.TestCase):
 
         :return:
 
-        converted
+        Tells user if binary file was correctly converted to csv file.
         """
 
         file_TI = TI.readTIdata('TIdata.bin','TIiq')

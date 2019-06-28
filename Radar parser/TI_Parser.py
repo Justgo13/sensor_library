@@ -23,7 +23,7 @@ def readTIdata(filename,csvname):
 
     :return:
 
-    A csv file with the iq data taken from the binary file.
+    Readable csv file containing complex data.
     """
     # global variables
     # change based on sensor config
@@ -83,6 +83,3 @@ def readTIdata(filename,csvname):
     f.close()
     workbook.close()
     return 'converted'
-
-
-print(readTIdata('TIdata.bin', 'TIdata'))
