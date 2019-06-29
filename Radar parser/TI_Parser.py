@@ -1,7 +1,6 @@
 # This script is used to read the binary file produced by the DCA1000 and Mmwave Studio
-# Command to run in Matlab GUI - readDCA1000('<ADC capture bin file>') 
 import numpy as np
-import xlsxwriter
+import pandas as pd
 
 
 def readTIdata(filename,csvname):
@@ -74,12 +73,7 @@ def readTIdata(filename,csvname):
                 for i in range(0, numChirps):
                     adcData[row, i * numADCSamples:(i + 1) * numADCSamples] = LVDS[i, row * numADCSamples:(row + 1) * numADCSamples]
 
-        workbook = xlsxwriter.Workbook(csvname+'.xlsx')
-        worksheet = workbook.add_worksheet()
-        for row in range(0, numRX):
-            for col in range(0, numADCSamples*numChirps):
-                worksheet.write(row,col,str(adcData[row, col]))
-        # TO DO: write adcData to a csv file
+            data = pd.DataFrame(adcData)
+            data.to_csv(csvname+'.csv', index=False, header=False, mode='w')
     f.close()
-    workbook.close()
     return 'converted'
