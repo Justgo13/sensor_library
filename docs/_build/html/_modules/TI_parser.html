@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>TI_parser &mdash; Sensor Documentation 0.0.8 documentation</title>
+  <title>TI_parser &mdash; Sensor Documentation 0.0.9 documentation</title>
   
 
   
@@ -149,31 +149,30 @@
             
   <h1>Source code for TI_parser</h1><div class="highlight"><pre>
 <span></span><span class="c1"># This script is used to read the binary file produced by the DCA1000 and Mmwave Studio</span>
-<span class="c1"># Command to run in Matlab GUI - readDCA1000(&#39;&lt;ADC capture bin file&gt;&#39;) </span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">xlsxwriter</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 
 
 <div class="viewcode-block" id="readTIdata"><a class="viewcode-back" href="../TI radar.html#TI_parser.readTIdata">[docs]</a><span class="k">def</span> <span class="nf">readTIdata</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span><span class="n">csvname</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Takes a .bin binary file and outputs the iq data to a csv file specified by csvname.</span>
+<span class="sd">    Reads in a binary file and outputs the iq complex data to a csv file specified by csvname.</span>
 
-<span class="sd">    :parameter:</span>
+<span class="sd">    Parameter:</span>
 
-<span class="sd">    filename: str</span>
-<span class="sd">        file name of binary file.</span>
+<span class="sd">        filename: str</span>
+<span class="sd">            file name of binary file.</span>
 
-<span class="sd">    csvname: str</span>
-<span class="sd">        csv file name that stores the iq data from binary file.</span>
+<span class="sd">        csvname: str</span>
+<span class="sd">            csv file name that stores the iq data from binary file.</span>
 
-<span class="sd">    :example:</span>
+<span class="sd">    Example:</span>
 
-<span class="sd">    &gt;&gt;&gt; readTIdata(&#39;TIdata.bin&#39;,&#39;TIdata&#39;)</span>
-<span class="sd">    &gt;&gt;&gt; &#39;converted&#39;</span>
+<span class="sd">        &gt;&gt;&gt; readTIdata(&#39;TIdata.bin&#39;,&#39;TIdata&#39;)</span>
+<span class="sd">        &gt;&gt;&gt; &#39;converted&#39;</span>
 
-<span class="sd">    :return:</span>
+<span class="sd">    Return:</span>
 
-<span class="sd">    Readable csv file containing complex data.</span>
+<span class="sd">        Readable csv file containing complex data.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="c1"># global variables</span>
     <span class="c1"># change based on sensor config</span>
@@ -224,14 +223,9 @@
                 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">numChirps</span><span class="p">):</span>
                     <span class="n">adcData</span><span class="p">[</span><span class="n">row</span><span class="p">,</span> <span class="n">i</span> <span class="o">*</span> <span class="n">numADCSamples</span><span class="p">:(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">numADCSamples</span><span class="p">]</span> <span class="o">=</span> <span class="n">LVDS</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">row</span> <span class="o">*</span> <span class="n">numADCSamples</span><span class="p">:(</span><span class="n">row</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">numADCSamples</span><span class="p">]</span>
 
-        <span class="n">workbook</span> <span class="o">=</span> <span class="n">xlsxwriter</span><span class="o">.</span><span class="n">Workbook</span><span class="p">(</span><span class="n">csvname</span><span class="o">+</span><span class="s1">&#39;.xlsx&#39;</span><span class="p">)</span>
-        <span class="n">worksheet</span> <span class="o">=</span> <span class="n">workbook</span><span class="o">.</span><span class="n">add_worksheet</span><span class="p">()</span>
-        <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">numRX</span><span class="p">):</span>
-            <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">numADCSamples</span><span class="o">*</span><span class="n">numChirps</span><span class="p">):</span>
-                <span class="n">worksheet</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">row</span><span class="p">,</span><span class="n">col</span><span class="p">,</span><span class="nb">str</span><span class="p">(</span><span class="n">adcData</span><span class="p">[</span><span class="n">row</span><span class="p">,</span> <span class="n">col</span><span class="p">]))</span>
-        <span class="c1"># TO DO: write adcData to a csv file</span>
+            <span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">adcData</span><span class="p">)</span>
+            <span class="n">data</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">csvname</span><span class="o">+</span><span class="s1">&#39;.csv&#39;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;w&#39;</span><span class="p">)</span>
     <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-    <span class="n">workbook</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
     <span class="k">return</span> <span class="s1">&#39;converted&#39;</span></div>
 </pre></div>
 

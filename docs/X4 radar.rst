@@ -3,13 +3,13 @@ X4 Radar
 
 Parser for iq data
 ==================
-Pass your .dat file from the recording into this function to generate a readable csv file with complex values as data.
+
 .. automodule:: X4_parser
    :members: iq_data
-
+   
 Parser for raw data
 ===================
-Pass your .dat file from the recording into this function to generate a readable csv file with raw values as data.
+
 .. automodule:: X4_parser
    :noindex:
    :members: raw_data
@@ -31,4 +31,13 @@ Command to run: *python X4_record_playback.py -d com3-b -r*
 - *-r* to start recording.
 
 .. automodule:: X4_record_playback
-   :members: 
+   :members:
+
+X4 Threshold detection
+======================
+To use these functions first take the data recorded from the X4 radar and pass it into the iq_data() function found in X4_parser.py to get a comlex csv file. The file received will
+be used wherever *filename* is an arguement.
+
+.. automodule:: X4_threshold
+   :members:
+   

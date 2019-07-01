@@ -21,7 +21,7 @@ def iq_data(filename,csvname):
 
     :returns:
 
-    In-phase and quadrature pairs stored together in a .csv file.
+    Readable csv file containing complex values.
     """
     with open(filename, "rb") as f:
         data = np.fromfile(f, dtype=np.float32)
@@ -33,13 +33,12 @@ def iq_data(filename,csvname):
                 iqdata.append(str(round(temp[j], 4)) + "+" + str(round(temp[j + 180], 4)) + "j")
             else:
                 iqdata.append(str(round(temp[j], 4)) + str(round(temp[j + 180], 4)) + "j")
-    return (iqdata)
-    #     with open(csvname+'.csv', 'a', newline="") as csvFile:
-    #         writer = csv.writer(csvFile)
-    #         writer.writerow(iqdata)
-    # f.close()
-    # csvFile.close()
-    # return 'converted'
+        with open(csvname+'.csv', 'a', newline="") as csvFile:
+             writer = csv.writer(csvFile)
+             writer.writerow(iqdata)
+    f.close()
+    csvFile.close()
+    return 'converted'
 
 
 def raw_data(filename,csvname):
@@ -61,7 +60,7 @@ def raw_data(filename,csvname):
 
     :returns:
 
-    In-phase and quadrature stored separately in a .csv file.
+    Readable csv files containing raw data.
     """
     with open(filename, "rb") as f:
         data = np.fromfile(f, dtype=np.float32)
@@ -74,5 +73,3 @@ def raw_data(filename,csvname):
     f.close()
     csvFile.close()
     return 'converted'
-
-print(iq_data("X4data.dat", "X4csv"))

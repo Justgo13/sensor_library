@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Welcome to the CUDRDC project documentation! &mdash; Sensor Documentation 0.0.8 documentation</title>
+  <title>Welcome to the CUDRDC project documentation! &mdash; Sensor Documentation 0.0.9 documentation</title>
   
 
   
@@ -155,15 +155,14 @@
 <div class="section" id="about-project">
 <h2>About project<a class="headerlink" href="#about-project" title="Permalink to this headline">¶</a></h2>
 <p>This project is funded by both the Defense Research and Development Canada (DRDC) and the National Research Council (NRC). These organizations are working alongside Carleton University students
-to develop a pip installable library that contains all the parsers used to convert radar and lidar data to readable csv files.
-The radars used in this project are the Novelda X4M03, X4M300, X4M200 and the TI-AWR1642. The lidar used is the Ouster OS1-16.</p>
+to develop a pip installable library that contains all the parsers used to convert radar and lidar data to readable csv files. The library also contains methods for determining radar thresholds.
+The radars used in this project are the Novelda X4M03, X4M300, X4M200 and the TSW1400. The lidar used is the Ouster OS1-16.</p>
 <p>Contents:</p>
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="Radar information.html">Radar Information</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="Radar information.html#about-x4-radar">About X4 radar</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Radar information.html#configuring-x4-radar">Configuring X4 radar</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Radar information.html#setting-radar-fps">Setting radar FPS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Radar information.html#novelda-x4">Novelda X4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Radar information.html#tsw1400">TSW1400</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="Linux setup.html">Linux setup</a><ul>
@@ -171,9 +170,10 @@ The radars used in this project are the Novelda X4M03, X4M300, X4M200 and the TI
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="X4 radar.html">X4 Radar</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="X4 radar.html#parser-for-iq-data">Parser for iq data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="X4 radar.html#module-X4_parser">Parser for iq data</a></li>
 <li class="toctree-l2"><a class="reference internal" href="X4 radar.html#parser-for-raw-data">Parser for raw data</a></li>
 <li class="toctree-l2"><a class="reference internal" href="X4 radar.html#x4-record-and-playback-code">X4 Record and playback code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="X4 radar.html#x4-threshold-detection">X4 Threshold detection</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="TI radar.html">TI parser code</a></li>
@@ -186,10 +186,11 @@ The radars used in this project are the Novelda X4M03, X4M300, X4M200 and the TI
 <li class="toctree-l1"><a class="reference internal" href="Test.html">Test file</a></li>
 </ul>
 </div>
-<p><a class="reference download internal" download="" href="_downloads/fb4fddab16b51dbd7066fb0a7511d84d/X4_parser.py"><code class="xref download docutils literal notranslate"><span class="pre">Convert</span> <span class="pre">X4</span> <span class="pre">binary</span> <span class="pre">.dat</span> <span class="pre">file</span> <span class="pre">to</span> <span class="pre">csv</span></code></a></p>
-<p><a class="reference download internal" download="" href="_downloads/2abaa05c7964eac09d6955531b039bb9/X4_record_playback.py"><code class="xref download docutils literal notranslate"><span class="pre">X4</span> <span class="pre">data</span> <span class="pre">collection</span> <span class="pre">code</span></code></a></p>
-<p><a class="reference download internal" download="" href="_downloads/f3f83f8f79f2912cc96c2f614998b5ac/TI_parser.py"><code class="xref download docutils literal notranslate"><span class="pre">Convert</span> <span class="pre">TI</span> <span class="pre">binary</span> <span class="pre">.bin</span> <span class="pre">file</span> <span class="pre">to</span> <span class="pre">csv</span></code></a></p>
-<p><a class="reference download internal" download="" href="_downloads/bf4abfe6bbd1a91865e9ec42fb577e01/test.py"><code class="xref download docutils literal notranslate"><span class="pre">Unit</span> <span class="pre">tests</span> <span class="pre">for</span> <span class="pre">radar</span> <span class="pre">parser</span></code></a></p>
+<p><a class="reference download internal" download="" href="_downloads/fb4fddab16b51dbd7066fb0a7511d84d/X4_parser.py"><code class="xref download docutils literal notranslate"><span class="pre">Novelda</span> <span class="pre">X4</span> <span class="pre">binary</span> <span class="pre">file</span> <span class="pre">to</span> <span class="pre">complex</span> <span class="pre">or</span> <span class="pre">raw</span> <span class="pre">csv</span> <span class="pre">file</span></code></a></p>
+<p><a class="reference download internal" download="" href="_downloads/2abaa05c7964eac09d6955531b039bb9/X4_record_playback.py"><code class="xref download docutils literal notranslate"><span class="pre">Novelda</span> <span class="pre">X4</span> <span class="pre">data</span> <span class="pre">collection</span> <span class="pre">and</span> <span class="pre">playback</span></code></a></p>
+<p><a class="reference download internal" download="" href="_downloads/2c33a2d174715670f7fa75a972180cd2/X4_threshold.py"><code class="xref download docutils literal notranslate"><span class="pre">Novelda</span> <span class="pre">X4</span> <span class="pre">threshold</span></code></a></p>
+<p><a class="reference download internal" download="" href="_downloads/f3f83f8f79f2912cc96c2f614998b5ac/TI_parser.py"><code class="xref download docutils literal notranslate"><span class="pre">TI</span> <span class="pre">binary</span> <span class="pre">file</span> <span class="pre">to</span> <span class="pre">complex</span> <span class="pre">csv</span> <span class="pre">file</span></code></a></p>
+<p><a class="reference download internal" download="" href="_downloads/bf4abfe6bbd1a91865e9ec42fb577e01/test.py"><code class="xref download docutils literal notranslate"><span class="pre">Unit</span> <span class="pre">tests</span> <span class="pre">for</span> <span class="pre">radar</span> <span class="pre">parser</span> <span class="pre">and</span> <span class="pre">Novelda</span> <span class="pre">threshold</span> <span class="pre">calculator</span></code></a></p>
 </div>
 </div>
 

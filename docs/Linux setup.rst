@@ -6,8 +6,10 @@ Linux setup
 
 `Ubuntu 18.04 download <https://ubuntu.com/download/desktop>`_
 
+`Quick tutorial on installing Ubuntu <https://itsfoss.com/install-ubuntu-dual-boot-mode-windows/>`_
+
 Quick tips for linux beginners
 ===============================
 - Set the network setting to use bridged adapter so Linux doesn't share the same ip address as your Windows PC.
 - Insert guest addition CD image found in the *Devices* tab for auto-adjusted screen resolutions.
-- Use *~/ to cd to home directory*
+- Use *~/ to cd from home directory*

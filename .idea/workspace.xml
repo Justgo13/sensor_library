@@ -1,15 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3cff6aea-9099-4548-8a06-1ecbca22eba7" name="Default Changelist" comment="">
+    <list default="true" id="3cff6aea-9099-4548-8a06-1ecbca22eba7" name="Default Changelist" comment="added bit about Ouster lidar and using Linux">
+      <change afterPath="$PROJECT_DIR$/.idea/GitScope.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/other.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Radar parser/Heli150040.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Radar parser/X4_threshold.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/Heli150040.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/X4_threshold.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Radar parser/TI_Parser.py" beforeDir="false" afterPath="$PROJECT_DIR$/Radar parser/TI_Parser.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Radar parser/X4_parser.py" beforeDir="false" afterPath="$PROJECT_DIR$/Radar parser/X4_parser.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Radar parser/X4_record_playback.py" beforeDir="false" afterPath="$PROJECT_DIR$/Radar parser/X4_record_playback.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Radar parser/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/Radar parser/test.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/lib/Radar parser/TI_Parser.py" beforeDir="false" afterPath="$PROJECT_DIR$/build/lib/Radar parser/TI_Parser.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/lib/Radar parser/X4_parser.py" beforeDir="false" afterPath="$PROJECT_DIR$/build/lib/Radar parser/X4_parser.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/lib/Radar parser/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/build/lib/Radar parser/test.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/Linux setup.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/Linux setup.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/Ouster lidar.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/Ouster lidar.rst" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docs/TI_Parser.py" beforeDir="false" afterPath="$PROJECT_DIR$/docs/TI_Parser.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/X4 radar.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/X4 radar.rst" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docs/X4_parser.py" beforeDir="false" afterPath="$PROJECT_DIR$/docs/X4_parser.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docs/X4_record_playback.py" beforeDir="false" afterPath="$PROJECT_DIR$/docs/X4_record_playback.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docs/_build/doctrees/environment.pickle" beforeDir="false" afterPath="$PROJECT_DIR$/docs/_build/doctrees/environment.pickle" afterDir="false" />
@@ -23,6 +34,7 @@
       <change beforePath="$PROJECT_DIR$/docs/_build/html/_static/documentation_options.js" beforeDir="false" afterPath="$PROJECT_DIR$/docs/_build/html/_static/documentation_options.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docs/_build/html/genindex.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/_build/html/genindex.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docs/_build/html/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/_build/html/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/_build/html/objects.inv" beforeDir="false" afterPath="$PROJECT_DIR$/docs/_build/html/objects.inv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docs/_build/html/py-modindex.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/_build/html/py-modindex.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docs/_build/html/radar information.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/_build/html/radar information.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docs/_build/html/search.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/_build/html/search.html" afterDir="false" />
@@ -31,12 +43,16 @@
       <change beforePath="$PROJECT_DIR$/docs/_build/latex/sensor_doc_new.aux" beforeDir="false" afterPath="$PROJECT_DIR$/docs/_build/latex/sensor_doc_new.aux" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docs/_build/latex/sensor_doc_new.idx" beforeDir="false" afterPath="$PROJECT_DIR$/docs/_build/latex/sensor_doc_new.idx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docs/_build/latex/sensor_doc_new.log" beforeDir="false" afterPath="$PROJECT_DIR$/docs/_build/latex/sensor_doc_new.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/_build/latex/sensor_doc_new.out" beforeDir="false" afterPath="$PROJECT_DIR$/docs/_build/latex/sensor_doc_new.out" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docs/_build/latex/sensor_doc_new.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/docs/_build/latex/sensor_doc_new.pdf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docs/_build/latex/sensor_doc_new.synctex.gz" beforeDir="false" afterPath="$PROJECT_DIR$/docs/_build/latex/sensor_doc_new.synctex.gz" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docs/_build/latex/sensor_doc_new.tex" beforeDir="false" afterPath="$PROJECT_DIR$/docs/_build/latex/sensor_doc_new.tex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/_build/latex/sensor_doc_new.toc" beforeDir="false" afterPath="$PROJECT_DIR$/docs/_build/latex/sensor_doc_new.toc" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docs/conf.py" beforeDir="false" afterPath="$PROJECT_DIR$/docs/conf.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docs/index.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/index.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/radar information.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/radar information.rst" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docs/sensor_note.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/docs/sensor_note.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/docs/test.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sensor_library_justgo13.egg-info/PKG-INFO" beforeDir="false" afterPath="$PROJECT_DIR$/sensor_library_justgo13.egg-info/PKG-INFO" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sensor_library_justgo13.egg-info/SOURCES.txt" beforeDir="false" afterPath="$PROJECT_DIR$/sensor_library_justgo13.egg-info/SOURCES.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/setup.py" beforeDir="false" afterPath="$PROJECT_DIR$/setup.py" afterDir="false" />
@@ -50,13 +66,13 @@
   <component name="FileEditorManager">
     <leaf>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Radar parser/test.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="12" column="16" lean-forward="true" selection-start-line="12" selection-start-column="16" selection-end-line="12" selection-end-column="16" />
-              <folding>
-                <element signature="e#0#15#0" expanded="true" />
-              </folding>
+        <entry file="file://$PROJECT_DIR$/README.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="238">
+                <caret line="14" column="38" selection-start-line="14" selection-start-column="38" selection-end-line="14" selection-end-column="38" />
+              </first_editor>
+              <second_editor />
             </state>
           </provider>
         </entry>
@@ -67,6 +83,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Jupyter Notebook" />
+        <option value="Python Script" />
       </list>
     </option>
   </component>
@@ -94,19 +111,33 @@
         <option value="$PROJECT_DIR$/docs/sensor_note.ipynb" />
         <option value="$PROJECT_DIR$/docs/sensor_not.ipynb" />
         <option value="$PROJECT_DIR$/Radar parser/TIcsv.csv" />
-        <option value="$PROJECT_DIR$/Radar parser/test.py" />
-        <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/docs/conf.py" />
         <option value="$PROJECT_DIR$/setup.py" />
-        <option value="$PROJECT_DIR$/Radar parser/TI_parser.py" />
+        <option value="$PROJECT_DIR$/sensor_library_justgo13.egg-info/PKG-INFO" />
+        <option value="$PROJECT_DIR$/LICENSE.txt" />
+        <option value="$PROJECT_DIR$/Radar parser/X4Threshold.py" />
         <option value="$PROJECT_DIR$/docs/X4_record_playback.py" />
-        <option value="$PROJECT_DIR$/docs/test.py" />
+        <option value="$PROJECT_DIR$/Radar parser/TI_parser - Copy.py" />
+        <option value="$PROJECT_DIR$/docs/Ouster lidar.rst" />
         <option value="$PROJECT_DIR$/docs/X4_parser.py" />
+        <option value="$PROJECT_DIR$/docs/X4_threshold.py" />
+        <option value="$PROJECT_DIR$/docs/X4 radar.rst" />
+        <option value="$PROJECT_DIR$/Radar parser/test.py" />
         <option value="$PROJECT_DIR$/Radar parser/X4_parser.py" />
-        <option value="$PROJECT_DIR$/docs/TI_parser.py" />
         <option value="$PROJECT_DIR$/docs/index.rst" />
+        <option value="$PROJECT_DIR$/Radar parser/X4_record_playback.py" />
+        <option value="$PROJECT_DIR$/docs/Linux setup.rst" />
+        <option value="$PROJECT_DIR$/docs/test.py" />
+        <option value="$PROJECT_DIR$/docs/Radar information.rst" />
+        <option value="$PROJECT_DIR$/Radar parser/TI_parser.py" />
+        <option value="$PROJECT_DIR$/docs/TI_parser.py" />
+        <option value="$PROJECT_DIR$/Radar parser/X4_threshold.py" />
+        <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
+  </component>
+  <component name="NamedScopeManager">
+    <scope name="Git Scope (Files)" pattern="" />
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-8" />
@@ -129,16 +160,6 @@
               <item name="sensor_library" type="b2602c69:ProjectViewProjectNode" />
               <item name="sensor_library" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="sensor_library" type="b2602c69:ProjectViewProjectNode" />
-              <item name="sensor_library" type="462c0819:PsiDirectoryNode" />
-              <item name="docs" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="sensor_library" type="b2602c69:ProjectViewProjectNode" />
-              <item name="sensor_library" type="462c0819:PsiDirectoryNode" />
-              <item name="Radar parser" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -149,20 +170,21 @@
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/Radar parser/TIiq.csv" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/docs" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="restartRequiresConfirmation" value="false" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
     <property name="settings.editor.selected.configurable" value="org.jetbrains.plugins.notebooks.jupyter.connections.configuration.JupyterServerConfigurable" />
     <property name="two.files.diff.last.used.file" value="$PROJECT_DIR$/Radar parser/TIiq.csv" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\jgao2\Documents\Internship Work\sensor_library\docs" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\jgao2\Documents\Internship Work\sensor_library\docs" />
       <recent name="C:\Users\jgao2\Documents\Internship Work\sensor_library\Radar parser" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\jgao2\Documents\Internship Work\sensor_library\docs" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -177,8 +199,8 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python tests.Unittests for test.TestParser.test_iq">
-    <configuration name="TI_parser" type="PythonConfigurationType" factoryName="Python" temporary="true">
+  <component name="RunManager" selected="Python tests.Unittests for test.TestParser">
+    <configuration name="TI_parser - Copy" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="sensor_library" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -191,7 +213,29 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Radar parser/TI_parser.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Radar parser/TI_parser - Copy.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="X4Threshold" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="sensor_library" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Radar parser" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Radar parser/X4Threshold.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -222,7 +266,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="Doctest raw_data" type="tests" factoryName="Doctests" temporary="true" nameIsGenerated="true">
+    <configuration name="Doctest readTIdata" type="tests" factoryName="Doctests" temporary="true" nameIsGenerated="true">
       <module name="sensor_library" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -232,52 +276,37 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Radar parser/X4_parser.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Radar parser/TI_parser - Copy.py" />
       <option name="CLASS_NAME" value="" />
-      <option name="METHOD_NAME" value="raw_data" />
+      <option name="METHOD_NAME" value="readTIdata" />
       <option name="FOLDER_NAME" value="" />
       <option name="TEST_TYPE" value="TEST_FUNCTION" />
       <option name="PATTERN" value="" />
       <option name="USE_PATTERN" value="false" />
       <method v="2" />
     </configuration>
-    <configuration name="Unittests for test.TestParser.test_iq" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
+    <configuration name="Unittests for test.TestParser" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
       <module name="sensor_library" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Radar parser" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/docs" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;test.TestParser.test_iq&quot;" />
+      <option name="_new_target" value="&quot;test.TestParser&quot;" />
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
-      <method v="2" />
-    </configuration>
-    <configuration name="Unittests in test.py" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
-      <module name="sensor_library" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Radar parser" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;$PROJECT_DIR$/Radar parser/test.py&quot;" />
-      <option name="_new_targetType" value="&quot;PATH&quot;" />
       <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python tests.Unittests for test.TestParser.test_iq" />
+        <item itemvalue="Python tests.Unittests for test.TestParser" />
+        <item itemvalue="Python.TI_parser - Copy" />
+        <item itemvalue="Python tests.Doctest readTIdata" />
+        <item itemvalue="Python.X4Threshold" />
         <item itemvalue="Python.X4_parser" />
-        <item itemvalue="Python.TI_parser" />
-        <item itemvalue="Python tests.Unittests in test.py" />
-        <item itemvalue="Python tests.Doctest raw_data" />
       </list>
     </recent_temporary>
   </component>
@@ -306,7 +335,17 @@
       <workItem from="1561206229481" duration="5754000" />
       <workItem from="1561216929971" duration="1966000" />
       <workItem from="1561239205986" duration="34082000" />
-      <workItem from="1561335649013" duration="9227000" />
+      <workItem from="1561335649013" duration="10087000" />
+      <workItem from="1561408592402" duration="1021000" />
+      <workItem from="1561662614829" duration="342000" />
+      <workItem from="1561751499130" duration="297000" />
+      <workItem from="1561751869223" duration="1660000" />
+      <workItem from="1561754185387" duration="2848000" />
+      <workItem from="1561809685703" duration="2321000" />
+      <workItem from="1561812959273" duration="914000" />
+      <workItem from="1561918543912" duration="21000" />
+      <workItem from="1561923688787" duration="5299000" />
+      <workItem from="1561938986200" duration="3757000" />
     </task>
     <task id="LOCAL-00001" summary="Made it so that data parser functions require input of .csv name as well">
       <created>1560989818799</created>
@@ -399,16 +438,66 @@
       <option name="project" value="LOCAL" />
       <updated>1561324028737</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="made TI parser able to write to excel file correctly">
+      <created>1561387227574</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1561387227574</updated>
+    </task>
+    <task id="LOCAL-00015" summary="changed version number">
+      <created>1561662655224</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1561662655224</updated>
+    </task>
+    <task id="LOCAL-00016" summary="added bit about Ouster lidar">
+      <created>1561662909639</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1561662909639</updated>
+    </task>
+    <task id="LOCAL-00017" summary="added bit about Ouster lidar and using Linux">
+      <created>1561662942321</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1561662942321</updated>
+    </task>
+    <task id="LOCAL-00018" summary="updated docs">
+      <created>1561756877658</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1561756877658</updated>
+    </task>
+    <task id="LOCAL-00019" summary="update comments">
+      <created>1561756896078</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1561756896078</updated>
+    </task>
+    <task id="LOCAL-00020" summary="add info on ouster lidar">
+      <created>1561813807135</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1561813807135</updated>
+    </task>
+    <task id="LOCAL-00021" summary="updated TI parser to use pandas library to write csv file">
+      <created>1561813844165</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1561813844165</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="Unittests_for_test_TestParser_test_iq - 2019.06.21 at 16h 16m 58s.xml">
-      <configuration name="Unittests for test.TestParser.test_iq" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Unittests_for_test_TestParser_test_raw - 2019.06.21 at 16h 19m 54s.xml">
-      <configuration name="Unittests for test.TestParser.test_raw" configurationId="tests" />
-    </history-entry>
     <history-entry file="Unittests_for_test_TestParser_test_iq - 2019.06.21 at 16h 21m 05s.xml">
       <configuration name="Unittests for test.TestParser.test_iq" configurationId="tests" />
     </history-entry>
@@ -433,9 +522,15 @@
     <history-entry file="Unittests_in_test_py - 2019.06.23 at 21h 18m 06s.xml">
       <configuration name="Unittests in test.py" configurationId="tests" />
     </history-entry>
+    <history-entry file="Unittests_for_test_TestParser_test_iq - 2019.06.24 at 10h 41m 33s.xml">
+      <configuration name="Unittests for test.TestParser.test_iq" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_for_test_TestParser_test_raw - 2019.06.24 at 10h 43m 27s.xml">
+      <configuration name="Unittests for test.TestParser.test_raw" configurationId="tests" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="67245000" />
+    <option name="totallyTimeSpent" value="86585000" />
   </component>
   <component name="TodoView" selected-index="4">
     <todo-panel id="selected-file">
@@ -448,13 +543,14 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.19616205" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22921109" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32936078" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4989339" visible="true" weight="0.33261105" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4989339" weight="0.3261105" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3997833" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -469,11 +565,11 @@
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Git Scope" order="3" side_tool="true" />
-      <window_info anchor="right" id="SciView" order="4" />
-      <window_info anchor="right" id="R Graphics" order="5" />
-      <window_info anchor="right" id="R Packages" order="6" />
-      <window_info anchor="right" id="Database" order="7" />
+      <window_info anchor="right" id="SciView" order="3" />
+      <window_info anchor="right" id="R Graphics" order="4" />
+      <window_info anchor="right" id="R Packages" order="5" />
+      <window_info anchor="right" id="Database" order="6" />
+      <window_info anchor="right" id="Git Scope" order="7" side_tool="true" weight="0.32995737" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -488,69 +584,69 @@
     <MESSAGE value="added latex pdf" />
     <MESSAGE value="made update to docs code docstring" />
     <MESSAGE value="change version number" />
-    <MESSAGE value="updated docs" />
     <MESSAGE value="added jupyter notebook" />
     <MESSAGE value="changed python interpreter" />
     <MESSAGE value="made TI parser able to write to csv file correctly" />
-    <option name="LAST_COMMIT_MESSAGE" value="made TI parser able to write to csv file correctly" />
+    <MESSAGE value="made TI parser able to write to excel file correctly" />
+    <MESSAGE value="changed version number" />
+    <MESSAGE value="added bit about Ouster lidar" />
+    <MESSAGE value="added bit about Ouster lidar and using Linux" />
+    <MESSAGE value="updated docs" />
+    <MESSAGE value="update comments" />
+    <MESSAGE value="add info on ouster lidar" />
+    <MESSAGE value="updated TI parser to use pandas library to write csv file" />
+    <option name="LAST_COMMIT_MESSAGE" value="updated TI parser to use pandas library to write csv file" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/sensor_library$Doctest_raw_data.coverage" NAME="Doctest raw_data Coverage Results" MODIFIED="1561314705896" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Radar parser" />
-    <SUITE FILE_PATH="coverage/sensor_library$X4_parser.coverage" NAME="X4_parser Coverage Results" MODIFIED="1561379765753" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Radar parser" />
+    <SUITE FILE_PATH="coverage/sensor_library$X4_parser.coverage" NAME="X4_parser Coverage Results" MODIFIED="1561409210259" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Radar parser" />
     <SUITE FILE_PATH="coverage/sensor_library$TI_parser.coverage" NAME="TI_parser Coverage Results" MODIFIED="1561379249948" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Radar parser" />
-    <SUITE FILE_PATH="coverage/sensor_library$Unittests_for_test_TestParser_test_raw.coverage" NAME="Unittests for test.TestParser.test_raw Coverage Results" MODIFIED="1561148901297" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Radar parser" />
+    <SUITE FILE_PATH="coverage/sensor_library$Doctest_readTIdata.coverage" NAME="Doctest readTIdata Coverage Results" MODIFIED="1561809743372" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Radar parser" />
+    <SUITE FILE_PATH="coverage/sensor_library$Unittests_for_test_TestParser_test_raw.coverage" NAME="Unittests for test.TestParser.test_raw Coverage Results" MODIFIED="1561387313758" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Radar parser" />
+    <SUITE FILE_PATH="coverage/sensor_library$Unittests_for_test_TestParser.coverage" NAME="Unittests for test.TestParser Coverage Results" MODIFIED="1561941516736" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/docs" />
     <SUITE FILE_PATH="coverage/sensor_library$Unittests_for_test_TestParser_test_TI.coverage" NAME="Unittests for test.TestParser.test_TI Coverage Results" MODIFIED="1561148904691" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Radar parser" />
     <SUITE FILE_PATH="coverage/sensor_library$Unittests_in_test_py.coverage" NAME="Unittests in test.py Coverage Results" MODIFIED="1561337147023" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Radar parser" />
+    <SUITE FILE_PATH="coverage/sensor_library$X4Threshold.coverage" NAME="X4Threshold Coverage Results" MODIFIED="1561752847712" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Radar parser" />
+    <SUITE FILE_PATH="coverage/sensor_library$TI_parser___Copy.coverage" NAME="TI_parser - Copy Coverage Results" MODIFIED="1561813362226" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Radar parser" />
     <SUITE FILE_PATH="coverage/sensor_library$Unittests_for_test_TestParser_test_iq.coverage" NAME="Unittests for test.TestParser.test_iq Coverage Results" MODIFIED="1561387151265" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Radar parser" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/LICENSE.txt">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/docs/data_parser.py" />
     <entry file="file://$PROJECT_DIR$/docs/test_lib.py" />
     <entry file="file://$PROJECT_DIR$/docs/X4 parser.rst" />
     <entry file="file://$PROJECT_DIR$/docs/TI parser.rst" />
     <entry file="file://$PROJECT_DIR$/Radar parser/X4csv.csv" />
     <entry file="file://$PROJECT_DIR$/Radar parser/TIcsv.csv" />
-    <entry file="file://$PROJECT_DIR$/Radar parser/TIiq.csv">
-      <provider selected="true" editor-type-id="csv-text-editor">
-        <state relative-caret-position="-1723864">
-          <caret line="491090" column="12" selection-start-line="491090" selection-start-column="12" selection-end-line="491090" selection-end-column="12" />
+    <entry file="file://$PROJECT_DIR$/Radar parser/TIiq.csv" />
+    <entry file="file://$PROJECT_DIR$/Radar parser/X4iq.csv" />
+    <entry file="file://$PROJECT_DIR$/Radar parser/TIdata.csv" />
+    <entry file="file://$PROJECT_DIR$/Radar parser/X4raw.csv" />
+    <entry file="file://$PROJECT_DIR$/sensor_library_justgo13.egg-info/dependency_links.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/LICENSE.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="40" lean-forward="true" selection-start-line="14" selection-start-column="40" selection-end-line="14" selection-end-column="40" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Radar parser/X4raw.csv">
-      <provider selected="true" editor-type-id="LargeFileEditor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Radar parser/X4iq.csv">
-      <provider selected="true" editor-type-id="csv-text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Radar parser/TIdata.csv">
-      <provider selected="true" editor-type-id="csv-text-editor" />
-      <provider editor-type-id="csv-table-editor">
-        <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="450">
-            <caret line="36" column="78" lean-forward="true" selection-start-line="36" selection-start-column="78" selection-end-line="36" selection-end-column="78" />
-          </first_editor>
-          <second_editor />
+    <entry file="file://$PROJECT_DIR$/sensor_library_justgo13.egg-info/PKG-INFO">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="22" column="25" selection-start-line="22" selection-start-column="25" selection-end-line="22" selection-end-column="25" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/docs/TI radar.rst">
-      <provider selected="true" editor-type-id="restructured-text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/docs/radar information.rst">
-      <provider selected="true" editor-type-id="restructured-text-editor" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/Radar parser/X4Threshold.py" />
     <entry file="file://$PROJECT_DIR$/docs/make.bat">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
+    <entry file="file://$PROJECT_DIR$/docs/_build/html/index.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Radar parser/test.csv" />
+    <entry file="file://$PROJECT_DIR$/Radar parser/TI_parser - Copy.py" />
     <entry file="file://$PROJECT_DIR$/docs/conf.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
@@ -558,92 +654,144 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/docs/sensor_note.ipynb">
-      <provider selected="true" editor-type-id="jupyter-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Radar parser/__init__.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Radar parser/X4_parser.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="466">
-          <caret line="75" lean-forward="true" selection-start-line="75" selection-end-line="75" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/docs/TI_parser.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="466">
-          <caret line="84" column="22" selection-start-line="84" selection-start-column="22" selection-end-line="84" selection-end-column="22" />
-          <folding>
-            <element signature="e#160#178#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/docs/test.rst">
-      <provider selected="true" editor-type-id="restructured-text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/docs/X4_parser.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="268">
-          <caret line="62" column="42" lean-forward="true" selection-start-line="62" selection-start-column="42" selection-end-line="62" selection-end-column="42" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/docs/index.rst">
-      <provider selected="true" editor-type-id="restructured-text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/docs/test.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="517">
-          <caret line="44" column="19" selection-start-line="44" selection-start-column="19" selection-end-line="44" selection-end-column="19" />
-          <folding>
-            <element signature="e#0#15#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
+    <entry file="file://$PROJECT_DIR$/docs/Heli150040.csv">
+      <provider selected="true" editor-type-id="LargeFileEditor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/docs/X4_record_playback.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="370">
-          <caret line="213" column="10" selection-start-line="213" selection-start-column="9" selection-end-line="213" selection-end-column="10" />
+        <state relative-caret-position="864">
+          <caret line="227" lean-forward="true" selection-end-line="274" />
+          <folding>
+            <element signature="e#22#69#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/setup.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="18" selection-start-line="7" selection-start-column="18" selection-end-line="7" selection-end-column="18" />
+        <state relative-caret-position="204">
+          <caret line="12" column="50" lean-forward="true" selection-start-line="12" selection-start-column="50" selection-end-line="12" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/docs/Ouster lidar.rst">
+      <provider selected="true" editor-type-id="restructured-text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/docs/index.rst">
+      <provider selected="true" editor-type-id="restructured-text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/docs/Test.rst">
+      <provider selected="true" editor-type-id="restructured-text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/docs/X4 radar.rst">
+      <provider selected="true" editor-type-id="restructured-text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Radar parser/__init__.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Radar parser/test.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="796">
+          <caret line="59" selection-start-line="59" selection-end-line="59" />
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Radar parser/X4_parser.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1241">
+          <caret line="73" selection-start-line="73" selection-end-line="73" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Radar parser/X4_record_playback.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1802">
+          <caret line="2" selection-start-line="2" selection-end-line="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/docs/X4_threshold.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="578">
+          <caret line="34" column="12" lean-forward="true" selection-start-line="34" selection-start-column="12" selection-end-line="34" selection-end-column="12" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/docs/Radar information.rst">
+      <provider selected="true" editor-type-id="restructured-text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/docs/sensor_note.ipynb">
+      <provider selected="true" editor-type-id="jupyter-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/docs/test.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" selection-start-line="1" selection-end-line="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/docs/Linux setup.rst">
+      <provider selected="true" editor-type-id="restructured-text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/docs/X4_parser.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="5" column="7" lean-forward="true" selection-start-line="5" selection-start-column="7" selection-end-line="5" selection-end-column="7" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/docs/TI radar.rst">
+      <provider selected="true" editor-type-id="restructured-text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/docs/TI_parser.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="16" selection-start-line="16" selection-end-line="16" />
+          <folding>
+            <element signature="e#88#106#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Radar parser/TI_parser.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="455">
-          <caret line="85" lean-forward="true" selection-start-line="85" selection-end-line="85" />
+        <state relative-caret-position="1326">
+          <caret line="78" column="22" selection-start-line="78" selection-start-column="22" selection-end-line="78" selection-end-column="22" />
           <folding>
-            <element signature="e#160#178#0" expanded="true" />
+            <element signature="e#88#106#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/docs/X4 radar.rst">
-      <provider selected="true" editor-type-id="restructured-text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Radar parser/test.py">
+    <entry file="file://$PROJECT_DIR$/Radar parser/X4_threshold.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="16" lean-forward="true" selection-start-line="12" selection-start-column="16" selection-end-line="12" selection-end-column="16" />
+        <state relative-caret-position="181">
+          <caret line="103" column="119" lean-forward="true" selection-start-line="103" selection-start-column="119" selection-end-line="103" selection-end-column="119" />
           <folding>
-            <element signature="e#0#15#0" expanded="true" />
+            <element signature="e#0#18#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="238">
+            <caret line="14" column="38" selection-start-line="14" selection-start-column="38" selection-end-line="14" selection-end-column="38" />
+          </first_editor>
+          <second_editor />
         </state>
       </provider>
     </entry>

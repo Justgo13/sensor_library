@@ -5,24 +5,24 @@ import pandas as pd
 
 def readTIdata(filename,csvname):
     """
-    Takes a .bin binary file and outputs the iq data to a csv file specified by csvname.
+    Reads in a binary file and outputs the iq complex data to a csv file specified by csvname.
 
-    :parameter:
+    Parameter:
 
-    filename: str
-        file name of binary file.
+        filename: str
+            file name of binary file.
 
-    csvname: str
-        csv file name that stores the iq data from binary file.
+        csvname: str
+            csv file name that stores the iq data from binary file.
 
-    :example:
+    Example:
 
-    >>> readTIdata('TIdata.bin','TIdata')
-    >>> 'converted'
+        >>> readTIdata('TIdata.bin','TIdata')
+        >>> 'converted'
 
-    :return:
+    Return:
 
-    Readable csv file containing complex data.
+        Readable csv file containing complex data.
     """
     # global variables
     # change based on sensor config

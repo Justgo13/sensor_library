@@ -2,8 +2,8 @@ Ouster OS1 Lidar
 ****************
 Specs
 =====
-*All below specs are for OS1-16 lidar that was used in this project*
-- Works on channel 16, 64, 128.
+*All below specs are for the OS1-16 lidar that was used in this project*
+- Works on channels 16, 64, 128.
 - Maximum range of 120 meters.
 - Field of view of 33.2 degree vertically and 360 degree horizontally.
 - Sampling rate of 327,680 points/second.
@@ -17,8 +17,8 @@ Setup lidar
    
 Ouster Github
 =============
-The following `Github page <https://github.com/ouster-lidar/ouster_example>`_ provides information on how to view raw data stream, visualize data and use a robot operating system (ROS) to save recorded data in a .bag file.
-ROS commands can also replaying data in .bag files and convert .bag files to .csv files.
+The following `Github page <https://github.com/ouster-lidar/ouster_example>`_ provides information on how to view raw data streams, visualize data and use a robot operating system (ROS) to save recorded data in a .bag file.
+ROS commands can also replay data in .bag files and convert .bag files to .csv files.
 
 .. note:: Some version of Linux running Ubuntu must be used. It is recommended to run Ubuntu 18.04 for best results. Follow instructions in *Ubuntu* page for more details on installing Linux with Ubuntu.
 
@@ -32,14 +32,14 @@ Running client
 1. cd /path/to/ouster_client_example
 2. type *./ouster_client_example <os1_hostname> <udp_dest_ip>*
 
-**<os1_hostname>** is hostname/ip address of lidar. 
+**<os1_hostname>** is the hostname/ip address of OS1-16 lidar.
 
 **<udp_data_dest_ip>** is the destination ip address the lidar sends data to. e.g. ip address from running *ifconfig*.
 
 Ouster visualization
 --------------------
 The Ouster visualization is used for building a basic visualizer frame of collected lidar data. Instructions on building visualizer and it's dependencies can be found here `Building visualizer <https://github.com/ouster-lidar/ouster_example/tree/master/ouster_viz>`_.
-The visulaizer can be run in real time and with recorded data.
+The visualizer can be run in real time or with recorded data.
 
 Running visualizer
 ++++++++++++++++++
@@ -56,7 +56,7 @@ Ouster ROS
 ----------
 .. note:: For Ubuntu 18.04 users it is best to use **ROS Melodic** as **ROS Kinetic** (The ROS provided on the GitHub page) is only compatible with Ubuntu 16.04 and lower. 
 
-Building the ROS Node can be found here `Buidling ROS Kinetic <https://github.com/ouster-lidar/ouster_example/tree/master/ouster_ros>`_.
+Building the ROS Node can be found here `Building ROS Kinetic <https://github.com/ouster-lidar/ouster_example/tree/master/ouster_ros>`_.
 
 For Ubuntu 16.04 users and lower: `Installation of ROS Kinetic <http://wiki.ros.org/kinetic/Installation/Ubuntu>`_
 

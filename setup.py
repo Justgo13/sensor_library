@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="sensor_library_justgo13",
-    version="0.0.8",
+    version="0.0.9",
     author="Jason Gao",
     author_email="jgao2299@gmail.com",
     description="Library for radar parser code",

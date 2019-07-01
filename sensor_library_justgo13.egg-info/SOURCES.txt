@@ -3,6 +3,7 @@ setup.py
 Radar parser/TI_Parser.py
 Radar parser/TI_parser.py
 Radar parser/X4_parser.py
+Radar parser/X4_record_playback.py
 Radar parser/__init__.py
 Radar parser/test.py
 sensor_library_justgo13.egg-info/PKG-INFO
