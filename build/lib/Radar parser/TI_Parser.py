@@ -1,29 +1,28 @@
 # This script is used to read the binary file produced by the DCA1000 and Mmwave Studio
-# Command to run in Matlab GUI - readDCA1000('<ADC capture bin file>') 
 import numpy as np
-import xlsxwriter
+import pandas as pd
 
 
 def readTIdata(filename,csvname):
     """
-    Takes a .bin binary file and outputs the iq data to a csv file specified by csvname.
+    Reads in a binary file and outputs the iq complex data to a csv file specified by csvname.
 
-    :parameter:
+    Parameter:
 
-    filename: str
-        file name of binary file.
+        filename: str
+            file name of binary file.
 
-    csvname: str
-        csv file name that stores the iq data from binary file.
+        csvname: str
+            csv file name that stores the iq data from binary file.
 
-    :example:
+    Example:
 
-    >>> readTIdata('TIdata.bin','TIdata')
-    >>> 'converted'
+        >>> readTIdata('TIdata.bin','TIdata')
+        >>> 'converted'
 
-    :return:
+    Return:
 
-    Readable csv file containing complex data.
+        Readable csv file containing complex data.
     """
     # global variables
     # change based on sensor config
@@ -74,12 +73,7 @@ def readTIdata(filename,csvname):
                 for i in range(0, numChirps):
                     adcData[row, i * numADCSamples:(i + 1) * numADCSamples] = LVDS[i, row * numADCSamples:(row + 1) * numADCSamples]
 
-        workbook = xlsxwriter.Workbook(csvname+'.xlsx')
-        worksheet = workbook.add_worksheet()
-        for row in range(0, numRX):
-            for col in range(0, numADCSamples*numChirps):
-                worksheet.write(row,col,str(adcData[row, col]))
-        # TO DO: write adcData to a csv file
+            data = pd.DataFrame(adcData)
+            data.to_csv(csvname+'.csv', index=False, header=False, mode='w')
     f.close()
-    workbook.close()
     return 'converted'

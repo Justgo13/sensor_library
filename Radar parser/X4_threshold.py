@@ -101,7 +101,8 @@ def noise_power_estimate(filename, estimated_threshold):
     Finds the noise power estimate.
 
     Given the filename, the file is converted to an array. The average for the the array is taken excluding the points above the threshold and their respective guard cells.
-    The noise power estimate is then found by subtracting the positive and guard cells from the overall sum. When the noise power estimate is multiplied by the threshold factor, the threshold can be found.
+    The noise power estimate is then found by subtracting the positive and guard cells from the overall sum. When the noise power estimate is multiplied by the threshold factor,
+    the threshold can be found.
 
     Parameters:
 
@@ -193,3 +194,4 @@ def plot_data(filename):
     plt.ylabel('Signal strength')
     plt.title('Detection of target in range bins with equivalent signal strength')
     plt.show()
+

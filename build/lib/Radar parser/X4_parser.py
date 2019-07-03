@@ -4,24 +4,23 @@ import csv
 
 def iq_data(filename,csvname):
     """
-    Takes binary data file and iterates through in-phase (real) and quadrature (imaginary) values.
-    Data from range bins is taken and in-phase values are matched with quadrature values to be stored in a user defined .csv file.
+    Reads in a binary file and data from range bins is taken and complex iq data is stored in a csv file specified by csvname.
 
-    :parameter:
+    Parameter:
 
-    filename: str
-        The .dat binary file name.
-    csvname: str
-        User defined .csv file name
+        filename: str
+            The .dat binary file name.
+        csvname: str
+            User defined .csv file name
 
-    :example:
+    Example:
 
-    >>> iq_data('X4data.dat','X4iq_data')
-    >>> 'converted'
+        >>> iq_data('X4data.dat','X4iq_data')
+        >>> 'converted'
 
-    :returns:
+    Returns:
 
-    Readable csv file containing complex values.
+        Readable csv file containing complex values.
     """
     with open(filename, "rb") as f:
         data = np.fromfile(f, dtype=np.float32)
@@ -43,24 +42,23 @@ def iq_data(filename,csvname):
 
 def raw_data(filename,csvname):
     """
-    Takes raw data file and iterates through in-phase (real) and quadrature (imaginary) values.
-    Data from range bins is taken, and in-phase value are put apart from quadrature in a user defined .csv file.
+    Reads in a binary file and data from range bins is taken and raw data is stored in a csv file specified by csvname.
 
-    :parameter
+    Parameters:
 
-    filename: str
-        The .dat binary file name.
-    csvname: str
-        User defined .csv file name
+        filename: str
+            The .dat binary file name.
+        csvname: str
+            User defined .csv file name
 
-    :example:
+    Example:
 
-    >>> raw_data('X4data.dat','X4raw_data')
-    >>> 'converted'
+        >>> raw_data('X4data.dat','X4raw_data')
+        >>> 'converted'
 
-    :returns:
+    Returns:
 
-    Readable csv files containing raw data.
+        Readable csv files containing raw data.
     """
     with open(filename, "rb") as f:
         data = np.fromfile(f, dtype=np.float32)
