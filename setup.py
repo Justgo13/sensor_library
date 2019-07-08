@@ -8,7 +8,7 @@ setuptools.setup(
     version="0.1.0",
     author="Jason Gao",
     author_email="jgao2299@gmail.com",
-    description="Library for radar parser code",
+    description="Library for radar and lidar parser code",
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://github.com/Justgo13/sensor_library",
