@@ -21,6 +21,7 @@ def set_range(row_num, azimuth_block, channel_num):
         >>> 128100
 
     Return:
+
         Range value in millimeters for that desired row, azimuth block and channel number.
     """
     range_mm = get_range(row_num, single_row=True, azimuth_block=azimuth_block)[channel_num]
@@ -45,6 +46,7 @@ def set_encoder(row_num, azimuth_block):
         >>> 76168
 
     Return:
+
         Encoder count of desired row, azimuth block.
     """
     encoder_count = get_encoder_count(row_num, single_row=True)[azimuth_block]
