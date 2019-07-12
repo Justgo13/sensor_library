@@ -1,0 +1,58 @@
+\indexentry{X4\_parser (module)@\spxentry{X4\_parser}\spxextra{module}|hyperpage}{3}
+\indexentry{iq\_data() (in module X4\_parser)@\spxentry{iq\_data()}\spxextra{in module X4\_parser}|hyperpage}{3}
+\indexentry{X4\_record\_playback (module)@\spxentry{X4\_record\_playback}\spxextra{module}|hyperpage}{4}
+\indexentry{clear\_buffer() (in module X4\_record\_playback)@\spxentry{clear\_buffer()}\spxextra{in module X4\_record\_playback}|hyperpage}{4}
+\indexentry{main() (in module X4\_record\_playback)@\spxentry{main()}\spxextra{in module X4\_record\_playback}|hyperpage}{4}
+\indexentry{on\_file\_available() (in module X4\_record\_playback)@\spxentry{on\_file\_available()}\spxextra{in module X4\_record\_playback}|hyperpage}{5}
+\indexentry{on\_meta\_file\_available() (in module X4\_record\_playback)@\spxentry{on\_meta\_file\_available()}\spxextra{in module X4\_record\_playback}|hyperpage}{5}
+\indexentry{playback\_recording() (in module X4\_record\_playback)@\spxentry{playback\_recording()}\spxextra{in module X4\_record\_playback}|hyperpage}{5}
+\indexentry{reset() (in module X4\_record\_playback)@\spxentry{reset()}\spxextra{in module X4\_record\_playback}|hyperpage}{5}
+\indexentry{simple\_xep\_plot() (in module X4\_record\_playback)@\spxentry{simple\_xep\_plot()}\spxextra{in module X4\_record\_playback}|hyperpage}{5}
+\indexentry{X4\_threshold (module)@\spxentry{X4\_threshold}\spxextra{module}|hyperpage}{5}
+\indexentry{csv\_into\_list() (in module X4\_threshold)@\spxentry{csv\_into\_list()}\spxextra{in module X4\_threshold}|hyperpage}{5}
+\indexentry{distance\_finder() (in module X4\_threshold)@\spxentry{distance\_finder()}\spxextra{in module X4\_threshold}|hyperpage}{6}
+\indexentry{noise\_power\_estimate() (in module X4\_threshold)@\spxentry{noise\_power\_estimate()}\spxextra{in module X4\_threshold}|hyperpage}{6}
+\indexentry{plot\_data() (in module X4\_threshold)@\spxentry{plot\_data()}\spxextra{in module X4\_threshold}|hyperpage}{6}
+\indexentry{range\_finder() (in module X4\_threshold)@\spxentry{range\_finder()}\spxextra{in module X4\_threshold}|hyperpage}{7}
+\indexentry{TI\_parser (module)@\spxentry{TI\_parser}\spxextra{module}|hyperpage}{7}
+\indexentry{readTIdata() (in module TI\_parser)@\spxentry{readTIdata()}\spxextra{in module TI\_parser}|hyperpage}{7}
+\indexentry{lidar\_extract (module)@\spxentry{lidar\_extract}\spxextra{module}|hyperpage}{8}
+\indexentry{get\_encoder\_count() (in module lidar\_extract)@\spxentry{get\_encoder\_count()}\spxextra{in module lidar\_extract}|hyperpage}{8}
+\indexentry{get\_frame\_id() (in module lidar\_extract)@\spxentry{get\_frame\_id()}\spxextra{in module lidar\_extract}|hyperpage}{8}
+\indexentry{get\_measurement\_id() (in module lidar\_extract)@\spxentry{get\_measurement\_id()}\spxextra{in module lidar\_extract}|hyperpage}{8}
+\indexentry{get\_noise\_photons() (in module lidar\_extract)@\spxentry{get\_noise\_photons()}\spxextra{in module lidar\_extract}|hyperpage}{9}
+\indexentry{get\_range() (in module lidar\_extract)@\spxentry{get\_range()}\spxextra{in module lidar\_extract}|hyperpage}{9}
+\indexentry{get\_reflectivity() (in module lidar\_extract)@\spxentry{get\_reflectivity()}\spxextra{in module lidar\_extract}|hyperpage}{9}
+\indexentry{get\_signal\_photons() (in module lidar\_extract)@\spxentry{get\_signal\_photons()}\spxextra{in module lidar\_extract}|hyperpage}{10}
+\indexentry{get\_timestamp() (in module lidar\_extract)@\spxentry{get\_timestamp()}\spxextra{in module lidar\_extract}|hyperpage}{10}
+\indexentry{imu\_extract (module)@\spxentry{imu\_extract}\spxextra{module}|hyperpage}{10}
+\indexentry{get\_IMU\_time() (in module imu\_extract)@\spxentry{get\_IMU\_time()}\spxextra{in module imu\_extract}|hyperpage}{10}
+\indexentry{get\_accel\_time() (in module imu\_extract)@\spxentry{get\_accel\_time()}\spxextra{in module imu\_extract}|hyperpage}{11}
+\indexentry{get\_gyro\_time() (in module imu\_extract)@\spxentry{get\_gyro\_time()}\spxextra{in module imu\_extract}|hyperpage}{11}
+\indexentry{get\_x\_accel() (in module imu\_extract)@\spxentry{get\_x\_accel()}\spxextra{in module imu\_extract}|hyperpage}{11}
+\indexentry{get\_x\_ang\_vel() (in module imu\_extract)@\spxentry{get\_x\_ang\_vel()}\spxextra{in module imu\_extract}|hyperpage}{12}
+\indexentry{get\_y\_accel() (in module imu\_extract)@\spxentry{get\_y\_accel()}\spxextra{in module imu\_extract}|hyperpage}{12}
+\indexentry{get\_y\_ang\_vel() (in module imu\_extract)@\spxentry{get\_y\_ang\_vel()}\spxextra{in module imu\_extract}|hyperpage}{12}
+\indexentry{get\_z\_accel() (in module imu\_extract)@\spxentry{get\_z\_accel()}\spxextra{in module imu\_extract}|hyperpage}{13}
+\indexentry{get\_z\_ang\_vel() (in module imu\_extract)@\spxentry{get\_z\_ang\_vel()}\spxextra{in module imu\_extract}|hyperpage}{13}
+\indexentry{xyz\_calc (module)@\spxentry{xyz\_calc}\spxextra{module}|hyperpage}{13}
+\indexentry{test\_lidar\_gui (module)@\spxentry{test\_lidar\_gui}\spxextra{module}|hyperpage}{14}
+\indexentry{command() (in module test\_lidar\_gui)@\spxentry{command()}\spxextra{in module test\_lidar\_gui}|hyperpage}{14}
+\indexentry{imu\_multiple\_row() (in module test\_lidar\_gui)@\spxentry{imu\_multiple\_row()}\spxextra{in module test\_lidar\_gui}|hyperpage}{14}
+\indexentry{imu\_row\_section() (in module test\_lidar\_gui)@\spxentry{imu\_row\_section()}\spxextra{in module test\_lidar\_gui}|hyperpage}{14}
+\indexentry{imu\_single\_row() (in module test\_lidar\_gui)@\spxentry{imu\_single\_row()}\spxextra{in module test\_lidar\_gui}|hyperpage}{14}
+\indexentry{instruction() (in module test\_lidar\_gui)@\spxentry{instruction()}\spxextra{in module test\_lidar\_gui}|hyperpage}{14}
+\indexentry{lidar\_multiple\_row() (in module test\_lidar\_gui)@\spxentry{lidar\_multiple\_row()}\spxextra{in module test\_lidar\_gui}|hyperpage}{14}
+\indexentry{lidar\_row\_section() (in module test\_lidar\_gui)@\spxentry{lidar\_row\_section()}\spxextra{in module test\_lidar\_gui}|hyperpage}{14}
+\indexentry{lidar\_single\_row() (in module test\_lidar\_gui)@\spxentry{lidar\_single\_row()}\spxextra{in module test\_lidar\_gui}|hyperpage}{14}
+\indexentry{openfile() (in module test\_lidar\_gui)@\spxentry{openfile()}\spxextra{in module test\_lidar\_gui}|hyperpage}{14}
+\indexentry{print\_list() (in module test\_lidar\_gui)@\spxentry{print\_list()}\spxextra{in module test\_lidar\_gui}|hyperpage}{14}
+\indexentry{xyz\_calc() (in module test\_lidar\_gui)@\spxentry{xyz\_calc()}\spxextra{in module test\_lidar\_gui}|hyperpage}{15}
+\indexentry{test (module)@\spxentry{test}\spxextra{module}|hyperpage}{17}
+\indexentry{TestParser (class in test)@\spxentry{TestParser}\spxextra{class in test}|hyperpage}{17}
+\indexentry{X4\_Threshold\_bin\_to\_distance() (test.TestParser method)@\spxentry{X4\_Threshold\_bin\_to\_distance()}\spxextra{test.TestParser method}|hyperpage}{17}
+\indexentry{X4\_Threshold\_noise\_estimate() (test.TestParser method)@\spxentry{X4\_Threshold\_noise\_estimate()}\spxextra{test.TestParser method}|hyperpage}{17}
+\indexentry{X4\_Threshold\_range\_finder() (test.TestParser method)@\spxentry{X4\_Threshold\_range\_finder()}\spxextra{test.TestParser method}|hyperpage}{17}
+\indexentry{test\_TI() (test.TestParser method)@\spxentry{test\_TI()}\spxextra{test.TestParser method}|hyperpage}{17}
+\indexentry{test\_iq() (test.TestParser method)@\spxentry{test\_iq()}\spxextra{test.TestParser method}|hyperpage}{17}
+\indexentry{test\_raw() (test.TestParser method)@\spxentry{test\_raw()}\spxextra{test.TestParser method}|hyperpage}{17}
