@@ -21,6 +21,7 @@ Contents:
    Linux setup
    X4 radar
    TI radar
+   Lidar extraction tool
    Ouster lidar
    Test
 

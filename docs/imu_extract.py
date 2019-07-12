@@ -1,37 +1,29 @@
-import pandas as pd
-
-file = "imu_data3.csv"
-data = pd.read_csv(file)
-
-
-def get_IMU_time(*args, single_row=False, multiple_row=False, row_section=False):
+def get_IMU_time(data, arg, single_row=False, multiple_row=False, row_section=False):
     """
-    Takes in the desired row(s) to be read and returns the IMU timestamp.
+    Takes in a file and row arguement(s) along with a boolean that specifies the amount of rows to read the IMU timestamps for.
 
-    Parameters:
+    Parameter:
 
+        data: file
+            The csv file that is passed in to read.
+        arg: int
+            The row(s) that are to be read.
         single_row: boolean
-            If this is set to true, output the IMU timestamp for the row that the user selected.
+            If chosen the IMU timestamp for a single row specified by arg will be output.
         multiple_row: boolean
-            If this is set to true, output the IMU timestamp for the rows that the user selected.
+            If chosen the IMU timestamp for multiple rows specified by arg will be output.
         row_section: boolean
-            If this is set to true, output the IMU timestamp for the row sections the user selected.
-
-    Example:
-
-        >>> get_IMU_time(0,single_row=True)
-        >>> [34.01298918023]
+            If chosen the IMU timestamp for a row section by arg will be output.
 
     Return:
 
-        A single element array of the timestamp values in seconds.
+        An array of IMU timestamps.
     """
     IMU_time = []
-    arg = [*args]
     
     print("NOTE: All timestamps measured in seconds")
     if single_row is True:
-        IMU_time_segment = list(data.values[arg[0], 1:9])
+        IMU_time_segment = list(data.values[arg, 1:9])
         IMU_time_segment.reverse()
         IMU_time_segment = [int(elem) for index, elem in enumerate(IMU_time_segment)]
         del IMU_time_segment[0:3]
@@ -62,33 +54,31 @@ def get_IMU_time(*args, single_row=False, multiple_row=False, row_section=False)
     return IMU_time
 
 
-def get_accel_time(*args, single_row=False, multiple_row=False, row_section=False):
+def get_accel_time(data, arg, single_row=False, multiple_row=False, row_section=False):
     """
-    Takes in the desired row(s) to be read and returns the accelerometer timestamp.
+    Takes in a file and row arguement(s) along with a boolean that specifies the amount of rows to read the accelerometer timestamps for.
 
-    Parameters:
+    Parameter:
 
+        data: file
+            The csv file that is passed in to read.
+        arg: int
+            The row(s) that are to be read.
         single_row: boolean
-            If this is set to true, output the accelerometer timestamp for the row that the user selected.
+            If chosen the accelerometer timestamp for a single row specified by arg will be output.
         multiple_row: boolean
-            If this is set to true, output the accelerometer timestamp for the rows that the user selected.
+            If chosen the accelerometer timestamp for multiple rows specified by arg will be output.
         row_section: boolean
-            If this is set to true, output the accelerometer timestamp for the row sections the user selected.
-
-    Example:
-
-        >>> get_accel_time(0,single_row=True)
-        >>> [33.04112810818]
+            If chosen the accelerometer timestamp for a row section by arg will be output.
 
     Return:
 
-        A single element array of the timestamp values in seconds.
+        An array of accelerometer timestamps.
     """
     accel_time = []
-    arg = [*args]
     
     if single_row is True:
-        accel_time_segment = list(data.values[arg[0], 9:17])
+        accel_time_segment = list(data.values[arg, 9:17])
         accel_time_segment.reverse()
         accel_time_segment = [int(elem) for index, elem in enumerate(accel_time_segment)]
         del accel_time_segment[0:3]
@@ -119,33 +109,31 @@ def get_accel_time(*args, single_row=False, multiple_row=False, row_section=Fals
     return accel_time
 
 
-def get_gyro_time(*args, single_row=False, multiple_row=False, row_section=False):
+def get_gyro_time(data, arg, single_row=False, multiple_row=False, row_section=False):
     """
-    Takes in the desired row(s) to be read and returns the gyroscope timestamp.
+    Takes in a file and row arguement(s) along with a boolean that specifies the amount of rows to read the gyroscope timestamps for.
 
-    Parameters:
+    Parameter:
 
+        data: file
+            The csv file that is passed in to read.
+        arg: int
+            The row(s) that are to be read.
         single_row: boolean
-            If this is set to true, output the gyroscope timestamp for the row that the user selected.
+            If chosen the gyroscope timestamp for a single row specified by arg will be output.
         multiple_row: boolean
-            If this is set to true, output the gyroscope timestamp for the rows that the user selected.
+            If chosen the gyroscope timestamp for multiple rows specified by arg will be output.
         row_section: boolean
-            If this is set to true, output the gyroscope timestamp for the row sections the user selected.
-
-    Example：
-
-        >>> get_gyro_time(0,single_row=True)
-        >>> [33.04111484188]
+            If chosen the gyroscope timestamp for a row section by arg will be output.
 
     Return:
 
-        A single element array of the timestamp values in seconds.
+        An array of gyroscope timestamps.
     """
     gyro_time = []
-    arg = [*args]
     
     if single_row is True:
-        gyro_time_segment = list(data.values[arg[0], 17:25])
+        gyro_time_segment = list(data.values[arg, 17:25])
         gyro_time_segment.reverse()
         gyro_time_segment = [int(elem) for index, elem in enumerate(gyro_time_segment)]
         del gyro_time_segment[0:3]
@@ -176,33 +164,31 @@ def get_gyro_time(*args, single_row=False, multiple_row=False, row_section=False
     return gyro_time
 
 
-def get_x_accel(*args, single_row=False, multiple_row=False, row_section=False):
+def get_x_accel(data, arg, single_row=False, multiple_row=False, row_section=False):
     """
-    Takes in the desired row(s) to be read and returns the x acceleration.
+    Takes in a file and row arguement(s) along with a boolean that specifies the amount of rows to read the x acceleration for.
 
-    Parameters:
+    Parameter:
 
+        data: file
+            The csv file that is passed in to read.
+        arg: int
+            The row(s) that are to be read.
         single_row: boolean
-            If this is set to true, output the x acceleration for the row that the user selected.
+            If chosen the x acceleration for a single row specified by arg will be output.
         multiple_row: boolean
-            If this is set to true, output the x acceleration for the rows that the user selected.
+            If chosen the x acceleration for multiple rows specified by arg will be output.
         row_section: boolean
-            If this is set to true, output the x acceleration for the row sections the user selected.
-
-    Example:
-
-        >>> get_x_accel(0,single_row=True)
-        >>> [615900]
+            If chosen the x acceleration for a row section by arg will be output.
 
     Return:
 
-        A single element array of the x acceleration values in seconds.
+        An array of x acceleration.
     """
     x_accel = []
-    arg = [*args]
     
     if single_row is True:
-        x_accel_segment = list(data.values[arg[0], 25:29])
+        x_accel_segment = list(data.values[arg, 25:29])
         x_accel_segment.reverse()
         x = int("".join(map(str, x_accel_segment)))
         x_accel.append(x)
@@ -224,33 +210,31 @@ def get_x_accel(*args, single_row=False, multiple_row=False, row_section=False):
     return x_accel
 
 
-def get_y_accel(*args, single_row=False, multiple_row=False, row_section=False):
+def get_y_accel(data, arg, single_row=False, multiple_row=False, row_section=False):
     """
-    Takes in the desired row(s) to be read and returns the y acceleration.
+    Takes in a file and row arguement(s) along with a boolean that specifies the amount of rows to read the y acceleration for.
 
-    Parameters:
+    Parameter:
 
+        data: file
+            The csv file that is passed in to read.
+        arg: int
+            The row(s) that are to be read.
         single_row: boolean
-            If this is set to true, output the y acceleration for the row that the user selected.
+            If chosen the y acceleration for a single row specified by arg will be output.
         multiple_row: boolean
-            If this is set to true, output the y acceleration for the rows that the user selected.
+            If chosen the y acceleration for multiple rows specified by arg will be output.
         row_section: boolean
-            If this is set to true, output the y acceleration for the row sections the user selected.
-
-    Example:
-
-        >>> get_y_accel(0,single_row=True)
-        >>> [1896900]
+            If chosen the y acceleration for a row section by arg will be output.
 
     Return:
 
-        A single element array of the y acceleration values in seconds.
+        An array of y acceleration.
     """
     y_accel = []
-    arg = [*args]
     
     if single_row is True:
-        y_accel_segment = list(data.values[arg[0], 29:33])
+        y_accel_segment = list(data.values[arg, 29:33])
         y_accel_segment.reverse()
         y = int("".join(map(str, y_accel_segment)))
         y_accel.append(y)
@@ -272,33 +256,31 @@ def get_y_accel(*args, single_row=False, multiple_row=False, row_section=False):
     return y_accel
 
 
-def get_z_accel(*args, single_row=False, multiple_row=False, row_section=False):
+def get_z_accel(data, arg, single_row=False, multiple_row=False, row_section=False):
     """
-    Takes in the desired row(s) to be read and returns the z acceleration.
+    Takes in a file and row arguement(s) along with a boolean that specifies the amount of rows to read the z acceleration for.
 
-    Parameters:
+    Parameter:
 
+        data: file
+            The csv file that is passed in to read.
+        arg: int
+            The row(s) that are to be read.
         single_row: boolean
-            If this is set to true, output the z acceleration for the row that the user selected.
+            If chosen the z acceleration for a single row specified by arg will be output.
         multiple_row: boolean
-            If this is set to true, output the z acceleration for the rows that the user selected.
+            If chosen the z acceleration for multiple rows specified by arg will be output.
         row_section: boolean
-            If this is set to true, output the z acceleration for the row sections the user selected.
-
-    Example:
-
-        >>> get_z_accel(0,single_row=True)
-        >>> [191125320]
+            If chosen the z acceleration for a row section by arg will be output.
 
     Return:
 
-        A single element array of the z acceleration values in seconds.
+        An array of z acceleration.
     """
     z_accel = []
-    arg = [*args]
     
     if single_row is True:
-        z_accel_segment = list(data.values[arg[0], 33:37])
+        z_accel_segment = list(data.values[arg, 33:37])
         z_accel_segment.reverse()
         z = int("".join(map(str, z_accel_segment)))
         z_accel.append(z)
@@ -320,33 +302,31 @@ def get_z_accel(*args, single_row=False, multiple_row=False, row_section=False):
     return z_accel
 
 
-def get_x_ang_vel(*args, single_row=False, multiple_row=False, row_section=False):
+def get_x_ang_vel(data, arg, single_row=False, multiple_row=False, row_section=False):
     """
-    Takes in the desired row(s) to be read and returns the x angular acceleration.
+    Takes in a file and row arguement(s) along with a boolean that specifies the amount of rows to read the x angular velocity for.
 
-    Parameters:
+    Parameter:
 
+        data: file
+            The csv file that is passed in to read.
+        arg: int
+            The row(s) that are to be read.
         single_row: boolean
-            If this is set to true, output the x angular acceleration for the row that the user selected.
+            If chosen the x angular velocity for a single row specified by arg will be output.
         multiple_row: boolean
-            If this is set to true, output the x angular acceleration for the rows that the user selected.
+            If chosen the x angular velocity for multiple rows specified by arg will be output.
         row_section: boolean
-            If this is set to true, output the x angular acceleration for the row sections the user selected.
-
-    Example:
-
-        >>> get_x_accel(0,single_row=True)
-        >>> [191551520]
+            If chosen the x angular velocity for a row section by arg will be output.
 
     Return:
 
-        A single element array of the x angular acceleration values in seconds.
+        An array of x angular velocity.
     """
     x_ang_vel = []
-    arg = [*args]
     
     if single_row is True:
-        x_ang_vel_segment = list(data.values[arg[0], 37:41])
+        x_ang_vel_segment = list(data.values[arg, 37:41])
         x_ang_vel_segment.reverse()
         x_ang = int("".join(map(str, x_ang_vel_segment)))
         x_ang_vel.append(x_ang)
@@ -368,32 +348,31 @@ def get_x_ang_vel(*args, single_row=False, multiple_row=False, row_section=False
     return x_ang_vel
 
 
-def get_y_ang_vel(*args, single_row=False, multiple_row=False, row_section=False):
+def get_y_ang_vel(data, arg, single_row=False, multiple_row=False, row_section=False):
     """
-    Takes in the desired row(s) to be read and returns the y angular acceleration.
-    Parameters:
+    Takes in a file and row arguement(s) along with a boolean that specifies the amount of rows to read the y angular velocity for.
 
+    Parameter:
+
+        data: file
+            The csv file that is passed in to read.
+        arg: int
+            The row(s) that are to be read.
         single_row: boolean
-            If this is set to true, output the y angular acceleration for the row that the user selected.
+            If chosen the y angular velocity for a single row specified by arg will be output.
         multiple_row: boolean
-            If this is set to true, output the y angular acceleration for the rows that the user selected.
+            If chosen the y angular velocity for multiple rows specified by arg will be output.
         row_section: boolean
-            If this is set to true, output the y angular acceleration for the row sections the user selected.
-
-    Example:
-
-        >>> get_y_ang_vel(0,single_row=True)
-        >>> [189203320]
+            If chosen the y angular velocity for a row section by arg will be output.
 
     Return:
 
-        A single element array of the y angular acceleration values in seconds.
+        An array of y angular velocity.
     """
     y_ang_vel = []
-    arg = [*args]
     
     if single_row is True:
-        y_ang_vel_segment = list(data.values[arg[0], 41:45])
+        y_ang_vel_segment = list(data.values[arg, 41:45])
         y_ang_vel_segment.reverse()
         y_ang = int("".join(map(str, y_ang_vel_segment)))
         y_ang_vel.append(y_ang)
@@ -415,46 +394,45 @@ def get_y_ang_vel(*args, single_row=False, multiple_row=False, row_section=False
     return y_ang_vel
 
 
-def get_z_ang_vel(*args, single_row=False, multiple_row=False, row_section=False):
+def get_z_ang_vel(data, arg, single_row=False, multiple_row=False, row_section=False):
     """
-    Takes in the desired row(s) to be read and returns the z angular acceleration.
-    Parameters:
+    Takes in a file and row arguement(s) along with a boolean that specifies the amount of rows to read the z angular velocity for.
 
+    Parameter:
+
+        data: file
+            The csv file that is passed in to read.
+        arg: int
+            The row(s) that are to be read.
         single_row: boolean
-            If this is set to true, output the z angular acceleration for the row that the user selected.
+            If chosen the z angular velocity for a single row specified by arg will be output.
         multiple_row: boolean
-            If this is set to true, output the z angular acceleration for the rows that the user selected.
+            If chosen the z angular velocity for multiple rows specified by arg will be output.
         row_section: boolean
-            If this is set to true, output the z angular acceleration for the row sections the user selected.
-
-    Example:
-
-        >>> get_z_ang_vel(0,single_row=True)
-        >>> [189203320]
+            If chosen the z angular velocity for a row section by arg will be output.
 
     Return:
 
-        A single element array of the z angular acceleration values in seconds.
+        An array of z angular velocity.
     """
     z_ang_vel = []
-    arg = [*args]
     
     if single_row is True:
-        z_ang_vel_segment = list(data.values[arg[0], 41:45])
+        z_ang_vel_segment = list(data.values[arg, 45:49])
         z_ang_vel_segment.reverse()
         z_ang = int("".join(map(str, z_ang_vel_segment)))
         z_ang_vel.append(z_ang)
     elif multiple_row is True:
         for index, elem in enumerate(arg):
             z_ang_vel.append('new row')
-            z_ang_vel_segment = list(data.values[elem, 41:45])
+            z_ang_vel_segment = list(data.values[elem, 45:49])
             z_ang_vel_segment.reverse()
             z_ang = int("".join(map(str, z_ang_vel_segment)))
             z_ang_vel.append(z_ang)
     elif row_section is True:
         for row in range(arg[0], arg[1]+1):
             z_ang_vel.append('new row')
-            z_ang_vel_segment = list(data.values[row, 41:45])
+            z_ang_vel_segment = list(data.values[row, 45:49])
             z_ang_vel_segment.reverse()
             z_ang = int("".join(map(str, z_ang_vel_segment)))
             z_ang_vel.append(z_ang)

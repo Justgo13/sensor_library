@@ -27,6 +27,13 @@ XYZ Coordinate functions
 ------------------------
 The below functions are used to calculate xyz cartesian points onto a lidar coordinate frame using data extracted from the lidar packets
 
-.. automodule:: Lidar_coordinate_frame
+.. automodule:: xyz_calc
    :members:
 
+Lidar Extraction Tool GUI
+-------------------------
+To run this tool make sure to read the instructions for a quick simple how-to guide.
+Functions can be found here
+
+.. automodule:: test_lidar_gui
+    :members:
