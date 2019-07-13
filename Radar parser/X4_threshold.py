@@ -90,7 +90,7 @@ def range_finder(filename, estimated_threshold):
 
     for i in range(len(data[5])):  # Finds points for the 5th sample
 
-        if (estimated_threshold < data[5][i]):
+        if estimated_threshold < data[5][i]:
             positive_finds.append(i + 1)
 
     return positive_finds
@@ -132,10 +132,9 @@ def noise_power_estimate(filename, estimated_threshold):
         sum_data -= data[5][positive_finds[i] - 1]
         sum_data -= data[5][positive_finds[i] + 1]
 
-    noise_power = sum_data / (
-                len(data[5]) - len(positive_finds) * 3)  # Takes average excluding guard and positive numbers
-
-    return noise_power
+    noise_power = sum_data / (len(data[5]) - len(positive_finds) * 3)  # Takes average excluding guard and positive numbers
+    li = [noise_power]
+    return li
 
 
 def distance_finder(filename, estimate_threshold):

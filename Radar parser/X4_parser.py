@@ -16,7 +16,6 @@ def iq_data(filename,csvname):
     Example:
 
         >>> iq_data('X4data.dat','X4iq_data')
-        >>> 'converted'
 
     Returns:
 
@@ -37,7 +36,6 @@ def iq_data(filename,csvname):
              writer.writerow(iqdata)
     f.close()
     csvFile.close()
-    return 'converted'
 
 
 def raw_data(filename,csvname):
@@ -54,7 +52,6 @@ def raw_data(filename,csvname):
     Example:
 
         >>> raw_data('X4data.dat','X4raw_data')
-        >>> 'converted'
 
     Returns:
 
@@ -70,4 +67,3 @@ def raw_data(filename,csvname):
             writer.writerow(temp)
     f.close()
     csvFile.close()
-    return 'converted'

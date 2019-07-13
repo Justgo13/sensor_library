@@ -1,6 +1,8 @@
 from tkinter import *
 from tkinter import filedialog as fd
 from lidar_extract import *
+from X4_threshold import *
+from X4_parser import *
 from imu_extract import *
 from xyz_calc import *
 from PIL import ImageTk, Image
@@ -14,11 +16,13 @@ file_menu = Menu(menubar, tearoff=0)
 lidar_extract_menu = Menu(menubar, tearoff=0)
 IMU_extract_menu = Menu(menubar, tearoff=0)
 xyz_cartesian = Menu(menubar, tearoff=0)
+X4 = Menu(menubar, tearoff=0)
 
 menubar.add_cascade(label="File", menu=file_menu)
 menubar.add_cascade(label="Lidar Extract", menu=lidar_extract_menu)
 menubar.add_cascade(label="IMU Extract", menu=IMU_extract_menu)
 menubar.add_cascade(label="Lidar XYZ Calulator", menu=xyz_cartesian)
+menubar.add_cascade(label="Novelda X4", menu=X4)
 
 label_font = ('times', 20, 'bold')
 Label(window, text="Welcome to CUDRDC lidar data extraction tool", font=label_font).place(x=50, y=25)
@@ -70,13 +74,13 @@ def openfile():
     """
     Opens the csv file for reading lidar and IMU packet parameters.
     """
-    filename = fd.askopenfilename()
+    filename = fd.askopenfilename(filetypes=(("csv file", "*.csv"), ("All files", "*.*")))
     f = open(filename)
     f.read()
     global data
     data = pandas.read_csv(filename)
 
-    
+
 def lidar_single_row():
     """
     GUI window for reading lidar data in a single row
@@ -327,23 +331,58 @@ def xyz_calc():
     xyz = Button(newwin, text="Get lidar XYZ coordinates", fg='red', command=lambda: print_list(get_xyz(data, row_num.get(), azimuth_block_num.get(), channel_num.get()))).place(x=175, y=100)
 
 
+def open_x4_bin():
+   global X4_file
+   X4_file = fd.askopenfilename(filetypes=(("binary file", "*.dat"), ("All files", "*.*")))
+
+
+def open_x4_csv():
+    global X4_csv
+    X4_csv = fd.askopenfilename(filetypes=(("csv file", "*.csv"), ("All files", "*.*")))
+
+
+def convert_x4():
+    newwin = Toplevel(window)
+    newwin.geometry("200x200")
+
+    Label(newwin, text="Enter desired csv file name").place(x=0, y=0)
+    entry1 = Entry(newwin)
+    entry1.place(x=0, y=25, width=100)
+
+    convert = Button(newwin, text="Convert binary file to csv file", command=lambda: iq_data(X4_file, entry1.get())).place(x=0, y=50)
+
+
+def x4_threshold():
+    newwin = Toplevel(window)
+    newwin.geometry("800x600")
+
+    global t
+    t = Text(newwin)
+    t.place(x=75, y=250, height=300, width=200)
+
+    Label(newwin, text="Enter an estimated threshold").place(x=0, y=0)
+    entry1 = Entry(newwin)
+    entry1.place(x=0, y=25, width=100)
+
+    range_bin = Button(newwin, text="Get range bin(s) above threshold", command=lambda: print_list(range_finder(X4_csv, float(entry1.get())))).place(x=0, y=50)
+    noise = Button(newwin, text="Get noise estimate", command=lambda: print_list(noise_power_estimate(X4_csv, float(entry1.get())))).place(x=100, y=50)
+    distance = Button(newwin, text="Get target distance", command=lambda: print_list(distance_finder(X4_csv, float(entry1.get())))).place(x=200, y=50)
+    plot = Button(newwin, text="Plot data for range vs. amplitude", command=lambda: plot_data(X4_csv)).place(x=300, y=50)
+
+
 def instruction():
     """
     A set of instructions on how to use the program
     """
     newwin = Toplevel(window)
-    newwin.geometry("900x300")
+    newwin.geometry("1420x730")
 
-    instruction_font = ('times', 12, 'bold')
-    Label(newwin, text="How to use", font=label_font).place(x=400, y=0)
-    Label(newwin, text="**IMPORTANT MUST DO FIRST**", font=instruction_font).place(x=0, y=50)
-    Label(newwin, text="Must open your created lidar or IMU csv file first before extractig data", font=instruction_font).place(x=0, y=75)
-    Label(newwin, text="1. Choose to extract from either the lidar packet or the IMU packet using 'Extract' menu").place(x=0, y=100)
-    Label(newwin, text="2. If reading data from under the 'Datablock Parameter' header, use drop down menu to choose azimuth block to read from, otherwise leave untouched").place(x=0, y=125)
-    Label(newwin, text="3. If inputting multiple rows, input them separated by commas. If inputting row section, input a start and end row seperated by a comma.").place(x=0, y=150)
-    Label(newwin, text="4. If calculating lidar XYZ points, must have opened your lidar csv file.").place(x=0, y=175)
-    Label(newwin, text="**IMPORTANT MUST REMEMBER**", font=instruction_font).place(x=0, y=200)
-    Label(newwin, text="When switching between extracting data from lidar and IMU packet, always re-open your file").place(x=0, y=225)
+    instruction_img = ImageTk.PhotoImage(Image.open("Instructions.png"))
+    instruction_panel = Label(newwin, image=instruction_img)
+    instruction_panel.photo = instruction_img
+
+    # Placing images
+    instruction_panel.place(x=0, y=0)
 
 
 """ Options for the file menu """
@@ -361,6 +400,11 @@ IMU_extract_menu.add_command(label="Multiple row", command=imu_multiple_row)
 IMU_extract_menu.add_command(label="Row section", command=imu_row_section)
 
 xyz_cartesian.add_command(label="Get point", command=xyz_calc)
+
+X4.add_command(label="Open binary file", command=open_x4_bin)
+X4.add_command(label="Open converted csv file", command=open_x4_csv)
+X4.add_command(label="Convert binary file", command=convert_x4)
+X4.add_command(label="Range bin finder", command=x4_threshold)
 
 window.geometry("700x200")
 window.config(menu=menubar) 
