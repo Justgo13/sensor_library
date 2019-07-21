@@ -4,11 +4,10 @@ from __future__ import print_function, division
 from optparse import OptionParser
 from time import sleep
 
-import numpy as np
 import matplotlib.pyplot as plt
-from matplotlib.animation import FuncAnimation
-
+import numpy as np
 import pymoduleconnector
+from matplotlib.animation import FuncAnimation
 from pymoduleconnector import DataType
 
 __version__ = 3

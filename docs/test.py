@@ -1,7 +1,7 @@
 import unittest
 import X4_parser as X4
 import X4_threshold as X4T
-import TI_parser as TI
+import TSW_IWR as TSW
 
 
 class TestParser(unittest.TestCase):
@@ -27,7 +27,7 @@ class TestParser(unittest.TestCase):
         Method to test if .bin binary file was converted successfully to .csv file with iq data put together.
         """
 
-        file_TI = TI.readTIdata('TIdata.bin','TIiq')
+        file_TSW = TSW.readTSWdata('TIdata.bin','TIiq')
         self.assertEqual(file_TI,'converted')
 
     def X4_Threshold_range_finder(self):

@@ -70,9 +70,9 @@
 
 
 
-\title{CUDRDC Sensor Project Documentation}
-\date{Jul 12, 2019}
-\release{0.1.0}
+\title{CUDRDC Documentation}
+\date{Jul 21, 2019}
+\release{0.1.4}
 \author{Jason Gao}
 \newcommand{\sphinxlogo}{\vbox{}}
 \renewcommand{\releasename}{Release}
@@ -248,44 +248,7 @@ Refer to \sphinxcode{\sphinxupquote{TSW1400 Comprehensive Guide}} for full guide
 
 \subsubsection{Required softwares}
 \label{\detokenize{Radar information:required-softwares}}
-\sphinxcode{\sphinxupquote{mmWaveSDK}}
-
-\sphinxcode{\sphinxupquote{mmWaveDFP}}
-
-\sphinxcode{\sphinxupquote{High speed data converter}}
-
-\sphinxcode{\sphinxupquote{MATLAB runtime engine}}
-
-\begin{sphinxadmonition}{note}{Note:}
-If you don’t have Code Composer Studio v7.1 or higher installed get:
-\end{sphinxadmonition}
-
-\sphinxcode{\sphinxupquote{XDS Emulation Software Package}}
-
-
-\section{Linux setup}
-\label{\detokenize{Linux setup:linux-setup}}\label{\detokenize{Linux setup::doc}}
-\sphinxstylestrong{To install Linux with Ubuntu v18.04 on a Windows PC, users must install the following files:}
-
-\sphinxhref{https://www.virtualbox.org/wiki/Downloads}{VirutalBox Software}
-
-\sphinxhref{https://ubuntu.com/download/desktop}{Ubuntu 18.04 download}
-
-\sphinxhref{https://itsfoss.com/install-ubuntu-dual-boot-mode-windows/}{Quick tutorial on installing Ubuntu}
-
-
-\subsection{Quick tips for linux beginners}
-\label{\detokenize{Linux setup:quick-tips-for-linux-beginners}}\begin{itemize}
-\item {} 
-Set the network setting to use bridged adapter so Linux doesn’t share the same ip address as your Windows PC.
-
-\item {} 
-Insert guest addition CD image found in the \sphinxstyleemphasis{Devices} tab for auto-adjusted screen resolutions.
-
-\item {} 
-Use \sphinxstyleemphasis{\textasciitilde{}/ to cd from home directory}
-
-\end{itemize}
+\sphinxhref{https://drive.google.com/file/d/1yzbdIZaviq5P\_\_zpNsy\_TmBAXUXaU7Hg/view?usp=sharing}{Google Drive download}
 
 
 \section{X4 Radar}
@@ -709,11 +672,11 @@ A list of range bins that has signal strength values above the threshold.
 
 
 
-\section{TI parser code}
-\label{\detokenize{TI radar:module-TI_parser}}\label{\detokenize{TI radar:ti-parser-code}}\label{\detokenize{TI radar::doc}}\index{TI\_parser (module)@\spxentry{TI\_parser}\spxextra{module}}\index{readTIdata() (in module TI\_parser)@\spxentry{readTIdata()}\spxextra{in module TI\_parser}}
+\section{TSW parser code}
+\label{\detokenize{TSW radar:module-TSW_IWR}}\label{\detokenize{TSW radar:tsw-parser-code}}\label{\detokenize{TSW radar::doc}}\index{TSW\_IWR (module)@\spxentry{TSW\_IWR}\spxextra{module}}\index{readTSWdata() (in module TSW\_IWR)@\spxentry{readTSWdata()}\spxextra{in module TSW\_IWR}}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{TI radar:TI_parser.readTIdata}}\pysiglinewithargsret{\sphinxcode{\sphinxupquote{TI\_parser.}}\sphinxbfcode{\sphinxupquote{readTIdata}}}{\emph{filename}, \emph{csvname}}{}
+\phantomsection\label{\detokenize{TSW radar:TSW_IWR.readTSWdata}}\pysiglinewithargsret{\sphinxcode{\sphinxupquote{TSW\_IWR.}}\sphinxbfcode{\sphinxupquote{readTSWdata}}}{\emph{filename}, \emph{csvname}}{}
 Reads in a binary file and outputs the iq complex data to a csv file specified by csvname.
 
 Parameter:
@@ -731,7 +694,7 @@ csv file name that stores the iq data from binary file.
 Example:
 
 \begin{sphinxVerbatim}[commandchars=\\\{\}]
-\PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{n}{readTIdata}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{TIdata.bin}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{TIdata}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
+\PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{n}{readTSWdata}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{TIdata.bin}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{TIdata}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
 \PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{converted}\PYG{l+s+s1}{\PYGZsq{}}
 \end{sphinxVerbatim}
 
@@ -745,654 +708,20 @@ Readable csv file containing complex data.
 
 
 
-\section{Lidar Extraction Tool}
-\label{\detokenize{Lidar extraction tool:lidar-extraction-tool}}\label{\detokenize{Lidar extraction tool::doc}}
-The lidar extraction tool is used to extract relevant data from the /os1\_node/lidar\_packets and /os1\_node/imu\_packets topics that were created when recording using the Ouster OS1-16 lidar.
-From the lidar\_packets topic, the tool can extract data such as global timestamps, lidar timestamps, range, number of signal photons, etc. From the imu\_packets topic,  the tool can extract
-data such as global timestamp, IMU timestamp, acceleration in xyz and angular velocity in the xyz plane. The tool uses a GUI interface so that navigating it is simple.
-
-This GUI tool also calculate the xyz cartesian coordinates using lidar packet data and fit it to a lidar coordinate frame.
+\section{Library GUI}
+\label{\detokenize{Library GUI:library-gui}}\label{\detokenize{Library GUI::doc}}
+This GUI allows user to run parsers that are included in this library such as the ones for the Novelda X4 radars, TSW1642 radars and Ouster OS1-16 lidar. This GUI allows users to
+open their desired file to read and with the use of buttons, read the desired data. The GUI even has a instruction page on how to use it.
 
 
 \subsection{Functions}
-\label{\detokenize{Lidar extraction tool:functions}}
+\label{\detokenize{Library GUI:functions}}
+Below, are the functions that are used and run in the GUI.
 
-\subsubsection{Lidar packet functions}
-\label{\detokenize{Lidar extraction tool:lidar-packet-functions}}
-The below functions are used to read certain data categories as mentioned above from a csv file to the user through the use of the GUI interface.
-
-\phantomsection\label{\detokenize{Lidar extraction tool:module-lidar_extract}}\index{lidar\_extract (module)@\spxentry{lidar\_extract}\spxextra{module}}\index{get\_encoder\_count() (in module lidar\_extract)@\spxentry{get\_encoder\_count()}\spxextra{in module lidar\_extract}}
+\phantomsection\label{\detokenize{Library GUI:module-library_gui}}\index{library\_gui (module)@\spxentry{library\_gui}\spxextra{module}}\index{command() (in module library\_gui)@\spxentry{command()}\spxextra{in module library\_gui}}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{Lidar extraction tool:lidar_extract.get_encoder_count}}\pysiglinewithargsret{\sphinxcode{\sphinxupquote{lidar\_extract.}}\sphinxbfcode{\sphinxupquote{get\_encoder\_count}}}{\emph{data}, \emph{arg}, \emph{single\_row=False}, \emph{multiple\_row=False}, \emph{row\_section=False}}{}
-Returns the encoder count of the csv file made from the lidar recording. Based on what boolean the user set to be true,
-the encoder count will output for those row(s).
-
-Parameters:
-\begin{quote}
-\begin{description}
-\item[{data: Pandas dataframe}] \leavevmode
-A pandas dataframe used to extract values.
-
-\item[{arg: int}] \leavevmode
-The row(s) number to be read.
-
-\item[{single\_row: boolean}] \leavevmode
-If this is set to true, output the encoder count for the row that the user selected.
-
-\item[{multiple\_row: boolean}] \leavevmode
-If this is set to true, output the encoder count for the rows that the user selected.
-
-\item[{row\_section: boolean}] \leavevmode
-If this is set to true, output the encoder count for the row sections the user selected.
-
-\end{description}
-\end{quote}
-
-Return:
-\begin{quote}
-
-An array of all the encoder count the user desired to read.
-\end{quote}
-
-\end{fulllineitems}
-
-\index{get\_frame\_id() (in module lidar\_extract)@\spxentry{get\_frame\_id()}\spxextra{in module lidar\_extract}}
-
-\begin{fulllineitems}
-\phantomsection\label{\detokenize{Lidar extraction tool:lidar_extract.get_frame_id}}\pysiglinewithargsret{\sphinxcode{\sphinxupquote{lidar\_extract.}}\sphinxbfcode{\sphinxupquote{get\_frame\_id}}}{\emph{data}, \emph{arg}, \emph{single\_row=False}, \emph{multiple\_row=False}, \emph{row\_section=False}}{}
-Returns the frame ID of the csv file made from the lidar recording. Based on what boolean the user set to be true,
-the frame ID will output for those row(s).
-
-Parameters:
-\begin{quote}
-\begin{description}
-\item[{data: Pandas dataframe}] \leavevmode
-A pandas dataframe used to extract values.
-
-\item[{arg: int}] \leavevmode
-The row(s) number to be read.
-
-\item[{single\_row: boolean}] \leavevmode
-If this is set to true, output the frame IDs for the row that the user selected.
-
-\item[{multiple\_row: boolean}] \leavevmode
-If this is set to true, output the frame IDs for the rows that the user selected.
-
-\item[{row\_section: boolean}] \leavevmode
-If this is set to true, output the frame IDs for the row sections the user selected.
-
-\end{description}
-\end{quote}
-
-Return:
-\begin{quote}
-
-An array of all the frame IDs the user desired to read.
-\end{quote}
-
-\end{fulllineitems}
-
-\index{get\_measurement\_id() (in module lidar\_extract)@\spxentry{get\_measurement\_id()}\spxextra{in module lidar\_extract}}
-
-\begin{fulllineitems}
-\phantomsection\label{\detokenize{Lidar extraction tool:lidar_extract.get_measurement_id}}\pysiglinewithargsret{\sphinxcode{\sphinxupquote{lidar\_extract.}}\sphinxbfcode{\sphinxupquote{get\_measurement\_id}}}{\emph{data}, \emph{arg}, \emph{single\_row=False}, \emph{multiple\_row=False}, \emph{row\_section=False}}{}
-Returns the measurement ID of the csv file made from the lidar recording. Based on what boolean the user set to be true,
-the measurement ID will output for those row(s).
-
-Parameters:
-\begin{quote}
-\begin{description}
-\item[{data: Pandas dataframe}] \leavevmode
-A pandas dataframe used to extract values.
-
-\item[{arg: int}] \leavevmode
-The row(s) number to be read.
-
-\item[{single\_row: boolean}] \leavevmode
-If this is set to true, output the measurement IDs for the row that the user selected.
-
-\item[{multiple\_row: boolean}] \leavevmode
-If this is set to true, output the measurement IDs for the rows that the user selected.
-
-\item[{row\_section: boolean}] \leavevmode
-If this is set to true, output the measurement IDs for the row sections the user selected.
-
-\end{description}
-\end{quote}
-
-Return:
-\begin{quote}
-
-An array of all the measurement IDs the user desired to read.
-\end{quote}
-
-\end{fulllineitems}
-
-\index{get\_noise\_photons() (in module lidar\_extract)@\spxentry{get\_noise\_photons()}\spxextra{in module lidar\_extract}}
-
-\begin{fulllineitems}
-\phantomsection\label{\detokenize{Lidar extraction tool:lidar_extract.get_noise_photons}}\pysiglinewithargsret{\sphinxcode{\sphinxupquote{lidar\_extract.}}\sphinxbfcode{\sphinxupquote{get\_noise\_photons}}}{\emph{data}, \emph{arg}, \emph{single\_row=False}, \emph{multiple\_row=False}, \emph{row\_section=False}, \emph{azimuth\_block=0}}{}
-Returns the noise photons of the csv file made from the lidar recording. Based on what boolean the user set to be true,
-the noise photons will output for those row(s).
-
-Parameters:
-\begin{quote}
-\begin{description}
-\item[{data: Pandas dataframe}] \leavevmode
-A pandas dataframe used to extract values.
-
-\item[{arg: int}] \leavevmode
-The row(s) number to be read.
-
-\item[{azimuth\_block: int}] \leavevmode
-Specifies which azimuth to read noise photons values from.
-
-\item[{single\_row: boolean}] \leavevmode
-If this is set to true, output the noise photons for the row that the user selected.
-
-\item[{multiple\_row: boolean}] \leavevmode
-If this is set to true, output the noise photons for the rows that the user selected.
-
-\item[{row\_section: boolean}] \leavevmode
-If this is set to true, output the noise photons for the row sections the user selected.
-
-\end{description}
-\end{quote}
-
-Return:
-\begin{quote}
-
-An array of all the noise photons the user desired to read.
-\end{quote}
-
-\end{fulllineitems}
-
-\index{get\_range() (in module lidar\_extract)@\spxentry{get\_range()}\spxextra{in module lidar\_extract}}
-
-\begin{fulllineitems}
-\phantomsection\label{\detokenize{Lidar extraction tool:lidar_extract.get_range}}\pysiglinewithargsret{\sphinxcode{\sphinxupquote{lidar\_extract.}}\sphinxbfcode{\sphinxupquote{get\_range}}}{\emph{data}, \emph{arg}, \emph{single\_row=False}, \emph{multiple\_row=False}, \emph{row\_section=False}, \emph{azimuth\_block=0}}{}
-Returns the range of the csv file made from the lidar recording. Based on what boolean the user set to be true,
-the range will output for those row(s).
-
-Parameters:
-\begin{quote}
-\begin{description}
-\item[{data: Pandas dataframe}] \leavevmode
-A pandas dataframe used to extract values.
-
-\item[{arg: int}] \leavevmode
-The row(s) number to be read.
-
-\item[{azimuth\_block: int}] \leavevmode
-Specifies which azimuth to read range values from.
-
-\item[{single\_row: boolean}] \leavevmode
-If this is set to true, output the range for the row that the user selected.
-
-\item[{multiple\_row: boolean}] \leavevmode
-If this is set to true, output the range for the rows that the user selected.
-
-\item[{row\_section: boolean}] \leavevmode
-If this is set to true, output the erange for the row sections the user selected.
-
-\end{description}
-\end{quote}
-
-Return:
-\begin{quote}
-
-An array of all the range the user desired to read.
-\end{quote}
-
-\end{fulllineitems}
-
-\index{get\_reflectivity() (in module lidar\_extract)@\spxentry{get\_reflectivity()}\spxextra{in module lidar\_extract}}
-
-\begin{fulllineitems}
-\phantomsection\label{\detokenize{Lidar extraction tool:lidar_extract.get_reflectivity}}\pysiglinewithargsret{\sphinxcode{\sphinxupquote{lidar\_extract.}}\sphinxbfcode{\sphinxupquote{get\_reflectivity}}}{\emph{data}, \emph{arg}, \emph{single\_row=False}, \emph{multiple\_row=False}, \emph{row\_section=False}, \emph{azimuth\_block=0}}{}
-Returns the reflectivity of the csv file made from the lidar recording. Based on what boolean the user set to be true,
-the reflectivity will output for those row(s).
-
-Parameters:
-\begin{quote}
-\begin{description}
-\item[{data: Pandas dataframe}] \leavevmode
-A pandas dataframe used to extract values.
-
-\item[{arg: int}] \leavevmode
-The row(s) number to be read.
-
-\item[{azimuth\_block: int}] \leavevmode
-Specifies which azimuth to read reflectivity values from.
-
-\item[{single\_row: boolean}] \leavevmode
-If this is set to true, output the reflectivity for the row that the user selected.
-
-\item[{multiple\_row: boolean}] \leavevmode
-If this is set to true, output the reflectivity for the rows that the user selected.
-
-\item[{row\_section: boolean}] \leavevmode
-If this is set to true, output the reflectivity for the row sections the user selected.
-
-\end{description}
-\end{quote}
-
-Return:
-\begin{quote}
-
-An array of all the reflectivity the user desired to read.
-\end{quote}
-
-\end{fulllineitems}
-
-\index{get\_signal\_photons() (in module lidar\_extract)@\spxentry{get\_signal\_photons()}\spxextra{in module lidar\_extract}}
-
-\begin{fulllineitems}
-\phantomsection\label{\detokenize{Lidar extraction tool:lidar_extract.get_signal_photons}}\pysiglinewithargsret{\sphinxcode{\sphinxupquote{lidar\_extract.}}\sphinxbfcode{\sphinxupquote{get\_signal\_photons}}}{\emph{data}, \emph{arg}, \emph{single\_row=False}, \emph{multiple\_row=False}, \emph{row\_section=False}, \emph{azimuth\_block=0}}{}
-Returns the signal photons of the csv file made from the lidar recording. Based on what boolean the user set to be true,
-the signal photons will output for those row(s).
-
-Parameters:
-\begin{quote}
-\begin{description}
-\item[{azimuth\_block: int}] \leavevmode
-Specifies which azimuth to read signal photons values from.
-
-\item[{single\_row: boolean}] \leavevmode
-If this is set to true, output the signal photons for the row that the user selected.
-
-\item[{multiple\_row: boolean}] \leavevmode
-If this is set to true, output the signal photons for the rows that the user selected.
-
-\item[{row\_section: boolean}] \leavevmode
-If this is set to true, output the signal photons for the row sections the user selected.
-
-\end{description}
-\end{quote}
-
-Return:
-\begin{quote}
-
-An array of all the signal photons the user desired to read.
-\end{quote}
-
-\end{fulllineitems}
-
-\index{get\_timestamp() (in module lidar\_extract)@\spxentry{get\_timestamp()}\spxextra{in module lidar\_extract}}
-
-\begin{fulllineitems}
-\phantomsection\label{\detokenize{Lidar extraction tool:lidar_extract.get_timestamp}}\pysiglinewithargsret{\sphinxcode{\sphinxupquote{lidar\_extract.}}\sphinxbfcode{\sphinxupquote{get\_timestamp}}}{\emph{data}, \emph{arg}, \emph{single\_row=False}, \emph{multiple\_row=False}, \emph{row\_section=False}}{}
-Returns the timestamp of the csv file made from the lidar recording. Based on what boolean the user set to be true,
-the timestamp will output for those row(s).
-
-Parameters:
-\begin{quote}
-\begin{description}
-\item[{data: Pandas dataframe}] \leavevmode
-A pandas dataframe used to extract values.
-
-\item[{arg: int}] \leavevmode
-The row(s) number to be read.
-
-\item[{single\_row: boolean}] \leavevmode
-If this is set to true, output the timestamps for the row that the user selected.
-
-\item[{multiple\_row: boolean}] \leavevmode
-If this is set to true, output the timestamps for the rows that the user selected.
-
-\item[{row\_section: boolean}] \leavevmode
-If this is set to true, output the timestamps for the row sections the user selected.
-
-\end{description}
-\end{quote}
-
-Return:
-\begin{quote}
-
-An array of all the timestamps the user desired to read.
-\end{quote}
-
-\end{fulllineitems}
-
-
-
-\subsubsection{IMU packet functions}
-\label{\detokenize{Lidar extraction tool:imu-packet-functions}}
-The below functions are used to read certain data categories as mentioned above from a csv file to the user through the use of the GUI interface.
-
-\phantomsection\label{\detokenize{Lidar extraction tool:module-imu_extract}}\index{imu\_extract (module)@\spxentry{imu\_extract}\spxextra{module}}\index{get\_IMU\_time() (in module imu\_extract)@\spxentry{get\_IMU\_time()}\spxextra{in module imu\_extract}}
-
-\begin{fulllineitems}
-\phantomsection\label{\detokenize{Lidar extraction tool:imu_extract.get_IMU_time}}\pysiglinewithargsret{\sphinxcode{\sphinxupquote{imu\_extract.}}\sphinxbfcode{\sphinxupquote{get\_IMU\_time}}}{\emph{data}, \emph{arg}, \emph{single\_row=False}, \emph{multiple\_row=False}, \emph{row\_section=False}}{}
-Takes in a file and row arguement(s) along with a boolean that specifies the amount of rows to read the IMU timestamps for.
-
-Parameter:
-\begin{quote}
-\begin{description}
-\item[{data: file}] \leavevmode
-The csv file that is passed in to read.
-
-\item[{arg: int}] \leavevmode
-The row(s) that are to be read.
-
-\item[{single\_row: boolean}] \leavevmode
-If chosen the IMU timestamp for a single row specified by arg will be output.
-
-\item[{multiple\_row: boolean}] \leavevmode
-If chosen the IMU timestamp for multiple rows specified by arg will be output.
-
-\item[{row\_section: boolean}] \leavevmode
-If chosen the IMU timestamp for a row section by arg will be output.
-
-\end{description}
-\end{quote}
-
-Return:
-\begin{quote}
-
-An array of IMU timestamps.
-\end{quote}
-
-\end{fulllineitems}
-
-\index{get\_accel\_time() (in module imu\_extract)@\spxentry{get\_accel\_time()}\spxextra{in module imu\_extract}}
-
-\begin{fulllineitems}
-\phantomsection\label{\detokenize{Lidar extraction tool:imu_extract.get_accel_time}}\pysiglinewithargsret{\sphinxcode{\sphinxupquote{imu\_extract.}}\sphinxbfcode{\sphinxupquote{get\_accel\_time}}}{\emph{data}, \emph{arg}, \emph{single\_row=False}, \emph{multiple\_row=False}, \emph{row\_section=False}}{}
-Takes in a file and row arguement(s) along with a boolean that specifies the amount of rows to read the accelerometer timestamps for.
-
-Parameter:
-\begin{quote}
-\begin{description}
-\item[{data: file}] \leavevmode
-The csv file that is passed in to read.
-
-\item[{arg: int}] \leavevmode
-The row(s) that are to be read.
-
-\item[{single\_row: boolean}] \leavevmode
-If chosen the accelerometer timestamp for a single row specified by arg will be output.
-
-\item[{multiple\_row: boolean}] \leavevmode
-If chosen the accelerometer timestamp for multiple rows specified by arg will be output.
-
-\item[{row\_section: boolean}] \leavevmode
-If chosen the accelerometer timestamp for a row section by arg will be output.
-
-\end{description}
-\end{quote}
-
-Return:
-\begin{quote}
-
-An array of accelerometer timestamps.
-\end{quote}
-
-\end{fulllineitems}
-
-\index{get\_gyro\_time() (in module imu\_extract)@\spxentry{get\_gyro\_time()}\spxextra{in module imu\_extract}}
-
-\begin{fulllineitems}
-\phantomsection\label{\detokenize{Lidar extraction tool:imu_extract.get_gyro_time}}\pysiglinewithargsret{\sphinxcode{\sphinxupquote{imu\_extract.}}\sphinxbfcode{\sphinxupquote{get\_gyro\_time}}}{\emph{data}, \emph{arg}, \emph{single\_row=False}, \emph{multiple\_row=False}, \emph{row\_section=False}}{}
-Takes in a file and row arguement(s) along with a boolean that specifies the amount of rows to read the gyroscope timestamps for.
-
-Parameter:
-\begin{quote}
-\begin{description}
-\item[{data: file}] \leavevmode
-The csv file that is passed in to read.
-
-\item[{arg: int}] \leavevmode
-The row(s) that are to be read.
-
-\item[{single\_row: boolean}] \leavevmode
-If chosen the gyroscope timestamp for a single row specified by arg will be output.
-
-\item[{multiple\_row: boolean}] \leavevmode
-If chosen the gyroscope timestamp for multiple rows specified by arg will be output.
-
-\item[{row\_section: boolean}] \leavevmode
-If chosen the gyroscope timestamp for a row section by arg will be output.
-
-\end{description}
-\end{quote}
-
-Return:
-\begin{quote}
-
-An array of gyroscope timestamps.
-\end{quote}
-
-\end{fulllineitems}
-
-\index{get\_x\_accel() (in module imu\_extract)@\spxentry{get\_x\_accel()}\spxextra{in module imu\_extract}}
-
-\begin{fulllineitems}
-\phantomsection\label{\detokenize{Lidar extraction tool:imu_extract.get_x_accel}}\pysiglinewithargsret{\sphinxcode{\sphinxupquote{imu\_extract.}}\sphinxbfcode{\sphinxupquote{get\_x\_accel}}}{\emph{data}, \emph{arg}, \emph{single\_row=False}, \emph{multiple\_row=False}, \emph{row\_section=False}}{}
-Takes in a file and row arguement(s) along with a boolean that specifies the amount of rows to read the x acceleration for.
-
-Parameter:
-\begin{quote}
-\begin{description}
-\item[{data: file}] \leavevmode
-The csv file that is passed in to read.
-
-\item[{arg: int}] \leavevmode
-The row(s) that are to be read.
-
-\item[{single\_row: boolean}] \leavevmode
-If chosen the x acceleration for a single row specified by arg will be output.
-
-\item[{multiple\_row: boolean}] \leavevmode
-If chosen the x acceleration for multiple rows specified by arg will be output.
-
-\item[{row\_section: boolean}] \leavevmode
-If chosen the x acceleration for a row section by arg will be output.
-
-\end{description}
-\end{quote}
-
-Return:
-\begin{quote}
-
-An array of x acceleration.
-\end{quote}
-
-\end{fulllineitems}
-
-\index{get\_x\_ang\_vel() (in module imu\_extract)@\spxentry{get\_x\_ang\_vel()}\spxextra{in module imu\_extract}}
-
-\begin{fulllineitems}
-\phantomsection\label{\detokenize{Lidar extraction tool:imu_extract.get_x_ang_vel}}\pysiglinewithargsret{\sphinxcode{\sphinxupquote{imu\_extract.}}\sphinxbfcode{\sphinxupquote{get\_x\_ang\_vel}}}{\emph{data}, \emph{arg}, \emph{single\_row=False}, \emph{multiple\_row=False}, \emph{row\_section=False}}{}
-Takes in a file and row arguement(s) along with a boolean that specifies the amount of rows to read the x angular velocity for.
-
-Parameter:
-\begin{quote}
-\begin{description}
-\item[{data: file}] \leavevmode
-The csv file that is passed in to read.
-
-\item[{arg: int}] \leavevmode
-The row(s) that are to be read.
-
-\item[{single\_row: boolean}] \leavevmode
-If chosen the x angular velocity for a single row specified by arg will be output.
-
-\item[{multiple\_row: boolean}] \leavevmode
-If chosen the x angular velocity for multiple rows specified by arg will be output.
-
-\item[{row\_section: boolean}] \leavevmode
-If chosen the x angular velocity for a row section by arg will be output.
-
-\end{description}
-\end{quote}
-
-Return:
-\begin{quote}
-
-An array of x angular velocity.
-\end{quote}
-
-\end{fulllineitems}
-
-\index{get\_y\_accel() (in module imu\_extract)@\spxentry{get\_y\_accel()}\spxextra{in module imu\_extract}}
-
-\begin{fulllineitems}
-\phantomsection\label{\detokenize{Lidar extraction tool:imu_extract.get_y_accel}}\pysiglinewithargsret{\sphinxcode{\sphinxupquote{imu\_extract.}}\sphinxbfcode{\sphinxupquote{get\_y\_accel}}}{\emph{data}, \emph{arg}, \emph{single\_row=False}, \emph{multiple\_row=False}, \emph{row\_section=False}}{}
-Takes in a file and row arguement(s) along with a boolean that specifies the amount of rows to read the y acceleration for.
-
-Parameter:
-\begin{quote}
-\begin{description}
-\item[{data: file}] \leavevmode
-The csv file that is passed in to read.
-
-\item[{arg: int}] \leavevmode
-The row(s) that are to be read.
-
-\item[{single\_row: boolean}] \leavevmode
-If chosen the y acceleration for a single row specified by arg will be output.
-
-\item[{multiple\_row: boolean}] \leavevmode
-If chosen the y acceleration for multiple rows specified by arg will be output.
-
-\item[{row\_section: boolean}] \leavevmode
-If chosen the y acceleration for a row section by arg will be output.
-
-\end{description}
-\end{quote}
-
-Return:
-\begin{quote}
-
-An array of y acceleration.
-\end{quote}
-
-\end{fulllineitems}
-
-\index{get\_y\_ang\_vel() (in module imu\_extract)@\spxentry{get\_y\_ang\_vel()}\spxextra{in module imu\_extract}}
-
-\begin{fulllineitems}
-\phantomsection\label{\detokenize{Lidar extraction tool:imu_extract.get_y_ang_vel}}\pysiglinewithargsret{\sphinxcode{\sphinxupquote{imu\_extract.}}\sphinxbfcode{\sphinxupquote{get\_y\_ang\_vel}}}{\emph{data}, \emph{arg}, \emph{single\_row=False}, \emph{multiple\_row=False}, \emph{row\_section=False}}{}
-Takes in a file and row arguement(s) along with a boolean that specifies the amount of rows to read the y angular velocity for.
-
-Parameter:
-\begin{quote}
-\begin{description}
-\item[{data: file}] \leavevmode
-The csv file that is passed in to read.
-
-\item[{arg: int}] \leavevmode
-The row(s) that are to be read.
-
-\item[{single\_row: boolean}] \leavevmode
-If chosen the y angular velocity for a single row specified by arg will be output.
-
-\item[{multiple\_row: boolean}] \leavevmode
-If chosen the y angular velocity for multiple rows specified by arg will be output.
-
-\item[{row\_section: boolean}] \leavevmode
-If chosen the y angular velocity for a row section by arg will be output.
-
-\end{description}
-\end{quote}
-
-Return:
-\begin{quote}
-
-An array of y angular velocity.
-\end{quote}
-
-\end{fulllineitems}
-
-\index{get\_z\_accel() (in module imu\_extract)@\spxentry{get\_z\_accel()}\spxextra{in module imu\_extract}}
-
-\begin{fulllineitems}
-\phantomsection\label{\detokenize{Lidar extraction tool:imu_extract.get_z_accel}}\pysiglinewithargsret{\sphinxcode{\sphinxupquote{imu\_extract.}}\sphinxbfcode{\sphinxupquote{get\_z\_accel}}}{\emph{data}, \emph{arg}, \emph{single\_row=False}, \emph{multiple\_row=False}, \emph{row\_section=False}}{}
-Takes in a file and row arguement(s) along with a boolean that specifies the amount of rows to read the z acceleration for.
-
-Parameter:
-\begin{quote}
-\begin{description}
-\item[{data: file}] \leavevmode
-The csv file that is passed in to read.
-
-\item[{arg: int}] \leavevmode
-The row(s) that are to be read.
-
-\item[{single\_row: boolean}] \leavevmode
-If chosen the z acceleration for a single row specified by arg will be output.
-
-\item[{multiple\_row: boolean}] \leavevmode
-If chosen the z acceleration for multiple rows specified by arg will be output.
-
-\item[{row\_section: boolean}] \leavevmode
-If chosen the z acceleration for a row section by arg will be output.
-
-\end{description}
-\end{quote}
-
-Return:
-\begin{quote}
-
-An array of z acceleration.
-\end{quote}
-
-\end{fulllineitems}
-
-\index{get\_z\_ang\_vel() (in module imu\_extract)@\spxentry{get\_z\_ang\_vel()}\spxextra{in module imu\_extract}}
-
-\begin{fulllineitems}
-\phantomsection\label{\detokenize{Lidar extraction tool:imu_extract.get_z_ang_vel}}\pysiglinewithargsret{\sphinxcode{\sphinxupquote{imu\_extract.}}\sphinxbfcode{\sphinxupquote{get\_z\_ang\_vel}}}{\emph{data}, \emph{arg}, \emph{single\_row=False}, \emph{multiple\_row=False}, \emph{row\_section=False}}{}
-Takes in a file and row arguement(s) along with a boolean that specifies the amount of rows to read the z angular velocity for.
-
-Parameter:
-\begin{quote}
-\begin{description}
-\item[{data: file}] \leavevmode
-The csv file that is passed in to read.
-
-\item[{arg: int}] \leavevmode
-The row(s) that are to be read.
-
-\item[{single\_row: boolean}] \leavevmode
-If chosen the z angular velocity for a single row specified by arg will be output.
-
-\item[{multiple\_row: boolean}] \leavevmode
-If chosen the z angular velocity for multiple rows specified by arg will be output.
-
-\item[{row\_section: boolean}] \leavevmode
-If chosen the z angular velocity for a row section by arg will be output.
-
-\end{description}
-\end{quote}
-
-Return:
-\begin{quote}
-
-An array of z angular velocity.
-\end{quote}
-
-\end{fulllineitems}
-
-
-
-\subsubsection{XYZ Coordinate functions}
-\label{\detokenize{Lidar extraction tool:xyz-coordinate-functions}}
-The below functions are used to calculate xyz cartesian points onto a lidar coordinate frame using data extracted from the lidar packets
-
-\phantomsection\label{\detokenize{Lidar extraction tool:module-xyz_calc}}\index{xyz\_calc (module)@\spxentry{xyz\_calc}\spxextra{module}}
-
-\subsubsection{Lidar Extraction Tool GUI}
-\label{\detokenize{Lidar extraction tool:lidar-extraction-tool-gui}}
-To run this tool make sure to read the instructions for a quick simple how-to guide.
-Functions can be found here
-
-\phantomsection\label{\detokenize{Lidar extraction tool:module-test_lidar_gui}}\index{test\_lidar\_gui (module)@\spxentry{test\_lidar\_gui}\spxextra{module}}\index{command() (in module test\_lidar\_gui)@\spxentry{command()}\spxextra{in module test\_lidar\_gui}}
-
-\begin{fulllineitems}
-\phantomsection\label{\detokenize{Lidar extraction tool:test_lidar_gui.command}}\pysiglinewithargsret{\sphinxcode{\sphinxupquote{test\_lidar\_gui.}}\sphinxbfcode{\sphinxupquote{command}}}{\emph{entry}}{}
+\phantomsection\label{\detokenize{Library GUI:library_gui.command}}\pysiglinewithargsret{\sphinxcode{\sphinxupquote{library\_gui.}}\sphinxbfcode{\sphinxupquote{command}}}{\emph{entry}}{}
 Takes in a number of rows to be read from file and maps to list of ints.
 
 Paramters:
@@ -1412,10 +741,32 @@ mapped list of data
 
 \end{fulllineitems}
 
-\index{imu\_multiple\_row() (in module test\_lidar\_gui)@\spxentry{imu\_multiple\_row()}\spxextra{in module test\_lidar\_gui}}
+\index{convert\_TSW() (in module library\_gui)@\spxentry{convert\_TSW()}\spxextra{in module library\_gui}}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{Lidar extraction tool:test_lidar_gui.imu_multiple_row}}\pysiglinewithargsret{\sphinxcode{\sphinxupquote{test\_lidar\_gui.}}\sphinxbfcode{\sphinxupquote{imu\_multiple\_row}}}{}{}
+\phantomsection\label{\detokenize{Library GUI:library_gui.convert_TSW}}\pysiglinewithargsret{\sphinxcode{\sphinxupquote{library\_gui.}}\sphinxbfcode{\sphinxupquote{convert\_TSW}}}{}{}
+Converts the TSW binary file to a readable csv file.
+
+\end{fulllineitems}
+
+\index{convert\_x4() (in module library\_gui)@\spxentry{convert\_x4()}\spxextra{in module library\_gui}}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{Library GUI:library_gui.convert_x4}}\pysiglinewithargsret{\sphinxcode{\sphinxupquote{library\_gui.}}\sphinxbfcode{\sphinxupquote{convert\_x4}}}{}{}
+GUI window with button to allow conversion of X4 binary file to csv file.
+
+Return:
+\begin{quote}
+
+Readable X4 csv file.
+\end{quote}
+
+\end{fulllineitems}
+
+\index{imu\_multiple\_row() (in module library\_gui)@\spxentry{imu\_multiple\_row()}\spxextra{in module library\_gui}}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{Library GUI:library_gui.imu_multiple_row}}\pysiglinewithargsret{\sphinxcode{\sphinxupquote{library\_gui.}}\sphinxbfcode{\sphinxupquote{imu\_multiple\_row}}}{}{}
 GUI window for reading IMU data of multiple rows
 
 Return:
@@ -1426,10 +777,10 @@ A textbox of the parameter data user wanted to read.
 
 \end{fulllineitems}
 
-\index{imu\_row\_section() (in module test\_lidar\_gui)@\spxentry{imu\_row\_section()}\spxextra{in module test\_lidar\_gui}}
+\index{imu\_row\_section() (in module library\_gui)@\spxentry{imu\_row\_section()}\spxextra{in module library\_gui}}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{Lidar extraction tool:test_lidar_gui.imu_row_section}}\pysiglinewithargsret{\sphinxcode{\sphinxupquote{test\_lidar\_gui.}}\sphinxbfcode{\sphinxupquote{imu\_row\_section}}}{}{}
+\phantomsection\label{\detokenize{Library GUI:library_gui.imu_row_section}}\pysiglinewithargsret{\sphinxcode{\sphinxupquote{library\_gui.}}\sphinxbfcode{\sphinxupquote{imu\_row\_section}}}{}{}
 GUI window for reading IMU data of the row section
 
 Return:
@@ -1440,10 +791,10 @@ A textbox of the parameter data user wanted to read.
 
 \end{fulllineitems}
 
-\index{imu\_single\_row() (in module test\_lidar\_gui)@\spxentry{imu\_single\_row()}\spxextra{in module test\_lidar\_gui}}
+\index{imu\_single\_row() (in module library\_gui)@\spxentry{imu\_single\_row()}\spxextra{in module library\_gui}}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{Lidar extraction tool:test_lidar_gui.imu_single_row}}\pysiglinewithargsret{\sphinxcode{\sphinxupquote{test\_lidar\_gui.}}\sphinxbfcode{\sphinxupquote{imu\_single\_row}}}{}{}
+\phantomsection\label{\detokenize{Library GUI:library_gui.imu_single_row}}\pysiglinewithargsret{\sphinxcode{\sphinxupquote{library\_gui.}}\sphinxbfcode{\sphinxupquote{imu\_single\_row}}}{}{}
 GUI window for reading IMU data of the single row
 
 Return:
@@ -1454,18 +805,18 @@ A textbox of the parameter data user wanted to read.
 
 \end{fulllineitems}
 
-\index{instruction() (in module test\_lidar\_gui)@\spxentry{instruction()}\spxextra{in module test\_lidar\_gui}}
+\index{instruction() (in module library\_gui)@\spxentry{instruction()}\spxextra{in module library\_gui}}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{Lidar extraction tool:test_lidar_gui.instruction}}\pysiglinewithargsret{\sphinxcode{\sphinxupquote{test\_lidar\_gui.}}\sphinxbfcode{\sphinxupquote{instruction}}}{}{}
+\phantomsection\label{\detokenize{Library GUI:library_gui.instruction}}\pysiglinewithargsret{\sphinxcode{\sphinxupquote{library\_gui.}}\sphinxbfcode{\sphinxupquote{instruction}}}{}{}
 A set of instructions on how to use the program
 
 \end{fulllineitems}
 
-\index{lidar\_multiple\_row() (in module test\_lidar\_gui)@\spxentry{lidar\_multiple\_row()}\spxextra{in module test\_lidar\_gui}}
+\index{lidar\_multiple\_row() (in module library\_gui)@\spxentry{lidar\_multiple\_row()}\spxextra{in module library\_gui}}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{Lidar extraction tool:test_lidar_gui.lidar_multiple_row}}\pysiglinewithargsret{\sphinxcode{\sphinxupquote{test\_lidar\_gui.}}\sphinxbfcode{\sphinxupquote{lidar\_multiple\_row}}}{}{}
+\phantomsection\label{\detokenize{Library GUI:library_gui.lidar_multiple_row}}\pysiglinewithargsret{\sphinxcode{\sphinxupquote{library\_gui.}}\sphinxbfcode{\sphinxupquote{lidar\_multiple\_row}}}{}{}
 GUI window for reading lidar data of multiple rows
 
 Return:
@@ -1476,10 +827,10 @@ A textbox of the parameter data user wanted to read.
 
 \end{fulllineitems}
 
-\index{lidar\_row\_section() (in module test\_lidar\_gui)@\spxentry{lidar\_row\_section()}\spxextra{in module test\_lidar\_gui}}
+\index{lidar\_row\_section() (in module library\_gui)@\spxentry{lidar\_row\_section()}\spxextra{in module library\_gui}}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{Lidar extraction tool:test_lidar_gui.lidar_row_section}}\pysiglinewithargsret{\sphinxcode{\sphinxupquote{test\_lidar\_gui.}}\sphinxbfcode{\sphinxupquote{lidar\_row\_section}}}{}{}
+\phantomsection\label{\detokenize{Library GUI:library_gui.lidar_row_section}}\pysiglinewithargsret{\sphinxcode{\sphinxupquote{library\_gui.}}\sphinxbfcode{\sphinxupquote{lidar\_row\_section}}}{}{}
 GUI window for reading lidar data of the row section
 
 Return:
@@ -1490,10 +841,10 @@ A textbox of the parameter data user wanted to read.
 
 \end{fulllineitems}
 
-\index{lidar\_single\_row() (in module test\_lidar\_gui)@\spxentry{lidar\_single\_row()}\spxextra{in module test\_lidar\_gui}}
+\index{lidar\_single\_row() (in module library\_gui)@\spxentry{lidar\_single\_row()}\spxextra{in module library\_gui}}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{Lidar extraction tool:test_lidar_gui.lidar_single_row}}\pysiglinewithargsret{\sphinxcode{\sphinxupquote{test\_lidar\_gui.}}\sphinxbfcode{\sphinxupquote{lidar\_single\_row}}}{}{}
+\phantomsection\label{\detokenize{Library GUI:library_gui.lidar_single_row}}\pysiglinewithargsret{\sphinxcode{\sphinxupquote{library\_gui.}}\sphinxbfcode{\sphinxupquote{lidar\_single\_row}}}{}{}
 GUI window for reading lidar data in a single row
 
 Return:
@@ -1504,18 +855,42 @@ A textbox of the parameter data user wanted to read.
 
 \end{fulllineitems}
 
-\index{openfile() (in module test\_lidar\_gui)@\spxentry{openfile()}\spxextra{in module test\_lidar\_gui}}
+\index{open\_TSW\_bin() (in module library\_gui)@\spxentry{open\_TSW\_bin()}\spxextra{in module library\_gui}}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{Lidar extraction tool:test_lidar_gui.openfile}}\pysiglinewithargsret{\sphinxcode{\sphinxupquote{test\_lidar\_gui.}}\sphinxbfcode{\sphinxupquote{openfile}}}{}{}
+\phantomsection\label{\detokenize{Library GUI:library_gui.open_TSW_bin}}\pysiglinewithargsret{\sphinxcode{\sphinxupquote{library\_gui.}}\sphinxbfcode{\sphinxupquote{open\_TSW\_bin}}}{}{}
+Opens the TSW binary file.
+
+\end{fulllineitems}
+
+\index{open\_x4\_bin() (in module library\_gui)@\spxentry{open\_x4\_bin()}\spxextra{in module library\_gui}}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{Library GUI:library_gui.open_x4_bin}}\pysiglinewithargsret{\sphinxcode{\sphinxupquote{library\_gui.}}\sphinxbfcode{\sphinxupquote{open\_x4\_bin}}}{}{}
+Opens the Novelda X4 binary file for reading.
+
+\end{fulllineitems}
+
+\index{open\_x4\_csv() (in module library\_gui)@\spxentry{open\_x4\_csv()}\spxextra{in module library\_gui}}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{Library GUI:library_gui.open_x4_csv}}\pysiglinewithargsret{\sphinxcode{\sphinxupquote{library\_gui.}}\sphinxbfcode{\sphinxupquote{open\_x4\_csv}}}{}{}
+Opens the Novelda X4 csv file for use in threshold functions.
+
+\end{fulllineitems}
+
+\index{openfile() (in module library\_gui)@\spxentry{openfile()}\spxextra{in module library\_gui}}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{Library GUI:library_gui.openfile}}\pysiglinewithargsret{\sphinxcode{\sphinxupquote{library\_gui.}}\sphinxbfcode{\sphinxupquote{openfile}}}{}{}
 Opens the csv file for reading lidar and IMU packet parameters.
 
 \end{fulllineitems}
 
-\index{print\_list() (in module test\_lidar\_gui)@\spxentry{print\_list()}\spxextra{in module test\_lidar\_gui}}
+\index{print\_list() (in module library\_gui)@\spxentry{print\_list()}\spxextra{in module library\_gui}}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{Lidar extraction tool:test_lidar_gui.print_list}}\pysiglinewithargsret{\sphinxcode{\sphinxupquote{test\_lidar\_gui.}}\sphinxbfcode{\sphinxupquote{print\_list}}}{\emph{lst}}{}
+\phantomsection\label{\detokenize{Library GUI:library_gui.print_list}}\pysiglinewithargsret{\sphinxcode{\sphinxupquote{library\_gui.}}\sphinxbfcode{\sphinxupquote{print\_list}}}{\emph{lst}}{}
 Takes in an array and prints it to textbox.
 
 Parameters:
@@ -1529,10 +904,24 @@ A list object of the data that will be read to user.
 
 \end{fulllineitems}
 
-\index{xyz\_calc() (in module test\_lidar\_gui)@\spxentry{xyz\_calc()}\spxextra{in module test\_lidar\_gui}}
+\index{x4\_threshold() (in module library\_gui)@\spxentry{x4\_threshold()}\spxextra{in module library\_gui}}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{Lidar extraction tool:test_lidar_gui.xyz_calc}}\pysiglinewithargsret{\sphinxcode{\sphinxupquote{test\_lidar\_gui.}}\sphinxbfcode{\sphinxupquote{xyz\_calc}}}{}{}
+\phantomsection\label{\detokenize{Library GUI:library_gui.x4_threshold}}\pysiglinewithargsret{\sphinxcode{\sphinxupquote{library\_gui.}}\sphinxbfcode{\sphinxupquote{x4\_threshold}}}{}{}
+GUI window to run X4 threshold functions
+
+Returns:
+\begin{quote}
+
+Radar threshold, noise and range estimates
+\end{quote}
+
+\end{fulllineitems}
+
+\index{xyz\_calc() (in module library\_gui)@\spxentry{xyz\_calc()}\spxextra{in module library\_gui}}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{Library GUI:library_gui.xyz_calc}}\pysiglinewithargsret{\sphinxcode{\sphinxupquote{library\_gui.}}\sphinxbfcode{\sphinxupquote{xyz\_calc}}}{}{}
 GUI window for reading the xyz coordinates gotten from lines of the lidar csv file.
 
 Return:
@@ -1543,6 +932,31 @@ A textbox of the xyz coordinates from rows of the lidar csv file.
 
 \end{fulllineitems}
 
+
+
+\section{Linux setup}
+\label{\detokenize{Linux setup:linux-setup}}\label{\detokenize{Linux setup::doc}}
+\sphinxstylestrong{To install Linux with Ubuntu v18.04 on a Windows PC, users must install the following files:}
+
+\sphinxhref{https://www.virtualbox.org/wiki/Downloads}{VirutalBox Software}
+
+\sphinxhref{https://ubuntu.com/download/desktop}{Ubuntu 18.04 download}
+
+\sphinxhref{https://itsfoss.com/install-ubuntu-dual-boot-mode-windows/}{Quick tutorial on installing Ubuntu}
+
+
+\subsection{Quick tips for linux beginners}
+\label{\detokenize{Linux setup:quick-tips-for-linux-beginners}}\begin{itemize}
+\item {} 
+Set the network setting to use bridged adapter so Linux doesn’t share the same ip address as your Windows PC.
+
+\item {} 
+Insert guest addition CD image found in the \sphinxstyleemphasis{Devices} tab for auto-adjusted screen resolutions.
+
+\item {} 
+Use \sphinxstyleemphasis{\textasciitilde{}/ to cd from home directory}
+
+\end{itemize}
 
 
 \section{Ouster OS1 Lidar}
@@ -1587,6 +1001,15 @@ Some version of Linux running Ubuntu must be used. It is recommended to run Ubun
 \end{sphinxadmonition}
 
 
+\subsubsection{Variable reference}
+\label{\detokenize{Ouster lidar:variable-reference}}
+\sphinxstylestrong{\textless{}os1\_hostname\textgreater{}} is the hostname/ip address of OS1-16 lidar.
+
+\sphinxstylestrong{\textless{}udp\_data\_dest\_ip\textgreater{}} is the destination ip address the lidar sends data
+
+\sphinxstylestrong{\textless{}frame\_size\textgreater{}} is the size of the visualization frame and can ONLY be the following: 512x10, 512x20, 1024x10, 1024x20, 2048x10.
+
+
 \subsubsection{Ouster client}
 \label{\detokenize{Ouster lidar:ouster-client}}
 The Ouster client allows users to see the raw data stream that the lidar is collecting and sending to the specified ip address.
@@ -1605,10 +1028,6 @@ cd /path/to/ouster\_client\_example
 type \sphinxstyleemphasis{./ouster\_client\_example \textless{}os1\_hostname\textgreater{} \textless{}udp\_dest\_ip\textgreater{}}
 
 \end{enumerate}
-
-\sphinxstylestrong{\textless{}os1\_hostname\textgreater{}} is the hostname/ip address of OS1-16 lidar.
-
-\sphinxstylestrong{\textless{}udp\_data\_dest\_ip\textgreater{}} is the destination ip address the lidar sends data to. e.g. ip address from running \sphinxstyleemphasis{ifconfig}.
 
 
 \subsubsection{Ouster visualization}
@@ -1629,12 +1048,6 @@ cd /path/to/ouster\_viz/build
 \sphinxstyleemphasis{./viz -m \textless{}frame\_size\textgreater{} \textless{}os1\_hostname\textgreater{} \textless{}udp\_data\_dest\_ip\textgreater{}}
 
 \end{enumerate}
-
-\sphinxstylestrong{\textless{}frame\_size\textgreater{}} is the size of the visualization frame and can ONLY be the following: 512x10, 512x20, 1024x10, 1024x20, 2048x10.
-
-\sphinxstylestrong{\textless{}os1\_hostname\textgreater{}} is the ip address of lidar.
-
-\sphinxstylestrong{\textless{}udp\_data\_ip\_dest\textgreater{}} is the ip address lidar sends data to.
 
 
 \subsubsection{Ouster ROS}
@@ -1666,18 +1079,6 @@ For recording lidar data:
 \item {} 
 \sphinxstyleemphasis{roslaunch ouster\_ros os1.launch os1\_hostname:=\textless{}os1\_hostname\textgreater{} os1\_udp\_dest:=\textless{}os1\_udp\_dest\textgreater{} lidar\_mode\textless{}:=\textless{}lidar\_mode\textgreater{}}. The option to visualize live data can be turned on by adding \sphinxstyleemphasis{viz:=true} to the roslaunch command.
 
-\end{enumerate}
-
-\sphinxstylestrong{\textless{}os1\_hostname\textgreater{} is the ip address of the lidar}
-
-\sphinxstylestrong{\textless{}os1\_udp\_dest\textgreater{} is the ip address the lidar sends data to}
-
-\sphinxstylestrong{\textless{}lidar\_mode\textgreater{} is the size of the lidar visualization frame}
-\begin{enumerate}
-\def\theenumi{\arabic{enumi}}
-\def\labelenumi{\theenumi .}
-\makeatletter\def\p@enumii{\p@enumi \theenumi .}\makeatother
-\setcounter{enumi}{1}
 \item {} 
 \sphinxstyleemphasis{rosbag record -O \textless{}recorded\_\_bag\_filename\textgreater{} /os1\_node/imu\_packets /os1\_node/lidar\_packets} in a new terminal
 
@@ -1771,36 +1172,21 @@ component separated.
 \end{fulllineitems}
 
 
-\sphinxcode{\sphinxupquote{Novelda X4 binary file to complex or raw csv file}}
-
-\sphinxcode{\sphinxupquote{Novelda X4 data collection and playback}}
-
-\sphinxcode{\sphinxupquote{Novelda X4 threshold}}
-
-\sphinxcode{\sphinxupquote{TI binary file to complex csv file}}
-
-\sphinxcode{\sphinxupquote{Unit tests for radar parser and Novelda threshold calculator}}
-
 
 \renewcommand{\indexname}{Python Module Index}
 \begin{sphinxtheindex}
 \let\bigletter\sphinxstyleindexlettergroup
-\bigletter{i}
-\item\relax\sphinxstyleindexentry{imu\_extract}\sphinxstyleindexpageref{Lidar extraction tool:\detokenize{module-imu_extract}}
-\indexspace
 \bigletter{l}
-\item\relax\sphinxstyleindexentry{lidar\_extract}\sphinxstyleindexpageref{Lidar extraction tool:\detokenize{module-lidar_extract}}
+\item\relax\sphinxstyleindexentry{library\_gui}\sphinxstyleindexpageref{Library GUI:\detokenize{module-library_gui}}
 \indexspace
 \bigletter{t}
 \item\relax\sphinxstyleindexentry{test}\sphinxstyleindexpageref{Test:\detokenize{module-test}}
-\item\relax\sphinxstyleindexentry{test\_lidar\_gui}\sphinxstyleindexpageref{Lidar extraction tool:\detokenize{module-test_lidar_gui}}
-\item\relax\sphinxstyleindexentry{TI\_parser}\sphinxstyleindexpageref{TI radar:\detokenize{module-TI_parser}}
+\item\relax\sphinxstyleindexentry{TSW\_IWR}\sphinxstyleindexpageref{TSW radar:\detokenize{module-TSW_IWR}}
 \indexspace
 \bigletter{x}
 \item\relax\sphinxstyleindexentry{X4\_parser}\sphinxstyleindexpageref{X4 radar:\detokenize{module-X4_parser}}
 \item\relax\sphinxstyleindexentry{X4\_record\_playback}\sphinxstyleindexpageref{X4 radar:\detokenize{module-X4_record_playback}}
 \item\relax\sphinxstyleindexentry{X4\_threshold}\sphinxstyleindexpageref{X4 radar:\detokenize{module-X4_threshold}}
-\item\relax\sphinxstyleindexentry{xyz\_calc}\sphinxstyleindexpageref{Lidar extraction tool:\detokenize{module-xyz_calc}}
 \end{sphinxtheindex}
 
 \renewcommand{\indexname}{Index}

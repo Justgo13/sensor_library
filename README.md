@@ -12,7 +12,7 @@ Run *test.py* to test parser files of X4 and TI radars and threshold functions o
 
 **Reading documentation:**
 
-Open file */docs/build/html/index.html*
+Open file */docs/build/latex/sensor_doc_new.pdf*
 
 Sphinx Documentation
 --------------------

@@ -11,29 +11,26 @@
 \contentsline {subsection}{\numberline {1.1.2}TSW1400}{3}{subsection.1.1.2}% 
 \contentsline {subsubsection}{Specifications}{3}{subsubsection*.9}% 
 \contentsline {subsubsection}{Required softwares}{3}{subsubsection*.10}% 
-\contentsline {section}{\numberline {1.2}Linux setup}{3}{section.1.2}% 
-\contentsline {subsection}{\numberline {1.2.1}Quick tips for linux beginners}{3}{subsection.1.2.1}% 
-\contentsline {section}{\numberline {1.3}X4 Radar}{3}{section.1.3}% 
-\contentsline {subsection}{\numberline {1.3.1}Parser for iq data}{3}{subsection.1.3.1}% 
-\contentsline {subsection}{\numberline {1.3.2}Parser for raw data}{4}{subsection.1.3.2}% 
-\contentsline {subsection}{\numberline {1.3.3}X4 Record and playback code}{4}{subsection.1.3.3}% 
-\contentsline {subsection}{\numberline {1.3.4}X4 Threshold detection}{5}{subsection.1.3.4}% 
-\contentsline {section}{\numberline {1.4}TI parser code}{7}{section.1.4}% 
-\contentsline {section}{\numberline {1.5}Lidar Extraction Tool}{7}{section.1.5}% 
-\contentsline {subsection}{\numberline {1.5.1}Functions}{8}{subsection.1.5.1}% 
-\contentsline {subsubsection}{Lidar packet functions}{8}{subsubsection*.27}% 
-\contentsline {subsubsection}{IMU packet functions}{10}{subsubsection*.37}% 
-\contentsline {subsubsection}{XYZ Coordinate functions}{13}{subsubsection*.48}% 
-\contentsline {subsubsection}{Lidar Extraction Tool GUI}{14}{subsubsection*.50}% 
-\contentsline {section}{\numberline {1.6}Ouster OS1 Lidar}{15}{section.1.6}% 
-\contentsline {subsection}{\numberline {1.6.1}Specs}{15}{subsection.1.6.1}% 
-\contentsline {subsection}{\numberline {1.6.2}Setup lidar}{15}{subsection.1.6.2}% 
-\contentsline {subsection}{\numberline {1.6.3}Ouster Github}{15}{subsection.1.6.3}% 
-\contentsline {subsubsection}{Ouster client}{15}{subsubsection*.63}% 
-\contentsline {paragraph}{Running client}{15}{paragraph*.64}% 
-\contentsline {subsubsection}{Ouster visualization}{16}{subsubsection*.65}% 
-\contentsline {paragraph}{Running visualizer}{16}{paragraph*.66}% 
-\contentsline {subsubsection}{Ouster ROS}{16}{subsubsection*.67}% 
-\contentsline {paragraph}{Running ROS Node}{16}{paragraph*.68}% 
-\contentsline {section}{\numberline {1.7}Test file}{17}{section.1.7}% 
-\contentsline {chapter}{Python Module Index}{19}{section*.76}% 
+\contentsline {section}{\numberline {1.2}X4 Radar}{3}{section.1.2}% 
+\contentsline {subsection}{\numberline {1.2.1}Parser for iq data}{3}{subsection.1.2.1}% 
+\contentsline {subsection}{\numberline {1.2.2}Parser for raw data}{3}{subsection.1.2.2}% 
+\contentsline {subsection}{\numberline {1.2.3}X4 Record and playback code}{4}{subsection.1.2.3}% 
+\contentsline {subsection}{\numberline {1.2.4}X4 Threshold detection}{5}{subsection.1.2.4}% 
+\contentsline {section}{\numberline {1.3}TSW parser code}{7}{section.1.3}% 
+\contentsline {section}{\numberline {1.4}Library GUI}{7}{section.1.4}% 
+\contentsline {subsection}{\numberline {1.4.1}Functions}{7}{subsection.1.4.1}% 
+\contentsline {section}{\numberline {1.5}Linux setup}{9}{section.1.5}% 
+\contentsline {subsection}{\numberline {1.5.1}Quick tips for linux beginners}{9}{subsection.1.5.1}% 
+\contentsline {section}{\numberline {1.6}Ouster OS1 Lidar}{9}{section.1.6}% 
+\contentsline {subsection}{\numberline {1.6.1}Specs}{9}{subsection.1.6.1}% 
+\contentsline {subsection}{\numberline {1.6.2}Setup lidar}{9}{subsection.1.6.2}% 
+\contentsline {subsection}{\numberline {1.6.3}Ouster Github}{9}{subsection.1.6.3}% 
+\contentsline {subsubsection}{Variable reference}{10}{subsubsection*.45}% 
+\contentsline {subsubsection}{Ouster client}{10}{subsubsection*.46}% 
+\contentsline {paragraph}{Running client}{10}{paragraph*.47}% 
+\contentsline {subsubsection}{Ouster visualization}{10}{subsubsection*.48}% 
+\contentsline {paragraph}{Running visualizer}{10}{paragraph*.49}% 
+\contentsline {subsubsection}{Ouster ROS}{10}{subsubsection*.50}% 
+\contentsline {paragraph}{Running ROS Node}{11}{paragraph*.51}% 
+\contentsline {section}{\numberline {1.7}Test file}{11}{section.1.7}% 
+\contentsline {chapter}{Python Module Index}{13}{section*.59}% 

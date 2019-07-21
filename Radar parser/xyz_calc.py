@@ -1,5 +1,6 @@
-from lidar_extract import *
 import math
+
+from lidar_extract import *
 
 
 def set_range(data, row_num, azimuth_block, channel_num):

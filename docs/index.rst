@@ -18,20 +18,10 @@ Contents:
    :maxdepth: 2
    
    Radar information
-   Linux setup
    X4 radar
-   TI radar
-   Lidar extraction tool
+   TSW radar
+   Library GUI
+   Linux setup
    Ouster lidar
    Test
-
-:download:`Novelda X4 binary file to complex or raw csv file<X4_parser.py>`
-
-:download:`Novelda X4 data collection and playback<X4_record_playback.py>`
-
-:download:`Novelda X4 threshold<X4_threshold.py>`
-
-:download:`TI binary file to complex csv file<TI_parser.py>`
-
-:download:`Unit tests for radar parser and Novelda threshold calculator<test.py>`
 

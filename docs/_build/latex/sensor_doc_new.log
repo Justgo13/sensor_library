@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7050 64-bit) (preloaded format=pdflatex 2019.6.14)  12 JUL 2019 16:26
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7050 64-bit) (preloaded format=pdflatex 2019.6.14)  21 JUL 2019 17:06
 entering extended mode
 **./sensor_doc_new.tex
 (sensor_doc_new.tex
@@ -906,97 +906,38 @@ LaTeX Font Info:    Try loading font information for T1+pcr on input line 246.
 File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
 )
 LaTeX Font Info:    Font shape `T1/pcr/bx/n' in size <10> not available
-(Font)              Font shape `T1/pcr/b/n' tried instead on input line 298.
-
-[3]
+(Font)              Font shape `T1/pcr/b/n' tried instead on input line 261.
 LaTeX Font Info:    Font shape `T1/pcr/bx/n' in size <9> not available
-(Font)              Font shape `T1/pcr/b/n' tried instead on input line 316.
-LaTeX Font Info:    Try loading font information for TS1+pcr on input line 316.
+(Font)              Font shape `T1/pcr/b/n' tried instead on input line 279.
+LaTeX Font Info:    Try loading font information for TS1+pcr on input line 279.
 
 
 ("C:\Users\jgao2\AppData\Local\Programs\MiKTeX 2.9\tex/latex/psnfss\ts1pcr.fd"
 File: ts1pcr.fd 2001/06/04 font definitions for TS1/pcr.
-) [4] [5] [6] [7]
-Underfull \hbox (badness 10000) in paragraph at lines 767--767
-[]\T1/ptm/m/it/10 data\T1/ptm/m/n/10 , \T1/ptm/m/it/10 arg\T1/ptm/m/n/10 , \T1/
-ptm/m/it/10 sin-gle_row=False\T1/ptm/m/n/10 , \T1/ptm/m/it/10 mul-ti-ple_row=Fa
-lse\T1/ptm/m/n/10 ,
- []
+) [3] [4] [5] [6] [7] [8] [9] [10] [11] [12] [13
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 803--803
-[]\T1/ptm/m/it/10 data\T1/ptm/m/n/10 , \T1/ptm/m/it/10 arg\T1/ptm/m/n/10 , \T1/
-ptm/m/it/10 sin-gle_row=False\T1/ptm/m/n/10 , \T1/ptm/m/it/10 mul-ti-ple_row=Fa
-lse\T1/ptm/m/n/10 ,
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 839--839
-[]\T1/ptm/m/it/10 data\T1/ptm/m/n/10 , \T1/ptm/m/it/10 arg\T1/ptm/m/n/10 , \T1/
-ptm/m/it/10 sin-gle_row=False\T1/ptm/m/n/10 , \T1/ptm/m/it/10 mul-ti-ple_row=Fa
-lse\T1/ptm/m/n/10 ,
- []
-
-[8]
-Underfull \hbox (badness 10000) in paragraph at lines 875--875
-[]\T1/ptm/m/it/10 data\T1/ptm/m/n/10 , \T1/ptm/m/it/10 arg\T1/ptm/m/n/10 , \T1/
-ptm/m/it/10 sin-gle_row=False\T1/ptm/m/n/10 , \T1/ptm/m/it/10 mul-ti-ple_row=Fa
-lse\T1/ptm/m/n/10 ,
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 953--953
-[]\T1/ptm/m/it/10 data\T1/ptm/m/n/10 , \T1/ptm/m/it/10 arg\T1/ptm/m/n/10 , \T1/
-ptm/m/it/10 sin-gle_row=False\T1/ptm/m/n/10 , \T1/ptm/m/it/10 mul-ti-ple_row=Fa
-lse\T1/ptm/m/n/10 ,
- []
-
-[9]
-Underfull \hbox (badness 10000) in paragraph at lines 992--992
-[]\T1/ptm/m/it/10 data\T1/ptm/m/n/10 , \T1/ptm/m/it/10 arg\T1/ptm/m/n/10 , \T1/
-ptm/m/it/10 sin-gle_row=False\T1/ptm/m/n/10 , \T1/ptm/m/it/10 mul-ti-ple_row=Fa
-lse\T1/ptm/m/n/10 ,
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1025--1025
-[]\T1/ptm/m/it/10 data\T1/ptm/m/n/10 , \T1/ptm/m/it/10 arg\T1/ptm/m/n/10 , \T1/
-ptm/m/it/10 sin-gle_row=False\T1/ptm/m/n/10 , \T1/ptm/m/it/10 mul-ti-ple_row=Fa
-lse\T1/ptm/m/n/10 ,
- []
-
-[10]
-Underfull \hbox (badness 10000) in paragraph at lines 1102--1102
-[]\T1/ptm/m/it/10 data\T1/ptm/m/n/10 , \T1/ptm/m/it/10 arg\T1/ptm/m/n/10 , \T1/
-ptm/m/it/10 sin-gle_row=False\T1/ptm/m/n/10 , \T1/ptm/m/it/10 mul-ti-ple_row=Fa
-lse\T1/ptm/m/n/10 ,
- []
-
-[11] [12] [13] [14] [15] [16] [17] [18
-
-] [19
 
 
 ]
 No file sensor_doc_new.ind.
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1808.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1808.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1194.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1194.
 (sensor_doc_new.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1808.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1808.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1194.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1194.
 
 Package rerunfilecheck Info: File `sensor_doc_new.out' has not changed.
-(rerunfilecheck)             Checksum: 2A8DC0928E4E7C63BC63373683B13CC7;1154.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1808.
+(rerunfilecheck)             Checksum: 4FEAB09F041BF7EC05F5F6DA5B786E2A;1106.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1194.
  ) 
 Here is how much of TeX's memory you used:
- 13616 strings out of 492895
- 197233 string characters out of 3123735
- 316194 words of memory out of 3000000
- 17093 multiletter control sequences out of 15000+200000
+ 13576 strings out of 492895
+ 195745 string characters out of 3123735
+ 317987 words of memory out of 3000000
+ 17076 multiletter control sequences out of 15000+200000
  53763 words of font info for 74 fonts, out of 3000000 for 9000
  1142 hyphenation exceptions out of 8191
- 37i,17n,45p,410b,565s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 37i,17n,45p,410b,563s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Users/jgao2/AppData/Local/Programs/MiKTeX 2.9/fonts/enc/dvips/base/8r.enc
 }<C:/Users/jgao2/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/
 cm/cmmi10.pfb><C:/Users/jgao2/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/pub
@@ -1012,9 +953,9 @@ a.pfb><C:/Users/jgao2/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/times/u
 tmb8a.pfb><C:/Users/jgao2/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/tim
 es/utmr8a.pfb><C:/Users/jgao2/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw
 /times/utmri8a.pfb>
-Output written on sensor_doc_new.pdf (23 pages, 213069 bytes).
+Output written on sensor_doc_new.pdf (17 pages, 195134 bytes).
 PDF statistics:
- 350 PDF objects out of 1000 (max. 8388607)
- 134 named destinations out of 1000 (max. 500000)
+ 302 PDF objects out of 1000 (max. 8388607)
+ 111 named destinations out of 1000 (max. 500000)
  93 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -22,6 +22,14 @@ ROS commands can also replay data in .bag files and convert .bag files to .csv f
 
 .. note:: Some version of Linux running Ubuntu must be used. It is recommended to run Ubuntu 18.04 for best results. Follow instructions in *Ubuntu* page for more details on installing Linux with Ubuntu.
 
+Variable reference
+------------------
+**<os1_hostname>** is the hostname/ip address of OS1-16 lidar.
+
+**<udp_data_dest_ip>** is the destination ip address the lidar sends data
+
+**<frame_size>** is the size of the visualization frame and can ONLY be the following: 512x10, 512x20, 1024x10, 1024x20, 2048x10.
+
 Ouster client
 -------------
 The Ouster client allows users to see the raw data stream that the lidar is collecting and sending to the specified ip address.
@@ -32,10 +40,6 @@ Running client
 1. cd /path/to/ouster_client_example
 2. type *./ouster_client_example <os1_hostname> <udp_dest_ip>*
 
-**<os1_hostname>** is the hostname/ip address of OS1-16 lidar.
-
-**<udp_data_dest_ip>** is the destination ip address the lidar sends data to. e.g. ip address from running *ifconfig*.
-
 Ouster visualization
 --------------------
 The Ouster visualization is used for building a basic visualizer frame of collected lidar data. Instructions on building visualizer and it's dependencies can be found here `Building visualizer <https://github.com/ouster-lidar/ouster_example/tree/master/ouster_viz>`_.
@@ -45,12 +49,6 @@ Running visualizer
 ++++++++++++++++++
 1. cd /path/to/ouster_viz/build
 2. *./viz -m <frame_size> <os1_hostname> <udp_data_dest_ip>*
-
-**<frame_size>** is the size of the visualization frame and can ONLY be the following: 512x10, 512x20, 1024x10, 1024x20, 2048x10.
-
-**<os1_hostname>** is the ip address of lidar.
-
-**<udp_data_ip_dest>** is the ip address lidar sends data to.
  
 Ouster ROS
 ----------
@@ -72,12 +70,6 @@ Running ROS Node
 For recording lidar data:
 
 1. *roslaunch ouster_ros os1.launch os1_hostname:=<os1_hostname> os1_udp_dest:=<os1_udp_dest> lidar_mode<:=<lidar_mode>*. The option to visualize live data can be turned on by adding *viz:=true* to the roslaunch command.
-
-**<os1_hostname> is the ip address of the lidar**
-
-**<os1_udp_dest> is the ip address the lidar sends data to**
-
-**<lidar_mode> is the size of the lidar visualization frame**
 
 2. *rosbag record -O <recorded__bag_filename> /os1_node/imu_packets /os1_node/lidar_packets* in a new terminal
 

@@ -76,16 +76,5 @@ Refer to :download:`TSW1400 Comprehensive Guide <TI_softwares/mmWave_sensor_raw_
 
 Required softwares
 ------------------
-:download:`mmWaveSDK <TI_softwares/mmwave_sdk_02_00_00_04-Windows-x86-Install.exe>`
-
-:download:`mmWaveDFP <TI_softwares/mmwave_dfp_01_00_00_01_win32.exe>`
-
-:download:`High speed data converter <TI_softwares/HSDC Pro v4.50/High Speed Data Converter Pro - Installer v4.50.exe>`
-
-:download:`MATLAB runtime engine <TI_softwares/MCR_R2015aSP1_win32_installer.exe>`
-
-.. note:: If you don't have Code Composer Studio v7.1 or higher installed get:
-
-:download:`XDS Emulation Software Package <TI_softwares/ti_emupack_setup_8.0.27.9_win_32.exe>`
-
+`Google Drive download <https://drive.google.com/file/d/1yzbdIZaviq5P__zpNsy_TmBAXUXaU7Hg/view?usp=sharing>`_
 

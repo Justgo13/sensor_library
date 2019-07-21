@@ -1,6 +1,7 @@
-import numpy as np
-import matplotlib.pyplot as plt
 import csv
+
+import matplotlib.pyplot as plt
+import numpy as np
 
 
 def csv_into_list(filename):
