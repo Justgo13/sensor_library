@@ -2,13 +2,13 @@ from tkinter import *
 from tkinter import filedialog as fd
 
 import pandas
-from PIL import ImageTk, Image
 
 from TSW_IWR import *
 from X4_parser import *
 from X4_threshold import *
 from imu_extract import *
 from xyz_calc import *
+import webbrowser
 
 window = Tk()
 window.title('Lidar Data Extraction Tool')
@@ -31,16 +31,6 @@ menubar.add_cascade(label="TSW IWR-1642", menu=TSW)
 
 label_font = ('times', 20, 'bold')
 Label(window, text="Welcome to CUDRDC lidar data extraction tool", font=label_font).place(x=50, y=25)
-
-# Loading in images from directory
-carleton_img = ImageTk.PhotoImage(Image.open("carleton.png"))
-drdc_img = ImageTk.PhotoImage(Image.open("drdc.png"))
-carleton_panel = Label(window, image=carleton_img)
-drdc_panel = Label(window, image=drdc_img)
-
-# Placing images
-drdc_panel.place(x=400, y=75)
-carleton_panel.place(x=200, y=75)
 
 
 def print_list(lst):
@@ -424,12 +414,7 @@ def instruction():
     newwin = Toplevel(window)
     newwin.geometry("1750x750")
 
-    instruction_img = ImageTk.PhotoImage(Image.open("Instructions.png"))
-    instruction_panel = Label(newwin, image=instruction_img)
-    instruction_panel.photo = instruction_img
-
-    # Placing images
-    instruction_panel.place(x=0, y=0)
+    webbrowser.open_new('https://docs.google.com/drawings/d/13fMRdlxXYuzx3p6o0sGeW2jcWu4JypsdJ_sgtaB_t_s/edit?usp=sharing')
 
 
 """ Options for the file menu """
@@ -456,8 +441,8 @@ X4.add_command(label="Threshold functions", command=x4_threshold)
 TSW.add_command(label="Open binary file", command=open_TSW_bin)
 TSW.add_command(label="Convert binary file", command=convert_TSW)
 
-window.geometry("700x200")
-window.config(menu=menubar) 
+window.geometry("700x100")
+window.config(menu=menubar)
 window.mainloop()
 
 

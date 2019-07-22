@@ -17,11 +17,11 @@ Contents:
 .. toctree::
    :maxdepth: 2
    
-   Radar information
+   radar information
    X4 radar
    TSW radar
    Library GUI
    Linux setup
    Ouster lidar
-   Test
+   test
 

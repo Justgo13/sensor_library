@@ -7,7 +7,7 @@
 \indexentry{on\_meta\_file\_available() (in module X4\_record\_playback)@\spxentry{on\_meta\_file\_available()}\spxextra{in module X4\_record\_playback}|hyperpage}{4}
 \indexentry{playback\_recording() (in module X4\_record\_playback)@\spxentry{playback\_recording()}\spxextra{in module X4\_record\_playback}|hyperpage}{4}
 \indexentry{reset() (in module X4\_record\_playback)@\spxentry{reset()}\spxextra{in module X4\_record\_playback}|hyperpage}{4}
-\indexentry{simple\_xep\_plot() (in module X4\_record\_playback)@\spxentry{simple\_xep\_plot()}\spxextra{in module X4\_record\_playback}|hyperpage}{5}
+\indexentry{simple\_xep\_plot() (in module X4\_record\_playback)@\spxentry{simple\_xep\_plot()}\spxextra{in module X4\_record\_playback}|hyperpage}{4}
 \indexentry{X4\_threshold (module)@\spxentry{X4\_threshold}\spxextra{module}|hyperpage}{5}
 \indexentry{csv\_into\_list() (in module X4\_threshold)@\spxentry{csv\_into\_list()}\spxextra{in module X4\_threshold}|hyperpage}{5}
 \indexentry{distance\_finder() (in module X4\_threshold)@\spxentry{distance\_finder()}\spxextra{in module X4\_threshold}|hyperpage}{5}
@@ -21,7 +21,7 @@
 \indexentry{convert\_TSW() (in module library\_gui)@\spxentry{convert\_TSW()}\spxextra{in module library\_gui}|hyperpage}{7}
 \indexentry{convert\_x4() (in module library\_gui)@\spxentry{convert\_x4()}\spxextra{in module library\_gui}|hyperpage}{7}
 \indexentry{imu\_multiple\_row() (in module library\_gui)@\spxentry{imu\_multiple\_row()}\spxextra{in module library\_gui}|hyperpage}{7}
-\indexentry{imu\_row\_section() (in module library\_gui)@\spxentry{imu\_row\_section()}\spxextra{in module library\_gui}|hyperpage}{8}
+\indexentry{imu\_row\_section() (in module library\_gui)@\spxentry{imu\_row\_section()}\spxextra{in module library\_gui}|hyperpage}{7}
 \indexentry{imu\_single\_row() (in module library\_gui)@\spxentry{imu\_single\_row()}\spxextra{in module library\_gui}|hyperpage}{8}
 \indexentry{instruction() (in module library\_gui)@\spxentry{instruction()}\spxextra{in module library\_gui}|hyperpage}{8}
 \indexentry{lidar\_multiple\_row() (in module library\_gui)@\spxentry{lidar\_multiple\_row()}\spxextra{in module library\_gui}|hyperpage}{8}

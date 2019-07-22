@@ -70,9 +70,9 @@
 
 
 
-\title{CUDRDC Documentation}
+\title{CUDRDC Sensor Documentation}
 \date{Jul 21, 2019}
-\release{0.1.4}
+\release{0.1.8}
 \author{Jason Gao}
 \newcommand{\sphinxlogo}{\vbox{}}
 \renewcommand{\releasename}{Release}
@@ -98,18 +98,18 @@ Contents:
 
 
 \section{Radar Information}
-\label{\detokenize{Radar information:radar-information}}\label{\detokenize{Radar information::doc}}
+\label{\detokenize{radar information:radar-information}}\label{\detokenize{radar information::doc}}
 
 \subsection{Novelda X4}
-\label{\detokenize{Radar information:novelda-x4}}
+\label{\detokenize{radar information:novelda-x4}}
 The X4 radars are IR-UWB and can work at frequencies ranging from 6 GHz to 10.2 GHz. The total number of bins that can be sampled is 1536.
 
 
 \subsubsection{Specifications}
-\label{\detokenize{Radar information:specifications}}
+\label{\detokenize{radar information:specifications}}
 
 \paragraph{X4M300 Specs}
-\label{\detokenize{Radar information:x4m300-specs}}\begin{itemize}
+\label{\detokenize{radar information:x4m300-specs}}\begin{itemize}
 \item {} 
 Detection Time: 1.5 - 3.0 seconds
 
@@ -129,7 +129,7 @@ System on chip: Novelda UWB X4
 
 
 \paragraph{X4M200 Specs}
-\label{\detokenize{Radar information:x4m200-specs}}\begin{itemize}
+\label{\detokenize{radar information:x4m200-specs}}\begin{itemize}
 \item {} 
 Detection Time: 3.0  - 5.0 seconds
 
@@ -149,7 +149,7 @@ System on chip: Novelda UWB X4
 
 
 \subsubsection{Configuring X4 radar}
-\label{\detokenize{Radar information:configuring-x4-radar}}\begin{enumerate}
+\label{\detokenize{radar information:configuring-x4-radar}}\begin{enumerate}
 \def\theenumi{\arabic{enumi}}
 \def\labelenumi{\theenumi .}
 \makeatletter\def\p@enumii{\p@enumi \theenumi .}\makeatother
@@ -186,7 +186,7 @@ Set frame area using function \sphinxstyleemphasis{x4driver\_set\_frame\_area()}
 
 
 \subsubsection{Setting radar FPS}
-\label{\detokenize{Radar information:setting-radar-fps}}
+\label{\detokenize{radar information:setting-radar-fps}}
 To set the radar FPS the following parameters are required, PRF, iterations, pulse per step, dac max and dac min range as well as duty cycle.
 \begin{equation*}
 \begin{split}FPS = \frac{PRF}{iteration*pulse_per_step*(dac_max-dac_min+1)} * duty cycle\end{split}
@@ -199,7 +199,7 @@ The resulting FPS can be read using the built-in function \sphinxstyleemphasis{x
 
 
 \paragraph{Example pulse\_per\_step calculation}
-\label{\detokenize{Radar information:example-pulse-per-step-calculation}}\begin{itemize}
+\label{\detokenize{radar information:example-pulse-per-step-calculation}}\begin{itemize}
 \item {} 
 PRF: 16 MHz
 
@@ -226,12 +226,12 @@ pulse\_per\_step  &= 87\end{split}
 \end{equation*}
 
 \subsection{TSW1400}
-\label{\detokenize{Radar information:tsw1400}}
+\label{\detokenize{radar information:tsw1400}}
 The TSW1400 board is used to interface with TI radars.
 
 
 \subsubsection{Specifications}
-\label{\detokenize{Radar information:id1}}\begin{itemize}
+\label{\detokenize{radar information:id1}}\begin{itemize}
 \item {} 
 Operates using 5 V power source and is controlled by the SW7 switch.
 
@@ -243,11 +243,9 @@ Control of the TSW1400 is via USB cable to a Windows PC.
 
 \end{itemize}
 
-Refer to \sphinxcode{\sphinxupquote{TSW1400 Comprehensive Guide}} for full guide on hardware and software installations
-
 
 \subsubsection{Required softwares}
-\label{\detokenize{Radar information:required-softwares}}
+\label{\detokenize{radar information:required-softwares}}
 \sphinxhref{https://drive.google.com/file/d/1yzbdIZaviq5P\_\_zpNsy\_TmBAXUXaU7Hg/view?usp=sharing}{Google Drive download}
 
 
@@ -1115,13 +1113,13 @@ To find topic names run the command \sphinxstyleemphasis{rosbag info \textless{}
 
 
 \section{Test file}
-\label{\detokenize{Test:module-test}}\label{\detokenize{Test:test-file}}\label{\detokenize{Test::doc}}\index{test (module)@\spxentry{test}\spxextra{module}}\index{TestParser (class in test)@\spxentry{TestParser}\spxextra{class in test}}
+\label{\detokenize{test:module-test}}\label{\detokenize{test:test-file}}\label{\detokenize{test::doc}}\index{test (module)@\spxentry{test}\spxextra{module}}\index{TestParser (class in test)@\spxentry{TestParser}\spxextra{class in test}}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{Test:test.TestParser}}\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{class }}\sphinxcode{\sphinxupquote{test.}}\sphinxbfcode{\sphinxupquote{TestParser}}}{\emph{methodName='runTest'}}{}~\index{X4\_Threshold\_bin\_to\_distance() (test.TestParser method)@\spxentry{X4\_Threshold\_bin\_to\_distance()}\spxextra{test.TestParser method}}
+\phantomsection\label{\detokenize{test:test.TestParser}}\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{class }}\sphinxcode{\sphinxupquote{test.}}\sphinxbfcode{\sphinxupquote{TestParser}}}{\emph{methodName='runTest'}}{}~\index{X4\_Threshold\_bin\_to\_distance() (test.TestParser method)@\spxentry{X4\_Threshold\_bin\_to\_distance()}\spxextra{test.TestParser method}}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{Test:test.TestParser.X4_Threshold_bin_to_distance}}\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{X4\_Threshold\_bin\_to\_distance}}}{}{}
+\phantomsection\label{\detokenize{test:test.TestParser.X4_Threshold_bin_to_distance}}\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{X4\_Threshold\_bin\_to\_distance}}}{}{}
 Method to test if range bin to distance converted correctly
 
 \end{fulllineitems}
@@ -1129,7 +1127,7 @@ Method to test if range bin to distance converted correctly
 \index{X4\_Threshold\_noise\_estimate() (test.TestParser method)@\spxentry{X4\_Threshold\_noise\_estimate()}\spxextra{test.TestParser method}}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{Test:test.TestParser.X4_Threshold_noise_estimate}}\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{X4\_Threshold\_noise\_estimate}}}{}{}
+\phantomsection\label{\detokenize{test:test.TestParser.X4_Threshold_noise_estimate}}\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{X4\_Threshold\_noise\_estimate}}}{}{}
 Method to test if noise estimate was calculated properly
 
 \end{fulllineitems}
@@ -1137,7 +1135,7 @@ Method to test if noise estimate was calculated properly
 \index{X4\_Threshold\_range\_finder() (test.TestParser method)@\spxentry{X4\_Threshold\_range\_finder()}\spxextra{test.TestParser method}}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{Test:test.TestParser.X4_Threshold_range_finder}}\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{X4\_Threshold\_range\_finder}}}{}{}
+\phantomsection\label{\detokenize{test:test.TestParser.X4_Threshold_range_finder}}\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{X4\_Threshold\_range\_finder}}}{}{}
 Method to test if correct range bin was gotten from running function on csv file.
 
 \end{fulllineitems}
@@ -1145,7 +1143,7 @@ Method to test if correct range bin was gotten from running function on csv file
 \index{test\_TI() (test.TestParser method)@\spxentry{test\_TI()}\spxextra{test.TestParser method}}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{Test:test.TestParser.test_TI}}\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{test\_TI}}}{}{}
+\phantomsection\label{\detokenize{test:test.TestParser.test_TI}}\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{test\_TI}}}{}{}
 Method to test if .bin binary file was converted successfully to .csv file with iq data put together.
 
 \end{fulllineitems}
@@ -1153,7 +1151,7 @@ Method to test if .bin binary file was converted successfully to .csv file with 
 \index{test\_iq() (test.TestParser method)@\spxentry{test\_iq()}\spxextra{test.TestParser method}}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{Test:test.TestParser.test_iq}}\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{test\_iq}}}{}{}
+\phantomsection\label{\detokenize{test:test.TestParser.test_iq}}\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{test\_iq}}}{}{}
 Method to test if .dat binary file was converted successfully to .csv file with in-phase and quadrature
 components together.
 
@@ -1162,7 +1160,7 @@ components together.
 \index{test\_raw() (test.TestParser method)@\spxentry{test\_raw()}\spxextra{test.TestParser method}}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{Test:test.TestParser.test_raw}}\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{test\_raw}}}{}{}
+\phantomsection\label{\detokenize{test:test.TestParser.test_raw}}\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{test\_raw}}}{}{}
 Method to test if .dat binary file was converted successfully to .csv file with in-phase and quadrature
 component separated.
 
@@ -1180,7 +1178,7 @@ component separated.
 \item\relax\sphinxstyleindexentry{library\_gui}\sphinxstyleindexpageref{Library GUI:\detokenize{module-library_gui}}
 \indexspace
 \bigletter{t}
-\item\relax\sphinxstyleindexentry{test}\sphinxstyleindexpageref{Test:\detokenize{module-test}}
+\item\relax\sphinxstyleindexentry{test}\sphinxstyleindexpageref{test:\detokenize{module-test}}
 \item\relax\sphinxstyleindexentry{TSW\_IWR}\sphinxstyleindexpageref{TSW radar:\detokenize{module-TSW_IWR}}
 \indexspace
 \bigletter{x}

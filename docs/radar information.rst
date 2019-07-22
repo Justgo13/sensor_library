@@ -72,8 +72,6 @@ Specifications
 - 11 LEDS used to indicate presence of power and state of FPGA.
 - Control of the TSW1400 is via USB cable to a Windows PC.
 
-Refer to :download:`TSW1400 Comprehensive Guide <TI_softwares/mmWave_sensor_raw_data_capture_using_TSW1400_board_v2.pdf>` for full guide on hardware and software installations
-
 Required softwares
 ------------------
 `Google Drive download <https://drive.google.com/file/d/1yzbdIZaviq5P__zpNsy_TmBAXUXaU7Hg/view?usp=sharing>`_
