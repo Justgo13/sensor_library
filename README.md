@@ -8,7 +8,8 @@ Enter the command: *pip install sensor-library-justgo13*
 
 **Testing code:**
 
-Run *test.py* to test parser files of X4 and TI radars and threshold functions of X4 radar.
+cd to *C:\Users\USERNAME\AppData\Local\Programs\Python\Python36\Lib\site-packages\sensor_lib*
+Run *library_gui.py* to test the GUI.
 
 **Reading documentation:**
 
@@ -40,4 +41,4 @@ the results of running the TI radar parser.
 Running Ouster OS1 Lidar
 -------------------------
 To run the OS1 Lidar, user must have working version of Ubuntu 16.04 or higher. All documentation 
-regarding building and running the Lidar software can be found in the documentation file. 
+regarding building and running the Lidar software can be found in the pdf file. 
