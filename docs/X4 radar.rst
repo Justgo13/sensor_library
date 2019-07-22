@@ -30,6 +30,10 @@ Command to run: *python X4_record_playback.py -d com3-b -r*
 - *-b* to use baseband to record, default is radio frequency.
 - *-r* to start recording.
 
+The pymoduleconnector library is used as an import in the X4 record and playback code and can be downloaded with the link below:
+
+`pymoduleconnector library download <https://www.xethru.com/community/threads/module-connector-raspberry-pi.136/>`_
+
 .. automodule:: X4_record_playback
    :members:
 

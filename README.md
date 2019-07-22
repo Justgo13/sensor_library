@@ -9,7 +9,7 @@ Enter the command: *pip install sensor-library-justgo13*
 **Testing code:**
 
 cd to *C:\Users\USERNAME\AppData\Local\Programs\Python\Python36\Lib\site-packages\sensor_lib*
-Run *library_gui.py* to test the GUI.
+Run *library_gui.py* to run the GUI.
 
 **Reading documentation:**
 
@@ -42,3 +42,7 @@ Running Ouster OS1 Lidar
 -------------------------
 To run the OS1 Lidar, user must have working version of Ubuntu 16.04 or higher. All documentation 
 regarding building and running the Lidar software can be found in the pdf file. 
+
+Required libraries
+------------------
+numpy, pandas, webbrowser, tkinter, csv, matplotlib, pymoduleconnector, time, optparse, math

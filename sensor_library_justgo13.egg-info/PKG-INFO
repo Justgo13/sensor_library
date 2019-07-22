@@ -1,7 +1,7 @@
 Metadata-Version: 2.1
 Name: sensor-library-justgo13
-Version: 0.0.9
-Summary: Library for radar parser code
+Version: 0.1.9
+Summary: Library for radar and lidar parser code
 Home-page: https://github.com/Justgo13/sensor_library
 Author: Jason Gao
 Author-email: jgao2299@gmail.com
@@ -16,11 +16,12 @@ Description: Sensor project
         
         **Testing code:**
         
-        Run *test.py* to test parser files of X4 and TI radars and threshold functions of X4 radar.
+        cd to *C:\Users\USERNAME\AppData\Local\Programs\Python\Python36\Lib\site-packages\sensor_lib*
+        Run *library_gui.py* to run the GUI.
         
         **Reading documentation:**
         
-        Open file */docs/build/html/index.html*
+        Open file */docs/build/latex/sensor_doc_new.pdf*
         
         Sphinx Documentation
         --------------------
@@ -48,7 +49,11 @@ Description: Sensor project
         Running Ouster OS1 Lidar
         -------------------------
         To run the OS1 Lidar, user must have working version of Ubuntu 16.04 or higher. All documentation 
-        regarding building and running the Lidar software can be found in the documentation file. 
+        regarding building and running the Lidar software can be found in the pdf file. 
+        
+        Required libraries
+        ------------------
+        numpy, pandas, webbrowser, tkinter, csv, matplotlib, pymoduleconnector, time, optparse, math
 Platform: UNKNOWN
 Classifier: Programming Language :: Python :: 3
 Classifier: License :: OSI Approved :: MIT License

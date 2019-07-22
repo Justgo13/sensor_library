@@ -411,9 +411,6 @@ def instruction():
     """
     A set of instructions on how to use the program
     """
-    newwin = Toplevel(window)
-    newwin.geometry("1750x750")
-
     webbrowser.open_new('https://docs.google.com/drawings/d/13fMRdlxXYuzx3p6o0sGeW2jcWu4JypsdJ_sgtaB_t_s/edit?usp=sharing')
 
 

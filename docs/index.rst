@@ -8,8 +8,8 @@ Welcome to the CUDRDC project documentation!
 
 About project
 =============
-This project is funded by both the Defense Research and Development Canada (DRDC) and the National Research Council (NRC). These organizations are working alongside Carleton University students
-to develop a pip installable library that contains all the parsers used to convert radar and lidar data to readable csv files. The library also contains methods for determining radar thresholds.
+This project is funded by the Defense Research and Development Canada (DRDC) and the National Research Council (NRC). These organizations are working alongside Carleton University students
+to develop a pip installable library that uses a GUI interface to run all the parsers used to convert radar and lidar data to readable csv files. The library GUI also contains methods for determining radar thresholds.
 The radars used in this project are the Novelda X4M03, X4M300, X4M200 and the TSW1400. The lidar used is the Ouster OS1-16.
 
 Contents:

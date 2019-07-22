@@ -71,8 +71,8 @@
 
 
 \title{CUDRDC Sensor Documentation}
-\date{Jul 21, 2019}
-\release{0.1.8}
+\date{Jul 22, 2019}
+\release{0.1.9}
 \author{Jason Gao}
 \newcommand{\sphinxlogo}{\vbox{}}
 \renewcommand{\releasename}{Release}
@@ -90,8 +90,8 @@
 
 \chapter{About project}
 \label{\detokenize{index:about-project}}
-This project is funded by both the Defense Research and Development Canada (DRDC) and the National Research Council (NRC). These organizations are working alongside Carleton University students
-to develop a pip installable library that contains all the parsers used to convert radar and lidar data to readable csv files. The library also contains methods for determining radar thresholds.
+This project is funded by the Defense Research and Development Canada (DRDC) and the National Research Council (NRC). These organizations are working alongside Carleton University students
+to develop a pip installable library that uses a GUI interface to run all the parsers used to convert radar and lidar data to readable csv files. The library GUI also contains methods for determining radar thresholds.
 The radars used in this project are the Novelda X4M03, X4M300, X4M200 and the TSW1400. The lidar used is the Ouster OS1-16.
 
 Contents:
@@ -345,6 +345,11 @@ Command to run: \sphinxstyleemphasis{python X4\_record\_playback.py -d com3-b -r
 \sphinxstyleemphasis{-r} to start recording.
 
 \end{itemize}
+
+The pymoduleconnector library is used as an import in the X4 record and playback code and can be downloaded with the link below:
+
+\sphinxhref{https://www.xethru.com/community/threads/module-connector-raspberry-pi.136/}{pymoduleconnector library download}
+
 \phantomsection\label{\detokenize{X4 radar:module-X4_record_playback}}\index{X4\_record\_playback (module)@\spxentry{X4\_record\_playback}\spxextra{module}}\index{clear\_buffer() (in module X4\_record\_playback)@\spxentry{clear\_buffer()}\spxextra{in module X4\_record\_playback}}
 
 \begin{fulllineitems}
@@ -709,7 +714,7 @@ Readable csv file containing complex data.
 \section{Library GUI}
 \label{\detokenize{Library GUI:library-gui}}\label{\detokenize{Library GUI::doc}}
 This GUI allows user to run parsers that are included in this library such as the ones for the Novelda X4 radars, TSW1642 radars and Ouster OS1-16 lidar. This GUI allows users to
-open their desired file to read and with the use of buttons, read the desired data. The GUI even has a instruction page on how to use it.
+open their desired file to read and with the use of buttons, read the desired data. The GUI also allows user to parse their binary files into a readable csv file.
 
 
 \subsection{Functions}
