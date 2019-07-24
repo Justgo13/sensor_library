@@ -9,11 +9,16 @@ Enter the command: *pip install sensor-library-justgo13*
 **Testing code:**
 
 cd to *C:\Users\USERNAME\AppData\Local\Programs\Python\Python36\Lib\site-packages\sensor_lib*
+
 Run *library_gui.py* to run the GUI.
 
 **Reading documentation:**
 
-Open file */docs/build/latex/sensor_doc_new.pdf*
+[Documentation download](https://drive.google.com/file/d/1ts0CmXK1hsYc_OtRn1SudOtLkU89QelY/view?usp=sharing)
+
+**Source Code**
+
+[Project Github page](https://github.com/Justgo13/sensor_library)
 
 Sphinx Documentation
 --------------------

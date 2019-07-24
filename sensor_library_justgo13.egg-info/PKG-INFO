@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: sensor-library-justgo13
-Version: 0.1.9
+Version: 0.2.1
 Summary: Library for radar and lidar parser code
 Home-page: https://github.com/Justgo13/sensor_library
 Author: Jason Gao
@@ -17,11 +17,16 @@ Description: Sensor project
         **Testing code:**
         
         cd to *C:\Users\USERNAME\AppData\Local\Programs\Python\Python36\Lib\site-packages\sensor_lib*
+        
         Run *library_gui.py* to run the GUI.
         
         **Reading documentation:**
         
-        Open file */docs/build/latex/sensor_doc_new.pdf*
+        [Documentation download](https://drive.google.com/file/d/1ts0CmXK1hsYc_OtRn1SudOtLkU89QelY/view?usp=sharing)
+        
+        **Source Code**
+        
+        [Project Github page](https://github.com/Justgo13/sensor_library)
         
         Sphinx Documentation
         --------------------
