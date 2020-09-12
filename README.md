@@ -51,3 +51,11 @@ regarding building and running the Lidar software can be found in the pdf file.
 Required libraries
 ------------------
 numpy, pandas, webbrowser, tkinter, csv, matplotlib, pymoduleconnector, time, optparse, math
+
+Contributions 
+-------------
+Jason Gao, Carleton University
+Omar Imran, Carleton University
+Dr. Sreeraman Rajan, Carleton University
+Dr. Bhashyam Balaji, Defence Research Devlopment Canada
+Andi Huang, Carleton University
