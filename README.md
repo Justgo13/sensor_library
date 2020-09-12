@@ -54,8 +54,10 @@ numpy, pandas, webbrowser, tkinter, csv, matplotlib, pymoduleconnector, time, op
 
 Contributions 
 -------------
-Jason Gao, Carleton University
-Omar Imran, Carleton University
-Dr. Sreeraman Rajan, Carleton University
-Dr. Bhashyam Balaji, Defence Research Devlopment Canada
-Andi Huang, Carleton University
+<ul> 
+ <li> Jason Gao, Carleton University</li>
+<li>Omar Imran, Carleton University</li>
+<li>Dr. Sreeraman Rajan, Carleton University</li>
+<li>Dr. Bhashyam Balaji, Defence Research Devlopment Canada</li>
+<li>Andi Huang, Carleton University</li>
+ </ul>
